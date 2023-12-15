@@ -1,4 +1,5 @@
 from datetime import datetime
+from xml.sax.saxutils import escape
 
 build_time = datetime.now()
 
@@ -20,12 +21,12 @@ def build_rss_from_inventory(manifest):
 
     channel = ''.join([
         '\n\n<channel>',
-        '\n\t<title>{}</title>'.format(metadata["title"]),
+        '\n\t<title>{}</title>'.format(escape(metadata["title"])),
         '\n\t<link>{}</link>'.format(metadata["link"]),
-        '\n\t<description>{}</description>'.format(metadata["description"]),
+        '\n\t<description>{}</description>'.format(escape(metadata["description"])),
         '\n\t<lastBuildDate>{}</lastBuildDate>'.format(metadata["lastBuildDate"]),
         '\n\t<language>{}</language>'.format(metadata["language"]),
-        '\n\t<copyright>{}</copyright>'.format(metadata["copyright"]),
+        '\n\t<copyright>{}</copyright>'.format(escape(metadata["copyright"])),
     ])
 
     sorted_blog_posts = sorted(
@@ -38,13 +39,13 @@ def build_rss_from_inventory(manifest):
         new_item = ''.join([
             '\n\t<item>',
             '\n\t\t<title>{}</title>'.format(post["page"]["title"]),
-            '\n\t\t<link>https://trevorwagner.dev{}</link>'.format(post["page"]["relativePath"]),
+            '\n\t\t<link>https://trevorwagner.dev{}</link>'.format(escape(post["page"]["relativePath"])),
             '\n\t\t<pubDate>{}</pubDate>'.format(datetime.fromtimestamp(
                 post["page"]['publishDate']).strftime("%a, %d %b %Y")
             ),
             # TODO: Add summaries to each blog post MD, to use for Description here.
             # TODO: Add summary element to manifest generation script.
-            # '\n\t\t<description>{}</description>.format()'.format(post["description"]),
+            # '\n\t\t<description>{}</description>.format()'.format(escape(post["description"])),
             '\n\t</item>'
         ])
 
