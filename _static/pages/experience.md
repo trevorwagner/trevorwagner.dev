@@ -41,12 +41,14 @@ _FullStory (Atlanta, GA/ Remote). 2021-2023_
 
 ### Test Analysis Engineer
 _Infinite Campus (Blaine, MN). 2019-2021_
+
 - Served on a Kanban team tasked with implementing bug fixes and feature improvements in a 3-tier SIS (as SaaS) implemented using Angular + Java + MSSQL. Planned and executed/ implemented manual- and automated tests against additions to two RESTful APIs, a SOAP API, and three single-page Angular apps.
 - Prototyped three test automation frameworks: two in Java, and one in JavaScript/ Typescript. Wrote a test data management system/ mock backend via a custom CRUD DAL accessing NoSQL data. Wrote unit-, integration tests against test support code, including mock RESTful API. Piloted the JavaScript framework with two delivery teams.
 - Developed department-wide strategies for automated- and manual regression testing in response to a fundamental change in the architecture of the UI of the company's primary solution. Organized- and conducted a series of meetings to discuss this strategy at a department level, and served as single point of contact for questions and concerns related to strategy. Refactored part of an existing UI automation framework (Groovy + Selenium + Spock) to accommodate these changes.
 
 ### Software Engineer in Test II/ Test Engineer II
 _Jamf (Minneapolis, MN). 2014 – 2018_
+
 - Served on Scrum teams that delivered high-profile, high-impact functional additions and refactors to company's primary offering (an endpoint management suite/ SaaS running in Java with MySQL). Planned and executed manual tests for both functionality in-flight and release testing. Developed automated testing strategies for large projects. Worked with teams to develop- and mature processes that facilitated delivery of quality at speed.
 - Wrote automated tests and helped design test support code. Developed and executed test plans and testing strategy for manual and automation. Designed Cucumber step definitions to support an 18-month refactors of smart search functionality. Reviewed production- and test code presented within PRs.
 - Assigned work to SDETs and Mentored other team members and led team-level conversations to help define quality, stakeholder roles in a quality release, and how to approach defining processes to support both. Mentored junior members. Facilitated communications with other delivery teams and with Support.
