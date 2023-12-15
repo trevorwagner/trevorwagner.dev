@@ -1,3 +1,4 @@
+airium==0.2.6
 importlib-metadata==7.0.0
 Markdown==3.5.1
 python-frontmatter==1.0.1
