@@ -149,7 +149,7 @@ Although I don't personally believe I do a lot of processing here, I see an oppo
 
 ### Polarizing Expectations
 
-Should it, or should it not? For me, being able to ask questions like this in terms of yes-or-no questions is extremely helpful in testing: [it's actually an important part of how I write test plans](https://www.trevorwagner.dev/2023/06/24/how-i-write-test-plans-for-new-functionality/). Writing tests that focus on yes-or-no questions has also been very helpful: if I can create a step definition that handles both *it should* and *it should not*, I get functionality to execute two different steps (one for *it should* and one for *it should not*) for the price of one. The more assertion steps a framework makes use of, the more I find this strategy pays off.
+Should it, or should it not? For me, being able to ask questions like this in terms of yes-or-no questions is extremely helpful in testing: [it's actually an important part of how I write test plans](/blog/posts/how-i-write-test-plans-for-new-functionality/). Writing tests that focus on yes-or-no questions has also been very helpful: if I can create a step definition that handles both *it should* and *it should not*, I get functionality to execute two different steps (one for *it should* and one for *it should not*) for the price of one. The more assertion steps a framework makes use of, the more I find this strategy pays off.
 
 The main value Cucumber provides is to run code that defines the method portion of a step definition with a matching pattern that matches text is has encountered: if it encounters text it has a matching pattern for, it will run associated with that matching pattern. At the same time, something valuable that Cucumber does is allow software engineers to design step definitions in such a way that they capture parameters (i.e. variable content) passed as substrings within a particular step.
 
@@ -167,7 +167,7 @@ In essence this part is a creative process that depends on a number of factors. 
 
 The Cucumber scenarios I wrote can be found in [both feature files I store in this folder](https://github.com/trevorwagner/spiegel-junit-med/tree/2f2ce3175bea3d518b42f1d02d7bde142d525b48/src/main/resources/features/duckduckgo).
 
-At the same time, [hopefully I wrote a test plan](https://www.trevorwagner.dev/2023/06/24/how-i-write-test-plans-for-new-functionality/). A test plan is a good investment in not getting lost as I discover new things. The inspection checklist sort of functions like a to-do list at this point.
+At the same time, [hopefully I wrote a test plan](/blog/posts/how-i-write-test-plans-for-new-functionality/). A test plan is a good investment in not getting lost as I discover new things. The inspection checklist sort of functions like a to-do list at this point.
 
 ## Conclusion
 

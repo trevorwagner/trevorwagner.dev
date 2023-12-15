@@ -7,7 +7,7 @@ draft: false
 
 ---
 
-[In a previous post I outline how I generally approach test planning](https://www.trevorwagner.dev/2023/06/24/how-i-write-test-plans-for-new-functionality/): I create an inspection checklist that asks questions that specifically seek to gather information that can be used to address user concerns. Within this, it's important to design the questions that the checklist uses to expect a simple yes/ no response. For example:
+[In a previous post I outline how I generally approach test planning](/blog/posts/how-i-write-test-plans-for-new-functionality/): I create an inspection checklist that asks questions that specifically seek to gather information that can be used to address user concerns. Within this, it's important to design the questions that the checklist uses to expect a simple yes/ no response. For example:
 
 - *Q: When the toggle is switched to the `ON` position, is functionality behind the toggle enabled as expected?*
 

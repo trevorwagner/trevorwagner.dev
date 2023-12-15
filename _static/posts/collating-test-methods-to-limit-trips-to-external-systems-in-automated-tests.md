@@ -98,7 +98,7 @@ If you multiply whatever your savings across your suite is by the number of auto
 
 Because the second pattern makes fewer trips, I believe it also limits the number of opportunities for error in the external system that your test code interacts with.  For some reason or another, when we call external systems for data, things just don't line up and for some reason we don't get the response we expect.  Maybe it's a general performance bottleneck (and our response times out), maybe something happens somewhere else along the way.  Sometimes things just happen.
 
-Not to mention the code in the second example is simpler, cleaner code. At least it seems that way to me: you make a call at the top, then below you provide a checklist of things you expect to evaluate within the result of that call. For me this aligns fairly well with [the way I typically plan testing](https://www.trevorwagner.dev/2023/06/24/how-i-write-test-plans-for-new-functionality/).  And in general, I believe the second pattern is easier to read than the first.
+Not to mention the code in the second example is simpler, cleaner code. At least it seems that way to me: you make a call at the top, then below you provide a checklist of things you expect to evaluate within the result of that call. For me this aligns fairly well with [the way I typically plan testing](/blog/posts/how-i-write-test-plans-for-new-functionality/).  And in general, I believe the second pattern is easier to read than the first.
 
 ## Design Trade-Offs
 

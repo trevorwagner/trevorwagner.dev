@@ -74,7 +74,7 @@ _Wayzata High School (Plymouth, MN)_
 ## Contact
 
 ### Website
-[trevorwagner.dev](https://trevorwagner.dev) / [contact](https://trevorwagner.dev/contact)
+[trevorwagner.dev](https://trevorwagner.dev) 
 
 ### LinkedIn
 [trevorwagner05](https://www.linkedin.com/in/trevorwagner05/)

@@ -57,7 +57,7 @@ To be clear I believe this is different from Waterfall: in Waterfall, you design
 
 We also implemented two boundaries in our development process with rather high bars: one was for work we bring into a development, and another was for work that had been completed.  Both of these focused on making sure we were clear what we intended to build and what we intended to test.
 
-To use another experience for comparison, what I believe happened was very similar to [what I observed working in QC at a print shop](https://www.trevorwagner.dev/2023/06/16/how-working-qc-in-a-print-shop-helped-me-understand-what-i-was-looking-at-in-software-qa/): by putting many sets of eyes on examining what we were building (and comparing what we were building to what we had been tasked with building), we reduced the amount of testing and discovery that needed to happen in QC/ UAT.
+To use another experience for comparison, what I believe happened was very similar to [what I observed working in QC at a print shop](/blog/posts/how-working-qc-in-a-print-shop-helped-me-understand-what-i-was-looking-at-in-software-qa/): by putting many sets of eyes on examining what we were building (and comparing what we were building to what we had been tasked with building), we reduced the amount of testing and discovery that needed to happen in QC/ UAT.
 
 ### What Seemed to Work
 

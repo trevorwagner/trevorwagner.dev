@@ -81,7 +81,7 @@ It is possible to start an instance of  http.Server (which, again, Express is bu
 
 I wanted to find a way to leverage the ease of use (and portability using the Express [Router](https://expressjs.com/en/api.html#router) class) in setting up endpoints that Express provides while at the same time made facilitated use of a WebSocket endpoint and allowed interaction with the the underpinnings.  So if all I wanted was a test mock (asap), I could do that with a minimum of code.  But if I wanted to dig into the underpinnings (for example, to debug or experiment with something at a lower level), the system was designed in a way to make its underpinnings open to interaction, as well.
 
-I describe my solution in greater detail in [Design Overview: Reusable Mock API with Modular Routing Using Express/ http.Server and optional WebSockets](https://www.trevorwagner.dev/2023/08/08/design-overview-reusable-mock-api-with-modular-routing-using-express-http-server-and-optional-websockets/).
+I describe my solution in greater detail in [Design Overview: Reusable Mock API with Modular Routing Using Express/ http.Server and optional WebSockets](/blog/posts/design-overview-reusable-mock-api-via-express-and-http-server/).
 
 By the way: going forward I'll likely use Express to refer to anything also handled by `http.Server``.  I do my best to distinguish the two clearly, but in conversation I tend to just describe this part of the solution as using "Express," so as not to get too deep into the weeds.
 
@@ -93,7 +93,7 @@ Within the solution's use domain, there was a concept of people and a concept of
 
 I also recognized early on that any custom system I built to manage test data presented risk to the fidelity of that data.  If the system stores state, what happens if that state changes unexpectedly between setting and getting the state?  What happens if data gets weird and the tester ends up duplicating data (causing ambiguity in test data)?  
 
-I built a system to manage both of these things: test data itself and data fidelity.  The system uses [LokiJS](https://github.com/techfort/LokiJS) for in-memory data backing; on top of this it uses a generic repository pattern.  [I describe the solution in greater detail in this post](https://www.trevorwagner.dev/2023/08/01/design-overview-in-memory-generic-repository-for-storing-test-data-in-javascript-using-lokijs/).
+I built a system to manage both of these things: test data itself and data fidelity.  The system uses [LokiJS](https://github.com/techfort/LokiJS) for in-memory data backing; on top of this it uses a generic repository pattern.  [I describe the solution in greater detail in this post](/blog/posts/design-overview-in-memory-generic-test-data-managment-in-javascript-using-lokijs/).
 
 To associate records of one type with another (and inquire into which records of one type a record of another type was associated with), I built controller classes that leveraged the CRUD API built into the DAL.  So to manage assignments of people to calendars, I might implement a controller class named `PersonCalendarAssignmentController`, with methods designed to create-, remove- and get status on an assignment relationship between a person record and a calendar record (again: stored within the test data management system).
 
