@@ -2,6 +2,8 @@ from re import match
 from datetime import datetime
 from pathlib import Path
 
+from get_photo_details import query_photo_details
+
 
 def get_page_type(path):
     f = match(r'.*/_static/(.*)/', path).group(1)
@@ -45,6 +47,7 @@ def build_manifest_entry(file_info):
     if new_entry['page']['type'] == 'blogPost':
         new_entry['page']['publishDate'] =\
             datetime.fromisoformat(file_info['matter'][0]['publishDate']).timestamp()
+        new_entry['coverPhoto'] = query_photo_details(file_info['matter'][0]['coverPhoto'])
 
     new_entry['page']['relativePath'] = get_relative_path(new_entry)
 
