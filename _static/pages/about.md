@@ -1,0 +1,12 @@
+---
+title: "About"
+draft: false
+---
+
+I'm a software engineer from Minnesota who specializes in test automation. Conventionally, software development organizations would classify me as a Software Development Engineer in Test (SDET). I am very much a do-it-yourself sort of person: the same way I work on software and testing, I work on the house, on the yard, and on the motorcycle. I don't do everything, but for what I can do, there is a sense of accomplishment in being able to do it myself. It's also a great way to keep learning new things.
+
+I have nearly 20 years' experience in both Quality Assurance (within- and outside of software development) and Software Engineering. A lot of my experience comes from helping development organizations find ways to test things that aren't very easy to test or to find opportunities to innovate within testing. I've generally been the type of person to take on a challenge if it's the right kind of challenge. If somebody says "Nobody can do that," it might be a good opportunity for me to ask "Are you sure?"
+
+What I have found seems to help the most is approaching Software Quality Assurance with both a Quality Assurance mindset (a long time ago I worked in QC in a print shop) and a Software Engineering mindset. Experience in Humanities helps, too: it helps to think about the value a work product delivers (and potential breakdowns in that value) in terms of narratives the consumers of that product are trying to complete. In a print shop, your work product is expected to respond directly to what the customer has already told you they want: you are expected to deliver what they want, and the quality of your work product tends to be evaluated in terms of its ability to meet customer expectations.
+
+I've also found that good engineering practices can be valuable in helping software developers assure quality through testing. The challenging part is that it's not necessarily the same engineering practices (or engineering with the same goals) that production software engineers use: in order for me to become proficient in QA and testing, I actually had to challenge myself not to think like a software engineer. To the engineers who have been willing to give this approach a chance, they've generally been pleased to find that having me on their team is like having a second set of eyes and that as a team we can do more even if we don't approach what we're doing in the same way.
