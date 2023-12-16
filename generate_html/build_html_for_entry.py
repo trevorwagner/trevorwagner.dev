@@ -33,7 +33,7 @@ def build_html_for_entry(entry, matter, content):
 
                     a.div(klass="clear-both")
 
-            footer(a)
+                footer(a)
             a.script(_t="hljs.highlightAll();")
 
     return str(a)
