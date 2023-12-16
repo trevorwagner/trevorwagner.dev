@@ -23,9 +23,11 @@ def get_relative_path(entry):
     
     if page_type == 'blogPost':
         relative_path = '/blog/posts/{}/'.format(entry['slug'])
-    if page_type == 'brochurePage':
+    elif entry['slug'] == 'home':
+        relative_path = '/'
+    else:
         relative_path = '/{}/'.format(entry['slug'])
-    
+
     return relative_path
 
 
