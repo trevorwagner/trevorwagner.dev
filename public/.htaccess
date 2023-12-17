@@ -4,4 +4,88 @@ RewriteEngine On
 #RewriteRule (.*) https://trevorwagner.dev/$1 [L,R=301]
 
 # Remove "index.html"
-RewriteRule (.*)index\.html$ /$1 [R=301,L]
+RewriteRule (.*)index\.html$ /$1 [R=301,NC]
+
+
+# How Working QC in a Print Shop Helped Me Understand What I Was Looking At in Software QA
+RewriteCond %{QUERY_STRING} p=106
+RewriteRule ^$ /blog/posts/how-working-qc-in-a-print-shop-helped-me-understand-what-i-was-looking-at-in-software-qa/? [R=permanent,NC,L]
+
+RewriteRule ^2023/06/16/how-working-qc-in-a-print-shop-helped-me-understand-what-i-was-looking-at-in-software-qa/? /blog/posts/how-working-qc-in-a-print-shop-helped-me-understand-what-i-was-looking-at-in-software-qa/ [R=permanent,NC,L]
+
+
+# How I Write Test Plans for New Functionality
+RewriteCond %{QUERY_STRING} p=54
+RewriteRule ^$ /blog/posts/how-i-write-test-plans-for-new-functionality/? [R=permanent,NC,L]
+
+RewriteRule ^2023/06/24/how-i-write-test-plans-for-new-functionality/ /blog/posts/how-i-write-test-plans-for-new-functionality/? [R=permanent,NC,L]
+
+
+# Three Rings: A Simple Model to Organize Test Planning
+RewriteCond %{QUERY_STRING} p=59
+RewriteRule ^$ /blog/posts/three-rings-a-simple-model-for-test-planning/?  [R=permanent,NC,L]
+
+RewriteRule ^2023/06/25/three-rings-a-simple-model-for-test-planning/ /blog/posts/three-rings-a-simple-model-for-test-planning/? [R=permanent,NC,L]
+
+
+# Collating Test Methods to Limit Trips to External Systems in Automated Tests
+RewriteCond %{QUERY_STRING} p=64
+RewriteRule ^$ /blog/posts/collating-test-methods-to-limit-trips-to-external-systems-in-automated-tests/ [R=permanent,NC,L]
+
+RewriteRule ^2023/06/29/collating-test-methods-to-limit-trips-to-external-systems-in-automated-tests/? /blog/posts/collating-test-methods-to-limit-trips-to-external-systems-in-automated-tests/ [R=permanent,NC,L]
+
+
+# Code Walkthrough: Simple Framework Running UI Tests with Cucumber-JVM, SpringBootTest, and Selenium
+RewriteCond %{QUERY_STRING} p=238
+RewriteRule ^$ /blog/posts/code-walkthrough-simple-framework-running-ui-tests-with-cucumber-jvm-sprinboottest-and-selenium/ [R=permanent,NC,L]
+
+RewriteRule ^2023/07/08/code-walkthrough-simple-framework-running-ui-tests-with-cucumber-jvm-springboottest-and-selenium/? /blog/posts/code-walkthrough-simple-framework-running-ui-tests-with-cucumber-jvm-sprinboottest-and-selenium/ [R=permanent,NC,L]
+
+
+# Making Acceptance Testing as Boring as Possible: How a Team Moved Analysis and Quality Assurance Left Without Need for a Testable Build
+RewriteCond %{QUERY_STRING} p=207
+RewriteRule ^$ /blog/posts/making-acceptance-testing-as-boring-as-possible-how-a-team-moved-analysis-and-quality-assurance-left/ [R=permanent,NC,L]
+
+RewriteRule ^2023/07/10/many-sets-of-eyes-how-i-helped-a-team-move-analysis-and-quality-assurance-left-without-need-for-a-testable-build/? /blog/posts/making-acceptance-testing-as-boring-as-possible-how-a-team-moved-analysis-and-quality-assurance-left/ [R=permanent,NC,L]
+
+
+# Design Overview: In-Memory Generic Repository for Storing Test Data in JavaScript using LokiJS
+RewriteCond %{QUERY_STRING} p=365
+RewriteRule ^$ /blog/posts/design-overview-in-memory-generic-test-data-managment-in-javascript-using-lokijs/? [R=permanent,NC,L]
+
+RewriteRule ^2023/08/01/design-overview-in-memory-generic-repository-for-storing-test-data-in-javascript-using-lokijs/? /blog/posts/design-overview-in-memory-generic-test-data-managment-in-javascript-using-lokijs/ [R=permanent,NC,L]
+
+
+# Design Overview: Reusable Mock API with Modular Routing Using Express/ http.Server and Optional WebSockets
+RewriteCond %{QUERY_STRING} p=379
+RewriteRule ^$ /blog/posts/design-overview-reusable-mock-api-via-express-and-http-server/ [R=permanent,L]
+
+RewriteRule ^2023/08/08/design-overview-reusable-mock-api-with-modular-routing-using-express-http-server-and-optional-websockets/? /blog/posts/design-overview-reusable-mock-api-via-express-and-http-server/ [R=permanent,NC,L]
+
+
+# How I Engineered a Solution to Improve UI Testing Stability and Reduce Test Runtime by 90%
+RewriteCond %{QUERY_STRING} p=46
+RewriteRule ^$ /blog/posts/how-i-improved-testing-stability-and-reduced-test-runtime-by-90/? [R=permanent,NC,L]
+
+RewriteRule ^2023/08/11/how-i-engineered-a-solution-to-improve-ui-testing-stability-and-reduce-test-runtime-by-90/? /blog/posts/how-i-improved-testing-stability-and-reduced-test-runtime-by-90/ [R=permanent,NC,L]
+
+
+# Test Code Readability: Envisioning Test Specifications as a Stage
+RewriteCond %{QUERY_STRING} p=474
+RewriteRule ^$ /blog/posts/envisioning-test-specifications-as-a-stage/? [R=permanent,NC,L]
+
+RewriteRule ^2023/10/17/test-code-readability-envisioning-test-specifications-as-a-stage/? /blog/posts/envisioning-test-specifications-as-a-stage/ [R=permanent,NC,L]
+
+
+# Making the Most of Throwing Errors: Exploring Why \"Fail\" Could be One of the Most Valuable Things Automated Test Code Can Do
+RewriteCond %{QUERY_STRING} p=540
+RewriteRule ^$ /blog/posts/making-the-most-of-throwing-errors/? [R=permanent,NC,L]
+
+RewriteRule ^2023/10/26/making-the-most-of-throwing-errors-exploring-why-fail-could-be-one-of-the-most-valuable-things-automated-test-code-can-do/? /blog/posts/making-the-most-of-throwing-errors/ [R=permanent,NC,L]
+
+
+# More than a Hot Take: Testing Code Responsible for Testing Is a Sensible Way to Protect against Risk, Safeguard Return on Investment
+RewriteCond %{QUERY_STRING} p=383
+RewriteRule ^$ /blog/posts/testing-code-responsible-for-testing-is-a-sensible-way-to-protect/?  [R=permanent,NC,L]
+
+RewriteRule ^2023/11/28/more-than-a-hot-take-testing-code-responsible-for-testing-is-a-sensible-way-to-protect-against-risk-safeguard-return-on-investment/? /blog/posts/testing-code-responsible-for-testing-is-a-sensible-way-to-protect/ [R=permanent,NC,L]
