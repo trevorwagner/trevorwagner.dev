@@ -113,7 +113,7 @@ I like WebDriverFactory enough that I actually ported it to JavaScript at one po
 
 ## Selenium Page Objects
 
-Page Objects are classes that provide abstraction for Web pages for use in test runtime. I'd characterize them as an example of the [Facade pattern](https://en.wikipedia.org/wiki/Facade_pattern#:~:text=The%20facade%20pattern%20(also%20spelled,complex%20underlying%20or%20structural%20code). The idea is that, if you encapsulate instructions to interact with a page or find elements on a page within a single class, that class becomes a toolkit with a unified set of tools that can be used any time you would like to interact with the same page. 
+Page Objects are classes that provide abstraction for Web pages for use in test runtime. I'd characterize them as an example of the [Facade pattern](https://en.wikipedia.org/wiki/Facade_pattern). The idea is that, if you encapsulate instructions to interact with a page or find elements on a page within a single class, that class becomes a toolkit with a unified set of tools that can be used any time you would like to interact with the same page. 
 
 So, for example: 
 
