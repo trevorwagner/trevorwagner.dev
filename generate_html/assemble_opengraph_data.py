@@ -3,16 +3,18 @@ from datetime import datetime, timezone
 
 
 def get_timestamp_text(timestamp):
-    return str(datetime.fromtimestamp(timestamp, tz=timezone.utc)).replace(' ', 'T')
+    return (datetime.fromtimestamp(timestamp, tz=timezone.utc)
+            .strftime('')
+            .replace('%Y-%m-%dT%H:%M:%S%:z', 'T'))
 
 
 def assemble_opengraph_data_for_entry(entry, matter, content):
     data = {
-        'locale': 'en_US',
-        'site_name': 'Trevor Wagner',
-        'title': escape(entry['page']['title']),
-        'url': 'https://trevorwagner.dev{}'.format(entry['page']['title']),
-        'description': escape(content[0:300])
+        'og:locale': 'en_US',
+        'og:site_name': 'Trevor Wagner | Project-Focused Software Engineer, QA Automation',
+        'og:title': escape(entry['page']['title']),
+        'og:url': 'https://trevorwagner.dev{}'.format(entry['page']['title']),
+        'og:description': escape(content[0:300])
     }
 
     if entry['page']['type'] == 'blogPost':
@@ -23,6 +25,7 @@ def assemble_opengraph_data_for_entry(entry, matter, content):
 
         data['og:image:width'] = entry['coverPhoto']['dimensions']['w']
         data['og:image:height'] = entry['coverPhoto']['dimensions']['h']
+        data['og:publish_date'] = get_timestamp_text(entry['page']['publishDate'])
 
         data['article:published_time'] = get_timestamp_text(entry['page']['publishDate'])
 

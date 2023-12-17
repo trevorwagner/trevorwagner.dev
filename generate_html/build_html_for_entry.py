@@ -18,6 +18,7 @@ def build_html_for_entry(entry, matter, content):
         with a.head():
             a.meta(charset="utf-8")
 
+            a.meta(name='author', content='Trevor Wagner')
             for key, value in assemble_opengraph_data_for_entry(entry, matter, content).items():
                 a.meta(property=key, content=value)
 
