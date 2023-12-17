@@ -11,16 +11,25 @@ if __name__ in '__main__':
         manifest = json.load(f)
 
         for entry in manifest['site']:
-            with open(entry['file']['fileName']) as f:
-                matter, content = frontmatter.parse(f.read())
+            html = ''
 
-                html = build_html_for_entry(entry, matter, content)
+            if entry['slug'] != 'blog':
+                with open(entry['file']['fileName']) as f:
 
-                html_file = Path(DIST / 'html/{}index.html'.format(entry['page']['relativePath']))
+                    matter, content = frontmatter.parse(f.read())
 
-                parent_folder = Path(html_file.parent)
-                if not parent_folder.exists():
-                    parent_folder.mkdir(parents=True, exist_ok=True)
+                    html = build_html_for_entry(entry, matter, content)
 
-                with open(html_file, 'w') as f:
-                    f.write(html)
+            else:
+                html = build_html_for_entry(entry, {}, '')
+
+            html_file = Path(DIST / 'html/{}index.html'.format(entry['page']['relativePath']))
+
+
+            parent_folder = Path(html_file.parent)
+
+            if not parent_folder.exists():
+                parent_folder.mkdir(parents=True, exist_ok=True)
+
+            with open(html_file, 'w') as f:
+                f.write(html)
