@@ -6,13 +6,20 @@ from get_photo_details import query_photo_details
 
 
 def get_page_type(path):
-    f = match(r'.*/_static/(.*)/', path).group(1)
-    page_type = 'custom'
+    f = ''
+    page_type = ''
+
+    try:
+        f = match(r'.*/_static/(.*)/', path).group(1)
+    except:
+        f = '/'
 
     if f == 'posts':
         page_type = 'blogPost'
-    if f == 'pages':
+    elif f == 'pages':
         page_type = 'brochurePage'
+    else:
+        page_type = 'custom'
 
     return page_type
 
@@ -23,7 +30,7 @@ def get_relative_path(entry):
     
     if page_type == 'blogPost':
         relative_path = '/blog/posts/{}/'.format(entry['slug'])
-    elif entry['slug'] == 'home':
+    elif entry['slug'] == 'index':
         relative_path = '/'
     else:
         relative_path = '/{}/'.format(entry['slug'])

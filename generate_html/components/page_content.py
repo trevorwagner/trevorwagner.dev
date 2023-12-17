@@ -23,10 +23,15 @@ def page_content(a: Airium, entry, content):
         cover_photo(a, entry)
 
     else:
-        a.h1(_t=escape(entry['page']['title']),
-             klass="text-4xl text-zinc-950 mt-20 font-semibold max-w-6xl mb-16")
+        if entry['slug'] != 'index':
+            a.h1(_t=escape(entry['page']['title']),
+                 klass="text-4xl text-zinc-950 mt-20 font-semibold max-w-6xl mb-16")
+        else:
+            a.h1(_t="Welcome", klass="text-3xl mt-20 mb-16 leading-9 font-semibold pt-1 pb-2")
 
     content = markdown.markdown(content)
+    # TODO: Find a way to do this within the DOM (using something like lxml to work the tree as opposed to find- /
+    #  replacing text).
     content = (content
                .replace('<h2>', '<h2 class="text-3xl leading-9 font-semibold pt-1 pb-2">')
                .replace('<h3>', '<h3 class="text-xl leading-9 font-semibold pt-1 pb-2">')
