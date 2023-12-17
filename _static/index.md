@@ -4,7 +4,7 @@ draft: false
 ---
 
 I'm a software engineer from Minnesota who specializes in test automation. Conventionally, software development
-organizations would classify me as a Software Development Engineer in Test (SDET). I have nearly 20 years' experience in
+organizations would classify me as a Software Development Engineer in Test (SDET). I have nearly **20 years' experience** in
 Software Engineering and in QA/ QC of some sort, including test development, testing strategy, and custom framework
 development.
 
