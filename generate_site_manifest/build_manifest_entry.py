@@ -47,9 +47,9 @@ def build_manifest_entry(file_info):
             'lastMod': file_info['lastMod']
         },
         'page': {
-            'title': file_info['matter'][0]['title'],
+            'title': 'Blog: Recent Posts' if Path(file_name).stem == 'blog' else file_info['matter'][0]['title'],
             'type': get_page_type(file_name),
-            'draft': file_info['matter'][0]['draft'],
+            'draft': False if Path(file_name).stem == 'blog' else file_info['matter'][0]['draft'],
         }
     }
 
@@ -57,6 +57,7 @@ def build_manifest_entry(file_info):
         new_entry['page']['publishDate'] =\
             datetime.fromisoformat(file_info['matter'][0]['publishDate']).timestamp()
         new_entry['coverPhoto'] = query_photo_details(file_info['matter'][0]['coverPhoto'])
+        new_entry['coverPhoto']['thumbnail'] = file_info['matter'][0]['thumbnail']
 
     new_entry['page']['relativePath'] = get_relative_path(new_entry)
 
