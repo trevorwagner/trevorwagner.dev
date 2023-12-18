@@ -16,7 +16,7 @@ front-end engineer, desktop and end-user support, and as a Webmaster provide add
 I've tested solutions for **Desktop**, **Mobile**, and the **Enterprise** (including **SaaS** solutions).
 
 Mainly my experience is in JVM-based language (**Java** and **Groovy**) and **JavaScript**/ **TypeScript**. I have some
-experience with **Python** (this site was generated using [a custom Python static site generator]()), **PHP** (I once
+experience with **Python** (this site was generated using [a custom Python static site generator](https://github.com/trevorwagner/trevorwagner.dev)), **PHP** (I once
 used PHP in a rewrite of a 54-page brochure-style Website), and various low-level scripting languages.
 
 ## Services
