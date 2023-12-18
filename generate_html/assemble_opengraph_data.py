@@ -13,7 +13,7 @@ def assemble_opengraph_data_for_entry(entry, matter, content):
         'og:locale': 'en_US',
         'og:site_name': 'Trevor Wagner | Project-Focused Software Engineer, QA Automation',
         'og:title': escape(entry['page']['title']),
-        'og:url': 'https://trevorwagner.dev{}'.format(entry['page']['title']),
+        'og:url': 'https://trevorwagner.dev{}'.format(entry['page']['relativePath']),
         'og:description': escape(content[0:300])
     }
 
