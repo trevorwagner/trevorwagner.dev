@@ -56,7 +56,7 @@ router.get(‘sayHello', (req, res) => {
 <pre><code class="language-javascript">
 const app = express();
 
-app.use(‘/whyNot', greetingsRouter);
+app.use('/whyNot', greetingsRouter);
 app.listen(3000, ()=>{console.log(‘Express running on port 3000.')} );
 </code></pre>
 
@@ -93,9 +93,9 @@ RouteSet is a base class that establishes a wrapper around `express.Router` stor
 
 <pre><code class="language-typescript">
 appContainer.attachRouteSets([
-    new PersonRoutes().at(‘/people'),
-    new PlaceRoutes().at(‘/places'),
-    new ThingRoutes().at(‘/things'),
+    new PersonRoutes().at('/people'),
+    new PlaceRoutes().at('/places'),
+    new ThingRoutes().at('/things'),
 ]);
 </code></pre>
 

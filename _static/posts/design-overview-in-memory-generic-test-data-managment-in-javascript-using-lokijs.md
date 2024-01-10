@@ -60,7 +60,7 @@ For any methods defining data management or data introspection, the `find()` met
 <pre><code class="language-javascript">
 collection
    .chain()
-   .find({ field: ‘value' })   // <- Query parameters for a document we would like to match.
+   .find({ field: 'value' })   // <- Query parameters for a document we would like to match.
    .data({ removeMeta: true }) // <- LokiJS option to remove metadata from documents in ResultSet,
                                //    which essentially is an array of documents matching the query.
 </code></pre>
@@ -195,7 +195,7 @@ I do write system-level tests for this library in TypeScript that (among other t
 When everything is said and done, engineers writing tests can access this system by importing it. To define a new repository, an engineer only needs to write a few short lines of code:
 
 <pre><code class="language-typescript">
-Import { RecordSet } from ‘test-data-management-system';
+Import { RecordSet } from 'test-data-management-system';
 
 // n.b.: `iPerson` is a schema interface/ DTO created to define fields and
 // associated data types for a person record.
@@ -205,9 +205,11 @@ Class PeopleRecordSet extends RecordSet<iPerson> {
       Super(‘people-data', { create-index: ‘personID' });
    }
 }
+</code></pre>
 
 With this, the engineer can take advantage of full CRUD API, data checking, data events and so-on by instantiating the repository where needed in test code:
 
+<pre><code class="language-typescript">
 const peopleRecords = new PeopleRecordSet();
 
 const newPerson = peopleRecords.create({ firstName: ‘new', lastName: ‘person' });
@@ -221,7 +223,7 @@ This gets us all of the above, including:
 - Simplified test data cleanup.  
 - Common CRUD API for repositories.
 - Test data validation (with usable error messages).  
-- Repository data insprospection.
+- Repository data introspection.
 - Test data events.
 - Custom repository options.
 - TypeScript types.
