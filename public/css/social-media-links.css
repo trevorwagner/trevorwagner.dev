@@ -1,0 +1,21 @@
+.social-media-links a {
+    display: block;
+    border-radius: 50%;
+    height: 100%;
+    width: 100%;
+    background-color: rgb(102, 102, 102);
+}
+
+.social-media-links a:hover {
+    background-color: rgb(161 161 170);
+}
+
+.social-media-links img {
+    vertical-align: middle;
+    margin: 10px;
+    height: 30px;
+    width: auto;
+    /* 
+    Renders our SVGs in white */
+    filter: invert(100%) sepia(26%) saturate(0%) hue-rotate(192deg) brightness(105%) contrast(106%);
+}

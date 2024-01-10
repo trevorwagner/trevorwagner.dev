@@ -1,0 +1,70 @@
+header {
+    display: block;
+    z-index: 22;
+    position: fixed;
+    padding: 0.975rem 1.0rem 1.075rem 1.0rem;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+header h1 {
+    /* We're breaking normal scale here so that the nameplate 
+       itself fills 1/3 of the header @xsm.
+    */
+    display: inline-block;
+    font-size: 1.2rem;
+}
+
+header ul, header p {
+    display: none;
+}
+
+header a:link,
+a:visited {
+    color: white;
+    text-decoration: none;
+}
+
+header a:hover {
+    text-decoration: underline;
+}
+
+/* sm */
+@media only screen and (min-width: 600px) {
+    header p {
+        display: block;
+    }
+    header {
+        padding: 1.5rem;
+    }
+}
+
+/* md */
+@media only screen and (min-width: 768px) {
+    header {
+        position: fixed;
+        top: 0px;
+        bottom: 0px;
+        left: 0px;
+
+        height: 100%;
+        width: 20rem;
+
+        font-weight: 400;
+
+        padding-top: 7.875rem;
+    }
+
+    header h1 {
+        margin-bottom: 0.95rem;
+    }
+
+    header p {
+        line-height: 1.25rem;
+    }
+}
