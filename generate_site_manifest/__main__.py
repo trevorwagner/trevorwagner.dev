@@ -1,4 +1,4 @@
-from assemble_site_manifest import assemble_site_manifest
+from .assemble_site_manifest import assemble_site_manifest
 from pathlib import Path
 from json import dumps
 

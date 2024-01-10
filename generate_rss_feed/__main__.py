@@ -1,6 +1,6 @@
 import json
 
-from build_rss_from_manifest import build_rss_from_inventory
+from .build_rss_from_manifest import build_rss_from_inventory
 from pathlib import Path
 import shutil
 

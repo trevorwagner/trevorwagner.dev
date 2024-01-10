@@ -1,5 +1,5 @@
 from pathlib import Path
-from build_html_for_entry import build_html_for_entry
+from .build_html_for_entry import build_html_for_entry
 import frontmatter
 import json
 

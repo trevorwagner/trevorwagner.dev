@@ -1,12 +1,12 @@
 from airium import Airium
 
-from assemble_opengraph_data import assemble_opengraph_data_for_entry
+from .assemble_opengraph_data import assemble_opengraph_data_for_entry
 
-from components.footer import footer
-from components.header import header
-from components.overlay_menu import overlay_menu
-from components.page_content import page_content
-from components.page_title import page_title
+from .components.footer import footer
+from .components.header import header
+from .components.overlay_menu import overlay_menu
+from .components.page_content import page_content
+from .components.page_title import page_title
 
 
 def build_html_for_entry(entry, matter, content):
