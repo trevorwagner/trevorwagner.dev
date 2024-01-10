@@ -2,20 +2,27 @@ venv:
 	python3 -m venv venv
 	source venv/bin/activate
 
-clean: venv
+timestamp:
+	TZ=America/Chicago date -Iseconds
+
+clean:
 	rm -fR ./_dist
 
 ready: venv
 	python3 -m pip install -r './requirements.txt'
 
-manifest: ready
-	python3 generate_site_manifest
+manifest:
+	python3 -m generate_site_manifest
 
-rssFeed: manifest
-	python3 generate_rss_feed
+rss: manifest
+	python3 -m generate_rss_feed
+	cp ./public/feed/index.php ./_dist/html/blog/feed/
 
-siteMap: manifest
-	python3 generate_xml_sitemap
+sitemap: manifest
+	python3 -m generate_xml_sitemap
 
+pages: manifest
+	python3 -m generate_html
 
-all: manifest generate_rss_feed generate_xml_sitemap
+site: manifest pages sitemap rss
+	cp -R ./public/{.htaccess,css,js,images,robots.txt} ./_dist/html/
