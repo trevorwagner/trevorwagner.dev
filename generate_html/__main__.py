@@ -25,7 +25,6 @@ if __name__ in '__main__':
 
             html_file = Path(DIST / 'html/{}index.html'.format(entry['page']['relativePath']))
 
-
             parent_folder = Path(html_file.parent)
 
             if not parent_folder.exists():

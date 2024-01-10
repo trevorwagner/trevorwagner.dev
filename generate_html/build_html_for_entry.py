@@ -2,9 +2,10 @@ from airium import Airium
 
 from assemble_opengraph_data import assemble_opengraph_data_for_entry
 
-from components.page_content import page_content
-from components.header import header
 from components.footer import footer
+from components.header import header
+from components.overlay_menu import overlay_menu
+from components.page_content import page_content
 from components.page_title import page_title
 
 
@@ -26,24 +27,23 @@ def build_html_for_entry(entry, matter, content):
             page_title(a, entry)
             # a('<script async src="https://us.umami.is/script.js" data-website-id="72e1cfab-c988-430b-9f25-1f52cf8720f4"></script>')
 
-            a.script(src="https://cdn.tailwindcss.com")
+            a.link(rel="stylesheet", href="/css/styles.css")
 
             if entry['page']['type'] == 'blogPost':
                 a.script(src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js")
                 a.link(rel="stylesheet",
                        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/base16/default-dark.css")
 
-        with a.body(klass="subpixel-antialiased"):
+            a.meta(name="viewport", content="width=device-width, initial-scale=1.0")
+
+        with a.body():
             header(a, entry)
-
-            with a.div(klass="lg:ml-96 px-16 height-full max-w-6xl"):
-
-                with a.div():
-                    page_content(a, entry, content)
-
-                    a.div(klass="clear-both")
-
+            overlay_menu(a, entry)
+            with a.div():
+                page_content(a, entry, content)
                 footer(a)
+
+            a.script(type="text/javascript", src="/js/slidedown-menu.js")
             a.script(_t="hljs.highlightAll();")
 
     return str(a)
