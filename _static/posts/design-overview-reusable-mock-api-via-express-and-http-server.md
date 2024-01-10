@@ -46,8 +46,8 @@ So if you define your router (and a route for it) like this:
 <pre><code class="language-javascript">
 const greetingsRouter = express.Router();
 
-router.get(‘sayHello', (req, res) => {
-    res.send(‘hello world!');
+router.get('sayHello', (req, res) => {
+    res.send('hello world!');
 });
 </code></pre>
 
@@ -57,7 +57,7 @@ router.get(‘sayHello', (req, res) => {
 const app = express();
 
 app.use('/whyNot', greetingsRouter);
-app.listen(3000, ()=>{console.log(‘Express running on port 3000.')} );
+app.listen(3000, ()=>{console.log('Express running on port 3000.')} );
 </code></pre>
 
 If you submit a GET request to http://localhost:3000/whyNot/sayHello, the server will return the response body hello world!.

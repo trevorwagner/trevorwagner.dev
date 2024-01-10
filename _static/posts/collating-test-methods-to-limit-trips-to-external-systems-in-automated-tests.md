@@ -17,8 +17,8 @@ The pattern I see commonly generally makes the test methods that use it atomic. 
 describe(`a GET call to the people/id endpoint`, () => {
    it(`returns HTTP 200`, async () => {
       const response = await axios({
-         method: ‘get',
-         url: ‘http://example.com/people/id/1',
+         method: 'get',
+         url: 'http://example.com/people/id/1',
       });
 
       expect(response.status).toEqual(200);
@@ -26,8 +26,8 @@ describe(`a GET call to the people/id endpoint`, () => {
 
    it(`returns a response with a JSON dictionary containing five keys` async () => {
       const response = await axios({
-         method: ‘get',
-         url: ‘http://example.com/people/id/1',
+         method: 'get',
+         url: 'http://example.com/people/id/1',
       })
 
       expect( () => { JSON.stringify(response.data) } ).not.toThrow();
@@ -46,8 +46,8 @@ describe(`a GET call to the people/id endpoint`, ()=>{
 
    beforeAll(async ()=>{
          response = await axios({
-           method: ‘get',
-           url: ‘http://example.com/people/id/1'
+           method: 'get',
+           url: 'http://example.com/people/id/1'
          });
    });
 

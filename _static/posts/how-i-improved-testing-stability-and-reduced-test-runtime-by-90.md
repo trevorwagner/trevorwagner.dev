@@ -132,9 +132,9 @@ On startup (within a Cucumber `BeforeAll` callback), I started the mock API serv
 const appContainer = new ApplicationContainer(containerSettings);
 
 appContainer.attachRouteSets([
-  new PersonRoutes().at(‘/people'),
-  new PlaceRoutes().at(‘/places'),
-  new ThingRoutes().at(‘/things'),
+  new PersonRoutes().at('/people'),
+  new PlaceRoutes().at('/places'),
+  new ThingRoutes().at('/things'),
 ]);
 
 appContainer.start();

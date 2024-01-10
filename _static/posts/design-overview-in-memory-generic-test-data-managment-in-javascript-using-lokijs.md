@@ -202,7 +202,7 @@ Import { RecordSet } from 'test-data-management-system';
 
 Class PeopleRecordSet extends RecordSet<iPerson> {
    constructor() {
-      Super(‘people-data', { create-index: ‘personID' });
+      Super('people-data', { create-index: 'personID' });
    }
 }
 </code></pre>
@@ -212,7 +212,7 @@ With this, the engineer can take advantage of full CRUD API, data checking, data
 <pre><code class="language-typescript">
 const peopleRecords = new PeopleRecordSet();
 
-const newPerson = peopleRecords.create({ firstName: ‘new', lastName: ‘person' });
+const newPerson = peopleRecords.create({ firstName: 'new', lastName: 'person' });
 </code></pre>
 
 One line of code to instantiate the repository.  Another to create a dictionary that matches a record stored within the repository.  
