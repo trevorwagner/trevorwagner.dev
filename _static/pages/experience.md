@@ -3,10 +3,9 @@ title: "Experience"
 draft: false
 ---
 
-## Summary
-
 &nbsp;
 
+## Summary
 _Helping software developers deliver better software through customer focus, automation, and leadership._
 
 ---
