@@ -1,19 +1,26 @@
+.social-media-links {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+
+}
 .social-media-links a {
     display: block;
-    border-radius: 50%;
     height: 100%;
     width: 100%;
-    background-color: rgb(102, 102, 102);
 }
 
-.social-media-links a:hover {
-    background-color: rgb(161 161 170);
+.social-media-links li {
+    height: 1.5rem;
+    width: 1.5rem;
+    margin-right: 0.875rem;
+    float: left;
 }
 
 .social-media-links img {
     vertical-align: middle;
-    margin: 10px;
-    height: 30px;
+    margin: 0.125rem;
+    height: 1.5rem;
     width: auto;
     /* 
     Renders our SVGs in white */
