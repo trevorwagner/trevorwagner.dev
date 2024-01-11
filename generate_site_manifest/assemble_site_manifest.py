@@ -1,5 +1,5 @@
 import frontmatter
-from build_manifest_entry import build_manifest_entry
+from .build_manifest_entry import build_manifest_entry
 from pathlib import Path
 
 from _static import PAGES_MD

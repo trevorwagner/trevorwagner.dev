@@ -1,6 +1,6 @@
 import json
 
-from build_rss_from_manifest import build_rss_from_inventory
+from .build_rss_from_manifest import build_rss_from_inventory
 from pathlib import Path
 import shutil
 
@@ -21,6 +21,3 @@ if __name__ in '__main__':
 
         with open(rss_xml_file, 'w') as f:
             f.write(rss)
-
-        # Let's move the PHP file as long as we're here.
-        shutil.copyfile(feed_index_php, parent_folder / 'index.php')

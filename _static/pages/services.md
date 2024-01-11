@@ -3,6 +3,8 @@ title: "Services"
 draft: false
 ---
 
+&nbsp;
+
 ## Risk Assessments
 
 It's easy to think about the things you anticipate happening when a work product behaves as expected. What about when it doesn't, or even about what the things are that might go wrong? I have experience evaluating software both under development and post-shipment to provide descriptions of the ways those systems might fail and what the implications of anticipated failures might be.

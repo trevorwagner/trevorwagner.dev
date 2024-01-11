@@ -1,0 +1,28 @@
+.social-media-links {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+
+}
+.social-media-links a {
+    display: block;
+    height: 100%;
+    width: 100%;
+}
+
+.social-media-links li {
+    height: 1.5rem;
+    width: 1.5rem;
+    margin-right: 0.875rem;
+    float: left;
+}
+
+.social-media-links img {
+    vertical-align: middle;
+    margin: 0.125rem;
+    height: 1.5rem;
+    width: auto;
+    /* 
+    Renders the icons in white */
+    filter: invert(100%) sepia(26%) saturate(0%) hue-rotate(192deg) brightness(105%) contrast(106%);
+}

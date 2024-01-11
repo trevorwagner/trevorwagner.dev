@@ -9,11 +9,11 @@ menu_items = [
 
 
 def navigation_menu(a: Airium, entry):
-    with a.ul(klass="hidden lg:block"):
+    with a.ul(klass="navigation"):
         for item in menu_items:
             if entry['page']['relativePath'] == item['path']:
-                a.li(_t=item['name'], klass="text-zinc-400")
+                a.li(_t=item['name'])
             else:
                 with a.li():
-                    a.a(_t=item['name'], href=item['path'], klass="text-white hover:underline")
+                    a.a(_t=item['name'], href=item['path'])
     return

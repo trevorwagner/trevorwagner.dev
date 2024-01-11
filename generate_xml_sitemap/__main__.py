@@ -1,6 +1,6 @@
 from pathlib import Path
 import json
-from build_sitemap_from_manifest import build_sitemap_from_manifest
+from .build_sitemap_from_manifest import build_sitemap_from_manifest
 
 DIST = Path(__file__).parent.resolve() / '../_dist/'
 site_manifest_file = DIST / 'site-manifest.json'

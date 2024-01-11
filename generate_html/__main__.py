@@ -1,5 +1,5 @@
 from pathlib import Path
-from build_html_for_entry import build_html_for_entry
+from .build_html_for_entry import build_html_for_entry
 import frontmatter
 import json
 
@@ -24,7 +24,6 @@ if __name__ in '__main__':
                 html = build_html_for_entry(entry, {}, '')
 
             html_file = Path(DIST / 'html/{}index.html'.format(entry['page']['relativePath']))
-
 
             parent_folder = Path(html_file.parent)
 

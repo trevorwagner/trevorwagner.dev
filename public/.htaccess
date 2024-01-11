@@ -1,7 +1,9 @@
 RewriteEngine On
 
-#RewriteCond %{HTTP_HOST} ^www.trevorwagner.dev [NC]
-#RewriteRule (.*) https://trevorwagner.dev/$1 [L,R=301]
+RewriteCond %{HTTP_HOST} ^www.trevorwagner.dev [NC]
+RewriteRule (.*) https://trevorwagner.dev/$1 [L,R=301]
+
+ErrorDocument 404 /404/
 
 # Remove "index.html"
 RewriteRule (.*)index\.html$ /$1 [R=301,NC]

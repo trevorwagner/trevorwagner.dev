@@ -1,0 +1,86 @@
+#overlay-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 0;
+    width: 100%;
+    z-index: 1;
+    overflow-y: hidden;
+    transition: 0.3s;
+    padding: 0.5rem 0.625rem 0.5rem 0.625rem;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+
+}
+
+#overlay-menu.active {
+    display: block;
+    height: 100%;
+}
+
+#overlay-menu a:link,
+a:visited {
+    color: white;
+    text-decoration: none;
+}
+
+#overlay-menu a:hover {
+    color: rgb(102, 102, 102);
+}
+
+#overlay-menu ul {
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    list-style-type: none;
+}
+
+#overlay-menu li {
+    margin-bottom: 1.075rem;
+    font-size: 1.125rem;
+}
+
+#overlay-menu .navigation {
+    margin-top: 3.05rem;
+}
+
+#overlay-menu .social-media-links {
+    position: absolute;
+    right: 1.0rem;
+    bottom: 0.625rem;
+    left: 0.625rem;
+    width: 100%;
+}
+
+#overlay-menu .social-media-links li {
+    margin-right: 1.25rem;
+}
+
+/* sm */
+@media only screen and (min-width: 600px) {
+    #overlay-menu {
+        padding: 2.0rem 1.5rem 1.5rem 1.5rem;
+    }
+
+    #overlay-menu .social-media-links {
+        display: block;
+        position: absolute;
+        right: 1.5rem;
+        bottom: 1.0rem;
+        left: 1.5rem;
+        width: 100%;
+    }
+
+}
+
+/* md */
+@media only screen and (min-width: 768px) {
+    #overlay-menu {
+        display: none;
+    }
+
+    #overlay-menu .social-media-links {
+        display: none;
+    }
+}
