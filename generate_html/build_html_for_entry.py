@@ -33,9 +33,7 @@ def build_html_for_entry(entry, matter, content):
                 a.script(src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js")
                 a.link(rel="stylesheet",
                        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/base16/default-dark.css")
-
-            a.meta(name="viewport", content="width=device-width, initial-scale=1.0")
-
+                
         with a.body():
             header(a, entry)
             overlay_menu(a, entry)
