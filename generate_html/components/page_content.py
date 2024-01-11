@@ -26,20 +26,6 @@ def page_content(a: Airium, entry, content):
                 a.h1(_t="Welcome")
 
         if entry['slug'] != 'blog':
-            # content = markdown(content)
-            #
-            # # TODO: Find a way to do this within the DOM (using something like lxml to work the tree as opposed to find- /
-            # #  replacing text).
-            # #
-            # content = (content
-            #            .replace('<h2>', '<h2 class="text-3xl leading-9 font-semibold pt-1 pb-2">')
-            #            .replace('<h3>', '<h3 class="text-xl leading-9 font-semibold pt-1 pb-2">')
-            #            .replace('<p>', '<p class="leading-7 mb-4">')
-            #            .replace('<ul>', '<ul class="list-disc pl-5 leading-7 mb-4">')
-            #            .replace('<li>', '<li class="pl-1 mt-2">')
-            #            .replace('<pre>', '<pre class="mb-2">')
-            #            )
-            # a(content)
             a(markdown(content))
         else:
             # TODO(please): Instead of coupling functionality related to retrieving blog post entries to knowledge of where,
