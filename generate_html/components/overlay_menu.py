@@ -7,6 +7,6 @@ from .social_media_links import social_media_links
 def overlay_menu(a: Airium, entry):
     with a.div(id="overlay-menu"):
         navigation_menu(a, entry)
-        social_media_links(a, reverse=True)
+        social_media_links(a, reverse=False)
 
     return
