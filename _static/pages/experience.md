@@ -4,6 +4,9 @@ draft: false
 ---
 
 ## Summary
+
+&nbsp;
+
 _Helping software developers deliver better software through customer focus, automation, and leadership._
 
 ---
