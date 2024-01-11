@@ -1,15 +1,8 @@
-venv:
-	python3 -m venv venv
-	source venv/bin/activate
-
 timestamp:
 	TZ=America/Chicago date -Iseconds
 
 clean:
 	rm -fR ./_dist
-
-ready: venv
-	python3 -m pip install -r './requirements.txt'
 
 manifest:
 	python3 -m generate_site_manifest
