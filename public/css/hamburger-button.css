@@ -29,6 +29,7 @@ header #hamburger {
     transform: rotate(45deg) translate(0px, -9px);
 }
 
+/* sm */
 @media only screen and (min-width: 600px) {
     #hamburger {
         margin-top: 0.75rem;
