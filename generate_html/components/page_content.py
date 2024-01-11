@@ -1,13 +1,14 @@
 from airium import Airium
 import json
 from markdown import markdown
+from pathlib import Path
 from xml.sax.saxutils import escape
 
 from .blog_post_summary_link import blog_post_summary_link
 from .blog_post_pub_date import blog_post_pub_date
 from .cover_photo import cover_photo
 
-from project_info import DIST
+DIST = Path(__file__).parent.resolve() / '../../_dist/'
 
 
 # TODO: Figure this out when building the manifest/ returning page info via service.
