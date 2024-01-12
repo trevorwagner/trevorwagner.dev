@@ -25,8 +25,14 @@ of the site will serve as agreement to) seem agreeable.
 ## The Types of Data We Gather
 As of January 11, 2024 we use [Umami](https://umami.is/) for Web 
 analytics.  When a visitor visits a page on this site, we are 
-granted access to the following information:
+granted access to information including the following:
 
+- Which page/s were visited.
+- Which page/s referred the visitor to the visited pages.
+- At which time the visitor visits the page.
+- Which operating system and browser the visitor is using during the visit.
+- Which country/ region/ city the visitor is from.
+- Whether the visitor is currently active on the site.
 
 As our Umami installation is currently configured, it does not 
 use [HTTP cookies](https://en.wikipedia.org/wiki/HTTP_cookie) to 
