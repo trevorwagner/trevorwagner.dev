@@ -17,8 +17,8 @@ RewriteRule ^2023/06/16/how-working-qc-in-a-print-shop-helped-me-understand-what
 
 
 # How I Write Test Plans for New Functionality
-RewriteCond %{QUERY_STRING} p=54
-RewriteRule ^$ /blog/posts/how-i-write-test-plans-for-new-functionality/? [R=permanent,NC,L]
+#RewriteCond %{QUERY_STRING} p=54
+#RewriteRule ^$ /blog/posts/how-i-write-test-plans-for-new-functionality/? [R=permanent,NC,L]
 
 RewriteRule ^2023/06/24/how-i-write-test-plans-for-new-functionality/ /blog/posts/how-i-write-test-plans-for-new-functionality/? [R=permanent,NC,L]
 
