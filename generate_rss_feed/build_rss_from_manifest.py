@@ -1,14 +1,17 @@
-from datetime import datetime
+from datetime import datetime, timezone
 from xml.sax.saxutils import escape
+from zoneinfo import ZoneInfo
 
-build_time = datetime.now()
+build_time = datetime.now(tz=ZoneInfo('America/Chicago'))
+def timestamp_rfc_822(time):
+    return time.strftime("%a, %d %b %Y %H:%M:%S %z" )
 
 metadata = {
     "title": 'trevorwagner.dev - Blog',
     "description": 'RSS Feed for new blog posts on trevorwagner.dev',
     "language": 'en-us',
     "link": 'https://trevorwagner.dev/blog/',
-    "lastBuildDate": build_time.strftime("%a, %d %b %Y"),
+    "lastBuildDate": timestamp_rfc_822(build_time),
     "copyright": '{} Upstream Consulting LLC. All rights reserved.'.format(build_time.strftime("%Y"))
 }
 
@@ -40,9 +43,9 @@ def build_rss_from_inventory(manifest):
             '\n\t<item>',
             '\n\t\t<title>{}</title>'.format(post["page"]["title"]),
             '\n\t\t<link>https://trevorwagner.dev{}</link>'.format(escape(post["page"]["relativePath"])),
-            '\n\t\t<pubDate>{}</pubDate>'.format(datetime.fromtimestamp(
-                post["page"]['publishDate']).strftime("%a, %d %b %Y")
-            ),
+            '\n\t\t<pubDate>{}</pubDate>'.format(timestamp_rfc_822(datetime.fromtimestamp(
+                post["page"]['publishDate'], tz=ZoneInfo('America/Chicago'))
+            )),
             # TODO: Add summaries to each blog post MD, to use for Description here.
             # TODO: Add summary element to manifest generation script.
             # '\n\t\t<description>{}</description>.format()'.format(escape(post["description"])),
