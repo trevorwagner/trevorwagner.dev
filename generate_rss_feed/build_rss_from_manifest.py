@@ -1,10 +1,13 @@
-from datetime import datetime, timezone
+from datetime import datetime
 from xml.sax.saxutils import escape
 from zoneinfo import ZoneInfo
 
 build_time = datetime.now(tz=ZoneInfo('America/Chicago'))
+
+
 def timestamp_rfc_822(time):
     return time.strftime("%a, %d %b %Y %H:%M:%S %z" )
+
 
 metadata = {
     "title": 'trevorwagner.dev - Blog',
