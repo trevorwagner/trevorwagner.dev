@@ -31,6 +31,8 @@ def build_html_for_entry(entry, matter, content):
 
             if entry['page']['type'] == 'blogPost':
                 a.script(src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js")
+                if 'class=\"language-gherkin\"' in content:
+                    a.script(src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/gherkin.min.js")
                 a.link(rel="stylesheet",
                        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/base16/default-dark.css")
 
