@@ -19,3 +19,8 @@ pages: manifest
 
 site: manifest pages sitemap rss
 	cp -R ./public/{.htaccess,css,js,images,robots.txt} ./_dist/html/
+
+devserver:
+	bash ./dev_server.sh
+
+
