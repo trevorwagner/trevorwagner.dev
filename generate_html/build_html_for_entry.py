@@ -43,7 +43,7 @@ def build_html_for_entry(entry, matter, content):
                 page_content(a, entry, content)
                 footer(a)
 
-            a.script(type="text/javascript", src="/js/slidedown-menu.js")
+            a.script(src="/js/slidedown-menu.js")
             a.script(_t="hljs.highlightAll();")
 
     return str(a)
