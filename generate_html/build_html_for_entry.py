@@ -44,6 +44,7 @@ def build_html_for_entry(entry, matter, content):
                 footer(a)
 
             a.script(src="/js/slidedown-menu.js")
-            a.script(_t="hljs.highlightAll();")
+            if entry['page']['type'] == 'blogPost':
+                a.script(_t="hljs.highlightAll();")
 
     return str(a)
