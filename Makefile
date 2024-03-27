@@ -4,6 +4,9 @@ timestamp:
 clean:
 	rm -fR ./_dist
 
+data:
+	python3 -m load_db
+
 manifest:
 	python3 -m generate_site_manifest
 
@@ -19,6 +22,9 @@ pages: manifest
 
 site: manifest pages sitemap rss
 	cp -R ./public/{.htaccess,css,js,images,robots.txt} ./_dist/html/
+
+test:
+	python -m pytest tests/ --verbose
 
 devserver:
 	bash ./dev_server.sh
