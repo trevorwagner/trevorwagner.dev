@@ -14,7 +14,7 @@ def build_page_record(file_path, file_content):
   page_type = get_page_type(file_path)
   page_draft_status = file_front_matter[0]['draft']
   if 'publishDate' in file_front_matter[0].keys():
-    page_publication_date = datetime.fromisoformat(file_front_matter[0]['publishDate']).timestamp()
+    page_publication_date = datetime.fromisoformat(file_front_matter[0]['publishDate'])
   else:
     page_publication_date = None
 
