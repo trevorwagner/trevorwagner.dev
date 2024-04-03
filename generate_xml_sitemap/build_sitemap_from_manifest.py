@@ -13,7 +13,7 @@ def build_sitemap_from_manifest(manifest):
 
         new_item = ''.join([
             '\n\t<url>',
-            '\n\t\t<loc>https://trevorwagner.dev{}</loc>'.format(entry['page']['relativePath']),
+            '\n\t\t<loc>https://www.trevorwagner.dev{}</loc>'.format(entry['page']['relativePath']),
             '\n\t\t<lastmod>{}</lastmod>'.format(timestamp),
             '\n\t</url>'
         ])
