@@ -8,17 +8,18 @@ def build_sitemap_from_manifest(manifest):
 
     # 2023-12-15T00:20:38.657Z
     for entry in manifest['site']:
-        timestamp = (datetime.fromtimestamp(entry['file']['lastMod'], tz=timezone.utc)
-                     .strftime('%Y-%m-%dT%H:%M:%S.%fZ'))
+        if entry['slug'] != '404' :
+            timestamp = (datetime.fromtimestamp(entry['file']['lastMod'], tz=timezone.utc)
+                        .strftime('%Y-%m-%dT%H:%M:%S.%fZ'))
 
-        new_item = ''.join([
-            '\n\t<url>',
-            '\n\t\t<loc>https://www.trevorwagner.dev{}</loc>'.format(entry['page']['relativePath']),
-            '\n\t\t<lastmod>{}</lastmod>'.format(timestamp),
-            '\n\t</url>'
-        ])
+            new_item = ''.join([
+                '\n\t<url>',
+                '\n\t\t<loc>https://www.trevorwagner.dev{}</loc>'.format(entry['page']['relativePath']),
+                '\n\t\t<lastmod>{}</lastmod>'.format(timestamp),
+                '\n\t</url>'
+            ])
 
-        sitemap = ''.join([sitemap, new_item])
+            sitemap = ''.join([sitemap, new_item])
 
     sitemap = ''.join([sitemap, '\n</urlset>'])
 
