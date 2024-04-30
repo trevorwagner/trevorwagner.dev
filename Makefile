@@ -1,5 +1,8 @@
 timestamp:
-	TZ=America/Chicago date  -Iseconds
+	TZ=America/Chicago date -Iseconds
+
+modtimes: 
+	bash ./fix_modtimes.sh
 
 clean:
 	rm -fR ./_dist
