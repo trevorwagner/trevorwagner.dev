@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-echo $#
+echo "POST-CHECKOUT ARGS: $@"
 
 if [ $# = 0 ]; then
   git ls-files -z |xargs -0 sh "$0"
