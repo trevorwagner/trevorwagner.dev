@@ -20,7 +20,7 @@ sitemap: manifest
 pages: manifest
 	python3 -m generate_html
 
-site: manifest pages sitemap rss
+site: modtimes manifest pages sitemap rss
 	cp -R ./public/{.htaccess,css,js,images,robots.txt} ./_dist/html/
 
 devserver:
