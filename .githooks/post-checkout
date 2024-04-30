@@ -1,5 +1,7 @@
 #!/usr/bin/env sh
 
+echo $#
+
 if [ $# = 0 ]; then
   git ls-files -z |xargs -0 sh "$0"
   exit $?
