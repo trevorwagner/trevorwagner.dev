@@ -1,5 +1,5 @@
 timestamp:
-	TZ=America/Chicago date -Iseconds
+	TZ=America/Chicago date  -Iseconds
 
 clean:
 	rm -fR ./_dist
