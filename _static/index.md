@@ -1,5 +1,5 @@
 ---
-title: "Site Home"
+title: "Welcome"
 draft: false
 ---
 &nbsp;

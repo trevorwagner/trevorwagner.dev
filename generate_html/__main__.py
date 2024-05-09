@@ -1,34 +1,34 @@
-from pathlib import Path
-from .build_html_for_entry import build_html_for_entry
-import frontmatter
-import json
+from sqlalchemy.orm import Session
 
-DIST = Path(__file__).parent.resolve() / '../_dist/'
-site_manifest_file = DIST / 'site-manifest.json'
+from generate_html.builders import build_html_for_page
+from inventory_service import DIST, Page, engine, BlogPost
+
+
+def save_html_for_page(page: Page, html):
+    path = DIST / f'html{page.relative_path}index.html'
+
+    path.parent.mkdir(parents=True, exist_ok=True)
+
+    with open(path, 'w') as f:
+        f.write(html)
+    
 
 if __name__ in '__main__':
-    with open(site_manifest_file) as f:
-        manifest = json.load(f)
+    with Session(engine) as session:
+        # Generate brochure pages
+        brochure_pages = session.query(Page).filter(Page.type == 'brochurePage').all()
+        for page in brochure_pages:
+            html = build_html_for_page(page)
+            save_html_for_page(page, html)
 
-        for entry in manifest['site']:
-            html = ''
+        # Generate blog posts
+        blog_pages = session.query(Page).join(BlogPost).all()
+        for page in blog_pages:
+            html = build_html_for_page(page)
+            save_html_for_page(page, html)
 
-            if entry['slug'] != 'blog':
-                with open(entry['file']['fileName']) as f:
-
-                    matter, content = frontmatter.parse(f.read())
-
-                    html = build_html_for_entry(entry, matter, content)
-
-            else:
-                html = build_html_for_entry(entry, {}, '')
-
-            html_file = Path(DIST / 'html/{}index.html'.format(entry['page']['relativePath']))
-
-            parent_folder = Path(html_file.parent)
-
-            if not parent_folder.exists():
-                parent_folder.mkdir(parents=True, exist_ok=True)
-
-            with open(html_file, 'w') as f:
-                f.write(html)
+        # Generate custom pages
+        custom_pages = session.query(Page).filter(Page.type == 'custom').all()
+        for page in custom_pages:
+            html = build_html_for_page(page)
+            save_html_for_page(page, html)

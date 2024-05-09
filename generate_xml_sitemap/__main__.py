@@ -1,20 +1,20 @@
 from pathlib import Path
-import json
-from .build_sitemap_from_manifest import build_sitemap_from_manifest
 
-DIST = Path(__file__).parent.resolve() / '../_dist/'
-site_manifest_file = DIST / 'site-manifest.json'
+from sqlalchemy.orm import Session
 
-xml_sitemap_file = DIST / 'html/sitemap.xml'
+from inventory_service.models import Page, MDFile
+from generate_xml_sitemap.builders import build_sitemap_for_pages
+from inventory_service import engine, DIST
+
+xml_sitemap_file = DIST / "html/sitemap.xml"
 
 
-if __name__ in '__main__':
-    with open(site_manifest_file) as m:
-        sitemap = build_sitemap_from_manifest(json.load(m))
+if __name__ in "__main__":
+    with Session(engine) as session:
+        pages = session.query(Page).join(MDFile).where(Page.title != "File Not Found").all()
+        sitemap = build_sitemap_for_pages(pages)
 
-        parent_folder = Path(xml_sitemap_file.parent)
-        if not parent_folder.exists():
-            parent_folder.mkdir(parents=True, exist_ok=True)
+    xml_sitemap_file.parent.mkdir(parents=True, exist_ok=True)
 
-        with open(xml_sitemap_file, 'w') as f:
-            f.write(sitemap)
+    with open(xml_sitemap_file, "w") as f:
+        f.write(sitemap)

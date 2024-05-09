@@ -1,1 +1,0 @@
-from .query_photo_details import *
