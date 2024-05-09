@@ -8,7 +8,7 @@ from pathlib import Path
 from inventory_service import DIST
 
 rss_xml_file = DIST / "html/blog/feed/rss.xml"
-feed_index_php = Path(__file__).parent.resolve() / "../public/feed/index.php"
+feed_index_php = Path(__file__).parent.resolve() / "../_static/public/feed/index.php"
 
 if __name__ in "__main__":
 
