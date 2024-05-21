@@ -11,7 +11,9 @@ xml_sitemap_file = DIST / "html/sitemap.xml"
 
 if __name__ in "__main__":
     with Session(engine) as session:
-        pages = session.query(Page).join(MDFile).where(Page.title != "File Not Found").all()
+        pages = (
+            session.query(Page).join(MDFile).where(Page.title != "File Not Found").all()
+        )
         sitemap = build_sitemap_for_pages(pages)
 
     xml_sitemap_file.parent.mkdir(parents=True, exist_ok=True)

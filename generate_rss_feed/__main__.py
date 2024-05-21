@@ -14,9 +14,7 @@ if __name__ in "__main__":
 
     with Session(engine) as session:
         blog_posts = (
-            session.query(BlogPost).join(Page)
-            .order_by(BlogPost.published.desc())
-            .all()
+            session.query(BlogPost).join(Page).order_by(BlogPost.published.desc()).all()
         )
         rss = build_rss_for_blog_posts(blog_posts)
 

@@ -75,9 +75,7 @@ def build_page_record(md_file: MDFile):
 
 
 def build_md_file_record(file_path: pathlib.Path, file_contents: str):
-    new_record = MDFile(
-        file_path=file_path, mod_time=get_file_mod_time(file_path)
-    )
+    new_record = MDFile(file_path=file_path, mod_time=get_file_mod_time(file_path))
 
     frontmatter = fm.loads(file_contents)
 
