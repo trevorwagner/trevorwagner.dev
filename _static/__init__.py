@@ -1,3 +1,4 @@
+import datetime
 import pathlib
 
 static_content = pathlib.Path(__file__).parent.resolve()
@@ -21,3 +22,13 @@ def list_post_files():
     file_list.append(path)
 
   return file_list
+
+
+def get_file_contents(path):
+  with open(path) as f:
+    return f.read()
+  
+
+def get_file_mod_time(path):
+  mod_time = path.stat().st_mtime
+  return datetime.datetime.fromtimestamp(mod_time)

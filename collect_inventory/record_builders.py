@@ -1,12 +1,13 @@
 import frontmatter as fm
 import json, datetime, pathlib
 
+from _static import get_file_mod_time
 from inventory_service.models import BlogPost, Page, MDFile, Image, ImageAttribute
-from collect_inventory.analysis import (
+from collect_inventory.analysis.md_files import (
     get_page_relative_path,
     get_page_type,
-    get_photo_dimensions,
 )
+from collect_inventory.analysis.image_files import get_photo_dimensions
 
 
 def build_image_record(url, photo_data):
@@ -30,7 +31,7 @@ def build_image_record(url, photo_data):
         ImageAttribute(key="source_url", value=parsed_metadata["source"])
     )
 
-    image_dimensions =  get_photo_dimensions(url)
+    image_dimensions = get_photo_dimensions(url)
 
     new_record.attributes.extend(
         [
@@ -74,10 +75,8 @@ def build_page_record(md_file: MDFile):
 
 
 def build_md_file_record(file_path: pathlib.Path, file_contents: str):
-    mod_time = file_path.stat().st_mtime
-
     new_record = MDFile(
-        file_path=file_path, mod_time=datetime.datetime.fromtimestamp(mod_time)
+        file_path=file_path, mod_time=get_file_mod_time(file_path)
     )
 
     frontmatter = fm.loads(file_contents)
