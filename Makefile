@@ -20,7 +20,7 @@ sitemap: inventory
 pages: inventory
 	python3 -m generate_html
 
-site: modtimes inventory pages sitemap rss
+site: sane modtimes inventory pages sitemap rss
 	cp -R ./_static/public/{.htaccess,css,js,images,robots.txt} ./_dist/html/
 
 test:
@@ -28,5 +28,8 @@ test:
 
 devserver:
 	bash ./_start_dev_server.sh
+
+sane:
+	bash ./_make_markdown_sane.sh
 
 

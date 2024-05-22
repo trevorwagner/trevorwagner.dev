@@ -178,7 +178,7 @@ As I've used this solution, I've found that one size of data management does not
 
 For one, the system provides a set of options baked in that can be passed via constructor argument to the parent class. In the example provided within Conclusion (below), the consumer sets a value for createIndex, which tells the parent class to set an event listener on the collection that provides a callback to update the value for that field (in the example `personID`) automatically to a unique value (typically I key off of the value stored within the field `$loki`).
 
-As an additional option, the system provides a couple different lifecycle hooks: one that takes place after the parent constructor has run and another immediately after the LokiJS collection managed by the repository is instantiated. So for any consumer who would like to define a custom option, it the design should support adding that option — either upstream or by way of a subclass.
+As an additional option, the system provides a couple different lifecycle hooks: one that takes place after the parent constructor has run and another immediately after the LokiJS collection managed by the repository is instantiated. So for any consumer who would like to define a custom option, it the design should support adding that option -- either upstream or by way of a subclass.
 
 ## TypeScript Types
 

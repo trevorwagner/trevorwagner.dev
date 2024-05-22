@@ -51,7 +51,7 @@ router.get('sayHello', (req, res) => {
 });
 </code></pre>
 
-…then you attach the route to Express, using `app.use()` like this:
+...then you attach the route to Express, using `app.use()` like this:
 
 <pre><code class="language-javascript">
 const app = express();
@@ -83,7 +83,7 @@ To get back to the main topic, then: I also needed a WebSocket connection.  Hope
 
 Beyond the built-in http package, [Express](https://www.npmjs.com/package/express) is a critical part of what makes the modularity and portability of routes work.  To make WebSockets work I import [ws](https://www.npmjs.com/package/ws).  
 
-As I note within **Express Routers Make Endpoint Definitions Modular** (above), I needed a few wrapper classes to make this work.  I ended up needing a wrapper around instances of `express.Router` and the routes defined for them (I refer to these as routeSets — see below).  I'd also need a wrapper around `http.Server` that provided storage for settings and utility methods that made it possible to define settings and start and stop the server.
+As I note within **Express Routers Make Endpoint Definitions Modular** (above), I needed a few wrapper classes to make this work.  I ended up needing a wrapper around instances of `express.Router` and the routes defined for them (I refer to these as routeSets -- see below).  I'd also need a wrapper around `http.Server` that provided storage for settings and utility methods that made it possible to define settings and start and stop the server.
 
 Again: I want users to be able to configure a server with a minimum of highly-readable code.  
 

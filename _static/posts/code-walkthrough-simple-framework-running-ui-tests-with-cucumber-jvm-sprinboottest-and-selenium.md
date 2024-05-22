@@ -44,17 +44,17 @@ If you'd like to see the versions of everything I'm using I actually make them a
 
 ## Organizing the Project as Ready to Modularize
 
-I have personally had the experience of defining new tests in more than one expansive, monolithic JVM-based test framework, then configuring the framework to point at the appropriate test system, then pressing enter to execute. After that… (we wait)
+I have personally had the experience of defining new tests in more than one expansive, monolithic JVM-based test framework, then configuring the framework to point at the appropriate test system, then pressing enter to execute. After that... (we wait)
 
-Then… (we wait)
+Then... (we wait)
 
-Then… (we wait)
+Then... (we wait)
 
-And we continue to wait (maybe three minutes, maybe longer — who knows) while the whole project compiles, including potentially running any tests against it. Only then do we get to execute tests. Hopefully we didn't encounter a compilation error or make a mistake that would require us to stop execution (hopefully the tests don't fail while we're at it), because then all that time we spent waiting would effectively have been wasted.
+And we continue to wait (maybe three minutes, maybe longer -- who knows) while the whole project compiles, including potentially running any tests against it. Only then do we get to execute tests. Hopefully we didn't encounter a compilation error or make a mistake that would require us to stop execution (hopefully the tests don't fail while we're at it), because then all that time we spent waiting would effectively have been wasted.
 
 For now let's not talk about potentially running this framework in cloud infrastructure or a CI service that charged by the compute cycle.
 
-A few years ago I found a pattern (it looks like it's since been taken down by the author) where the software engineer modularized parts of the framework, each (defined for Maven — not Gradle) with its own individual `pom.xml`:
+A few years ago I found a pattern (it looks like it's since been taken down by the author) where the software engineer modularized parts of the framework, each (defined for Maven -- not Gradle) with its own individual `pom.xml`:
 
 - [glue](https://github.com/trevorwagner/spiegel-junit-med/tree/main/src/main/java/io/twagner/spiegel/cucumber/glue): Store Cucumber step definitions, lifecycle hook code, and code directly tied to running Cucumber steps.
 - [pageobjects](https://github.com/trevorwagner/spiegel-junit-med/tree/main/src/main/java/io/twagner/spiegel/pageobjects): Store only page objects (if you're unfamiliar with page objects see below) used with Selenium (or your applicable UI interaction framework).
@@ -135,7 +135,7 @@ There's more going on here (like how I use `@CachedLookup` to discourage looking
 
 Once I have everything else set up, I can start writing Cucumber step definitions that interact with the page objects (thereby the browser) to do things like submit a search query and read the search result page. It took a lot of work to get here, but this is where I wanted to be.
 
-Likely I already have a couple step definitions I've written to validate the test framework — basically something like "it works!" Once I have working step definitions for the system under test I'll probably throw these away.
+Likely I already have a couple step definitions I've written to validate the test framework -- basically something like "it works!" Once I have working step definitions for the system under test I'll probably throw these away.
 
 For the framework demo itself, I created two step definition classes: [one for the DuckDuckGo main search page](https://github.com/trevorwagner/spiegel-junit-med/blob/2f2ce3175bea3d518b42f1d02d7bde142d525b48/src/main/java/io/twagner/spiegel/cucumber/glue/duckduckgo/DuckDuckGoHomePageSteps.java), and [one for the DuckDuckGo search result page](https://github.com/trevorwagner/spiegel-junit-med/blob/main/src/main/java/io/twagner/spiegel/cucumber/glue/duckduckgo/DuckDuckGoSerpPageSteps.java). Each step definition class also carries an associated page object for the respective UI Page targeted by the respective step definition class (here are the page object for main page and [the page object for search results page](https://github.com/trevorwagner/spiegel-junit-med/blob/2f2ce3175bea3d518b42f1d02d7bde142d525b48/src/main/java/io/twagner/spiegel/cucumber/glue/duckduckgo/DuckDuckGoSerpPageSteps.java)).
 

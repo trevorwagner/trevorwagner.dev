@@ -39,7 +39,7 @@ Something very similar happens at a circus and frequently during magic shows whe
 
 In practice I find there is sometimes dissent as to whether assertion statements are actually necessary.  I disagree, but it seems like an extended discussion deserves its own post.  Maybe someday.
 
-When I read- or write a test specification, I try to maintain focus on the assertion statement first.  It's generally lower stakes (for example, a response to an HTTP call generally returns the expected response code or it doesn't) than a circus or a magic show, but much the same way as with the above it's worth focusing attention on.  Generally I've found it helps the most if it is (on its own or paired with the action) the main point of interest within the test, both what the test builds up to and the point where one trapeze artists catches the other (no net) — or possibly not.  The only way to know is to watch.
+When I read- or write a test specification, I try to maintain focus on the assertion statement first.  It's generally lower stakes (for example, a response to an HTTP call generally returns the expected response code or it doesn't) than a circus or a magic show, but much the same way as with the above it's worth focusing attention on.  Generally I've found it helps the most if it is (on its own or paired with the action) the main point of interest within the test, both what the test builds up to and the point where one trapeze artists catches the other (no net) -- or possibly not.  The only way to know is to watch.
 
 ## The Action and its Aftermath: A Turning Point That Leaves The Results Exposed
 
