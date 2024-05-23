@@ -4,7 +4,7 @@ from pathlib import Path
 from re import match, sub
 from urllib.parse import urlparse
 
-from collect_inventory.http_io import get_remote_data
+from collect_inventory.http_io import http_get
 
 
 def get_filename_from_url(url):
@@ -26,6 +26,11 @@ def get_photo_dimensions(url):
 def get_metadata_for_image(image_url):
     md_url = "".join([str(os.path.dirname(image_url)), "/md.json"])
 
-    image_data = get_remote_data(md_url)
+    image_data = http_get(md_url).read().decode()
 
     return image_data
+
+
+def get_headers_for_image(image_url):
+    header_data = http_get(image_url).headers
+    return header_data

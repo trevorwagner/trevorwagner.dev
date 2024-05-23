@@ -59,12 +59,3 @@ def build_html_for_page(page: Page):
                 a.script(_t="hljs.highlightAll();")
 
     return str(a)
-
-
-# def build_rss_description_for_page(page: Page):
-#     a = Airium()
-
-#     with a.html(lang="en"):
-#         with a.head():
-
-#     return str(a)

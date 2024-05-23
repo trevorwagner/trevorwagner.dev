@@ -5,7 +5,7 @@ from sqlalchemy.orm import Session
 
 from markdown import markdown
 
-from inventory_service import Page, BlogPost, engine
+from inventory_service import Image, Page, BlogPost, engine
 from generate_html.timestamps import timestamp_blog_post_format
 
 
@@ -22,18 +22,7 @@ def blog_post_summary_link(a: Airium, post: BlogPost):
 def cover_photo(a: Airium, page: Page):
     with a.div(klass="cover-photo"):
         a.img(src=page.blog_post.cover_photo.url)
-        with a.p(_t="Photo by "):
-            a.a(
-                _t=page.blog_post.cover_photo.get_attibute_value_for_key("author_name"),
-                href=f"{page.blog_post.cover_photo.get_attibute_value_for_key('author_url')}?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash",
-                target="blank",
-            )
-            a(" on ")
-            a.a(
-                _t="Unsplash",
-                href=f"{page.blog_post.cover_photo.get_attibute_value_for_key('source_url')}?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash",
-                target="blank",
-            )
+        photo_credit(a, page.blog_post.cover_photo)
     return
 
 
@@ -126,6 +115,28 @@ def page_title(a: Airium, page: Page):
             a.title(_t="Blog Post: {} | Trevor Wagner".format(escape(page.title)))
         else:
             a.title(_t="{} | Trevor Wagner".format(escape(page.title)))
+    return
+
+
+def photo_credit(a: Airium, image: Image):
+    with a.p(_t="Photo by "):
+        if image.attributes_contains_key("author_url"):
+            a.a(
+                _t=image.get_attibute_value_for_key("author_name"),
+                href=f"{image.get_attibute_value_for_key('author_url')}?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash",
+                target="blank",
+            )
+
+        else:
+            a(image.get_attibute_value_for_key("author_name"))
+
+        if image.attributes_contains_key("source_url"):
+            a(" on ")
+            a.a(
+                _t="Unsplash",
+                href=f"{image.get_attibute_value_for_key('source_url')}?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash",
+                target="blank",
+            )
     return
 
 

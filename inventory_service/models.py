@@ -105,14 +105,17 @@ class Image(Base):
     attributes: Mapped[List["ImageAttribute"]] = relationship(back_populates="image")
 
     def get_attibute_value_for_key(self, key: str):
-        try:
-            matches = list(
-                filter(lambda attribute: attribute.key == key, self.attributes)
-            )
-        except:
+        matches = list(filter(lambda attribute: attribute.key == key, self.attributes))
+        if len(matches) < 1:
             raise KeyError(f"Unable to find attribute key {key} for {repr(self)}")
 
-        return matches[0].value
+        else:
+            return matches[0].value
+
+    def attributes_contains_key(self, key: str):
+        matches = list(filter(lambda attribute: attribute.key == key, self.attributes))
+
+        return len(matches) > 0
 
     def __repr__(self):
         return f"<Image {self.id}>"
@@ -126,22 +129,6 @@ class ImageAttribute(Base):
 
     key: Mapped[str] = mapped_column(sa.String(55), nullable=False)
     value: Mapped[str] = mapped_column(sa.String(255))
-
-    # @hybrid_property
-    # def key(self):
-    #   return self._key
-
-    # @key.setter
-    # def key(self, name: str):
-    #   self._key = name
-
-    # @hybrid_property
-    # def value(self):
-    #   return self._value
-
-    # @key.setter
-    # def value(self, value: str):
-    #   self._value = value
 
     __table_args__ = (sa.PrimaryKeyConstraint("image_id", "key"),)
 

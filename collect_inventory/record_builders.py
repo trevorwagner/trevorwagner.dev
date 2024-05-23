@@ -10,26 +10,27 @@ from collect_inventory.analysis.md_files import (
 from collect_inventory.analysis.image_files import get_photo_dimensions
 
 
-def build_image_record(url, photo_data):
+def build_image_record(url, photo_data, file_headers):
     parsed_metadata = json.loads(photo_data)
 
     new_record = Image(url=url)
 
     if "author" in parsed_metadata:
-        new_record.attributes.extend(
-            [
-                ImageAttribute(
-                    key="author_name", value=parsed_metadata["author"]["username"]
-                ),
+        new_record.attributes.append(
+            ImageAttribute(
+                key="author_name", value=parsed_metadata["author"]["username"]
+            )
+        )
+        if "profile" in parsed_metadata["author"]:
+            new_record.attributes.append(
                 ImageAttribute(
                     key="author_url", value=parsed_metadata["author"]["profile"]
                 ),
-            ]
-        )
-
-    new_record.attributes.append(
-        ImageAttribute(key="source_url", value=parsed_metadata["source"])
-    )
+            )
+        if "source" in parsed_metadata:
+            new_record.attributes.append(
+                ImageAttribute(key="source_url", value=parsed_metadata["source"]),
+            )
 
     image_dimensions = get_photo_dimensions(url)
 
@@ -39,6 +40,18 @@ def build_image_record(url, photo_data):
             ImageAttribute(key="image_width", value=image_dimensions["h"]),
         ]
     )
+
+    if file_headers is not None:
+        new_record.attributes.extend(
+            [
+                ImageAttribute(
+                    key="file_content_length", value=file_headers.get("Content-Length")
+                ),
+                ImageAttribute(
+                    key="file_content_type", value=file_headers.get("Content-Type")
+                ),
+            ]
+        )
 
     return new_record
 

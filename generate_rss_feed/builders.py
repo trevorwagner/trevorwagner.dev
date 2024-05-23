@@ -1,6 +1,11 @@
+from airium import Airium
 from datetime import datetime
+from markdown import markdown
 from xml.sax.saxutils import escape
 from zoneinfo import ZoneInfo
+
+from generate_html.html_components import photo_credit
+
 
 build_time = datetime.now()
 
@@ -21,11 +26,37 @@ metadata = {
 }
 
 
+def build_content_html_for_post(post):
+    a = Airium()
+
+    with a.div():
+        if post.cover_photo is not None:
+            with a.div():
+                a.img(src=post.cover_photo.url)
+
+        a(markdown(post.page.md_file.page_content.replace('(/', '(https://www.trevorwagner.dev/')))
+
+        if post.cover_photo is not None:
+            photo_credit(a, post.cover_photo)
+        with a.p():
+            a.href(_t="More posts", href="https://trevorwagner.dev/blog/")
+        a.hr()
+
+        with a.p():
+            a("&#169; " + metadata["copyright"])
+
+    return str(a)
+
+
 def build_rss_for_blog_posts(posts):
     rss = "".join(
         [
             '<?xml version="1.0" encoding="UTF-8"?>',
-            '\n<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">',
+            '\n<rss version="2.0"',
+            '\n\txmlns:atom="http://www.w3.org/2005/Atom"',
+            '\n\txmlns:dc="http://purl.org/dc/elements/1.1/"',
+            '\n\txmlns:content="http://purl.org/rss/1.0/modules/content/"',
+            " >",
         ]
     )
 
@@ -42,7 +73,7 @@ def build_rss_for_blog_posts(posts):
         ]
     )
 
-    for post in posts:
+    for post in posts[:20]:
         new_item = "".join(
             [
                 "\n\t<item>",
@@ -51,8 +82,10 @@ def build_rss_for_blog_posts(posts):
                 f"\n\t\t<pubDate>{timestamp_rfc_822(post.published)}</pubDate>",
                 # TODO: Add summaries to each blog post MD, to use for Description here.
                 # TODO: Add summary element to manifest generation script.
-                # '\n\t\t<description>{}</description>.format()'.format(escape(post["description"])),
-                f"\n\t\t<guid>https://trevorwagner.dev{escape(post.page.relative_path)}</guid>"
+                f'\n\t\t"<description><![CDATA[lorem ipsum]]></description>',
+                f"\n\t\t<guid>https://trevorwagner.dev{escape(post.page.relative_path)}</guid>",
+                f'\n\t\t<enclosure url="{post.cover_photo.url}" length="{post.cover_photo.get_attibute_value_for_key('file_content_length')}" type="{post.cover_photo.get_attibute_value_for_key('file_content_type')}"/>',
+                f"\n\t\t<content:encoded><![CDATA[{build_content_html_for_post(post)}]]></content:encoded>",
                 "\n\t</item>",
             ]
         )

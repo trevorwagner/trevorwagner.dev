@@ -1,7 +1,10 @@
 from sqlalchemy.orm import Session
 
 from _static import list_page_files, list_post_files, get_file_contents
-from collect_inventory.analysis.image_files import get_metadata_for_image
+from collect_inventory.analysis.image_files import (
+    get_metadata_for_image,
+    get_headers_for_image,
+)
 from collect_inventory.record_builders import (
     build_image_record,
     build_md_file_record,
@@ -35,23 +38,24 @@ if __name__ == "__main__":
             blog_post = build_blog_post_record(page_record)
 
             # I anticipate that some blog posts may not have cover photos.
+            # TODO: This is not catching where coverPhoto is set but has no contents.
             if "coverPhoto" in blog_post.page.md_file.page_metadata:
-                image_details = get_metadata_for_image(
-                    blog_post.page.md_file.page_metadata["coverPhoto"]
-                )
+                cover_url = blog_post.page.md_file.page_metadata["coverPhoto"]
+
+                cover_metadata = get_metadata_for_image(cover_url)
+                cover_headers = get_headers_for_image(cover_url)
                 blog_post.cover_photo = build_image_record(
-                    blog_post.page.md_file.page_metadata["coverPhoto"], image_details
+                    cover_url, cover_metadata, cover_headers
                 )
 
             # Currently all blog posts need a thumbnail to be specified.
             # If I expect to support a default thumbnail, then I need to do extra work.
             # This should should alert me either to operator error or need for extra work.
             try:
-                image_details = get_metadata_for_image(
-                    blog_post.page.md_file.page_metadata["coverPhoto"]
-                )
+                thumb_url = blog_post.page.md_file.page_metadata["thumbnail"]
+                thumb_metadata = get_metadata_for_image(thumb_url)
                 blog_post.thumbnail = build_image_record(
-                    blog_post.page.md_file.page_metadata["thumbnail"], image_details
+                    thumb_url, thumb_metadata, None
                 )
             except KeyError:
                 raise KeyError(
