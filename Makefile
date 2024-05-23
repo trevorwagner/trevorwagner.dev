@@ -23,11 +23,11 @@ rss: inventory
 sane:
 	bash ./_make_markdown_sane.sh
 
-sitemap: inventory
-	python3 -m generate_xml_sitemap
-
 site: sane modtimes inventory pages sitemap rss
 	cp -R ./_static/public/{.htaccess,css,js,images,robots.txt} ./_dist/html/
+
+sitemap: inventory
+	python3 -m generate_xml_sitemap
 
 test:
 	python -m pytest tests/ --verbose
