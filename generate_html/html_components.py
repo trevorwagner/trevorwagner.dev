@@ -2,6 +2,7 @@ from airium import Airium
 from datetime import datetime
 from xml.sax.saxutils import escape
 from sqlalchemy.orm import Session
+from zoneinfo import ZoneInfo
 
 from markdown import markdown
 
@@ -14,7 +15,7 @@ def blog_post_summary_link(a: Airium, post: BlogPost):
         a.img(src=post.thumbnail.url, alt=escape(post.page.title))
         with a.a(href=post.page.relative_path):
             a.h2(_t=escape(post.page.title))
-        a.time(_t=escape(timestamp_blog_post_format(post.published)))
+        a.time(datetime=post.published.replace(tzinfo=ZoneInfo("America/Chicago")).strftime('%Y-%m-%dT%H:%M:%S.000%z'), _t=escape(timestamp_blog_post_format(post.published)))
         a.div(klass="clear-both")
     return
 
@@ -88,7 +89,7 @@ def page_content(a: Airium, page: Page):
     with a.div(id="content"):
         a.h1(_t=escape(str(page.title)))
         if page.type == "blogPost":
-            a.time(_t=timestamp_blog_post_format(page.blog_post.published))
+            a.time(datetime=page.blog_post.published.replace(tzinfo=ZoneInfo("America/Chicago")).strftime('%Y-%m-%dT%H:%M:%S.000%z'), _t=timestamp_blog_post_format(page.blog_post.published))
             cover_photo(a, page)
 
         if page.relative_path != "/blog/":
