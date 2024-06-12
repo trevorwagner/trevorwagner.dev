@@ -9,15 +9,15 @@ draft: false
 
 At a couple different points in previous lives I've found myself in a position where it made sense to build an in-memory data management system in JavaScript (also typed for TypeScript). In this post I'll talk briefly about why I designed the system the way I did and what I ended up building. In essence, it uses a [generic repository pattern](https://khalilstemmler.com/articles/typescript-domain-driven-design/repository-dto-mapper/) (built on [LokiJS](https://www.npmjs.com/package/lokijs)) that makes it possible not just to store and recall test data but also to validate it.
 
-Even if your aim is to store and supply mock responses of API calls to a UI front end, it might be a good idea to invest in test data management.  Managing test data centrally like this allows the management system to serve as a single source of truth for system state (whether that be in the system under test or even the framework itself) while at the same time providing a predictable set of methods to be able to set and recall full- or partial records with minimal code.  This can also help make test cleanup a breeze and provide a reusable system that can also be tested on its own (thereby increasing confidence in testing systems that depend on it).
+Even if your aim is to store and supply mock responses of API calls to a UI front end, it might be a good idea to invest in test data management. Managing test data centrally like this allows the management system to serve as a single source of truth for system state (whether that be in the system under test or even the framework itself) while at the same time providing a predictable set of methods to be able to set and recall full- or partial records with minimal code. This can also help make test cleanup a breeze and provide a reusable system that can also be tested on its own (thereby increasing confidence in testing systems that depend on it).
 
 The same way the generic repository pattern is not new on its own, it's also not new to JavaScript/ TypeScript. The same way: when I originally implemented this project, it wasn't my first time working with in-memory databases. In essence what I built here is based on both, plus data validation and quality-of-life functionality that I believe (and my experience with this system as a tester tells me) is helpful to have when implementing data management for tests.
 
-Beyond any implementation I've made of this system for companies I've worked with, I have also implemented this solution on my own time with my own resources.  What I'll be describing in this post is a version of this solution I've written independently.
+Beyond any implementation I've made of this system for companies I've worked with, I have also implemented this solution on my own time with my own resources. What I'll be describing in this post is a version of this solution I've written independently.
 
 ## Overview/ Understanding the Problem
 
-The main problem I wanted to solve was *how to find a place for CucumberJS steps to effectively store/ manage data while running tests*.  As I ran Cucumber steps, I would create data that would need to be stored somewhere in order to be able to persist state (even if just in runtime), and I wanted a system that would do this for me.
+The main problem I wanted to solve was *how to find a place for CucumberJS steps to effectively store/ manage data while running tests*. As I ran Cucumber steps, I would create data that would need to be stored somewhere in order to be able to persist state (even if just in runtime), and I wanted a system that would do this for me.
 
 In an even-earlier previous life I worked with a testing system designed (at a high level) by an architect who suggested using transactional MySQL queries for ETL testing as opposed to a full database. With this design it ended up just taking a couple minutes to run thousands of tests.
 
@@ -47,7 +47,7 @@ In general, I had a couple other assumptions I worked under as I designed this s
 - I believe it's important that tests be easy to clean up.
 - Testing code responsible for testing minimizes risk to test system functionality and anything that depends on It.
 - Making test support code easily accessible is just as important as with test- and step Methods.
-- Proactive test data hygiene generally pays itself off.  
+- Proactive test data hygiene generally pays itself off.
 
 ## Design: Tech Stack and Document-Matching Paradigm
 
@@ -186,7 +186,7 @@ All of the above I typically write as untyped JavaScript. There are two reasons 
 
 When the project is written as JavaScript, I can use it in another JavaScript project if I'd like, and I can use it without needing to transpire it. With typed JavaScript, I just need to push code to remote and confirm that tests pass as expected.
 
-In essence, then, the last step is to get the project ready for use within TypeScript.  Create a custom `types.d.ts` file, and add a reference to the file within `package.json`.
+In essence, then, the last step is to get the project ready for use within TypeScript. Create a custom `types.d.ts` file, and add a reference to the file within `package.json`.
 
 I do write system-level tests for this library in TypeScript that (among other things) replicate some of the same tests that I run at a lower level in JavaScript.
 
@@ -215,14 +215,14 @@ const peopleRecords = new PeopleRecordSet();
 const newPerson = peopleRecords.create({ firstName: 'new', lastName: 'person' });
 </code></pre>
 
-One line of code to instantiate the repository.  Another to create a dictionary that matches a record stored within the repository.  
+One line of code to instantiate the repository. Another to create a dictionary that matches a record stored within the repository.
 
-This gets us all of the above, including: 
+This gets us all of the above, including:
 
 - A single source of truth for test data state.
-- Simplified test data cleanup.  
+- Simplified test data cleanup.
 - Common CRUD API for repositories.
-- Test data validation (with usable error messages).  
+- Test data validation (with usable error messages).
 - Repository data introspection.
 - Test data events.
 - Custom repository options.

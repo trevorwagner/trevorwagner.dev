@@ -11,13 +11,11 @@ It's easy to think about the things you anticipate happening when a work product
 
 The risk assessments I write are effectively reports on what I find when I evaluate a system or component functionality. The more I can understand or have access to within that system, the more I can generally find.
 
-
 ## Test Plans
 
 I have written test plans for everything from a simple read-only Web page to a complete rewrite of saved search functionality in a managed information system. I'm pretty methodical, and time has shown that the types of tests I plan don't just help testers.
 
 The test plans I write are effectively outlines that describe which parts of a system (or component functionality) should be inspected. Within the outline, the plan poses questions in terms of stakeholder concerns (and variations on those questions) to serve as lines of inquiry to address those concerns while at the same time providing testers and developers with flexibility if the functionality is in active development.
-
 
 ## Test Framework/ Library Development
 
@@ -25,13 +23,11 @@ I've built custom test automation frameworks in a couple different languages, fo
 
 I approach framework- and library development like custom application development. Once we have a clear understanding of the testing problem and which tools might be best to solve that problem, I can get to work on a potential solution.
 
-
 ## Test Development
 
 Automated tests don't just help evaluate a work product; they help make sense of the system under test and document both what makes it valuable and how that value gets tested.
 
 When I write automated tests, these are the sorts of things I focus on, along with making sure tests are generally stable and performant.
-
 
 ## Testing Strategy
 

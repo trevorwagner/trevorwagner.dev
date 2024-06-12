@@ -21,7 +21,7 @@ rss: inventory
 	cp ./_static/public/feed/index.php ./_dist/html/blog/feed/
 
 sane:
-	bash ./_make_markdown_sane.sh
+	bash ./_sanitize_markdown.sh
 
 site: sane modtimes inventory pages sitemap rss
 	cp -R ./_static/public/{.htaccess,css,js,images,robots.txt} ./_dist/html/

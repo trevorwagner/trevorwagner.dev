@@ -24,15 +24,14 @@ Linux (including Ubuntu, RHEL/ CentOS). macOS. iOS. Windows. Windows Server. And
 ### Other Software/ Technologies
 NodeJS. Tomcat 7, 8. MySQL 5. NoSQL. Selenium/ Webdriver. Cucumber/ Gherkin. Angular CLI. JUnit. TestNG. Spock. Jasmine. Karma. Mocha + chai. LokiJS. ExpressJS. Docker. VMWare Fusion 6-7. VirtualBox 4+. Maven. Gradle. Active Directory. Git. SVN. JIRA/ Atlassian Suite. Jenkins. CircleCI. Browserstack. TestRail. SalesForce. MantisBT. HTML/ Web Publishing. XML. RESTful APIs. IntelliJ. Visual Studio Code.
 
-
 ## Professional Experience
 
 ### Owner/ Member, Principal Consultant
 _Upstream Consulting LLC (St. Paul, MN/ Remote). 2023-present_
 
-- Developed business plan, marketing strategy, and brand for a small consulting company that focuses on helping software development organizations determine how to deliver with quality.  Developed a Website (trevorwagner.dev) and a blog (hosted on the same site) designed to speak to customer demand for competent, well-qualified QA Automation Engineers/ SDETs.
-- Developed and maintained internally-hosted infrastructure, including Dockerized Jenkins service, Git service, K3s cluster for Jenkins agents, and federated login.  Wrote- and maintained code to support deployment of any of the above and to define templates for test frameworks and test support code that could be used as starting points for future engagements.
-- In addition to setting strategy, set milestones for progress.  Defined internal policies and operating agreement.  Developed and maintained business relationships with vendors and potential clients.  Worked internally and with vendors to ensure work was completed sufficiently and in time to meet internal milestones.  Tracked work as necessary.  Developed a system of cataloguing vital business records.
+- Developed business plan, marketing strategy, and brand for a small consulting company that focuses on helping software development organizations determine how to deliver with quality. Developed a Website (trevorwagner.dev) and a blog (hosted on the same site) designed to speak to customer demand for competent, well-qualified QA Automation Engineers/ SDETs.
+- Developed and maintained internally-hosted infrastructure, including Dockerized Jenkins service, Git service, K3s cluster for Jenkins agents, and federated login. Wrote- and maintained code to support deployment of any of the above and to define templates for test frameworks and test support code that could be used as starting points for future engagements.
+- In addition to setting strategy, set milestones for progress. Defined internal policies and operating agreement. Developed and maintained business relationships with vendors and potential clients. Worked internally and with vendors to ensure work was completed sufficiently and in time to meet internal milestones. Tracked work as necessary. Developed a system of cataloguing vital business records.
 
 ### Senior QA Automation Engineer
 _FullStory (Atlanta, GA/ Remote). 2021-2023_
@@ -54,7 +53,6 @@ _Jamf (Minneapolis, MN). 2014 – 2018_
 - Served on Scrum teams that delivered high-profile, high-impact functional additions and refactors to company's primary offering (an endpoint management suite/ SaaS running in Java with MySQL). Planned and executed manual tests for both functionality in-flight and release testing. Developed automated testing strategies for large projects. Worked with teams to develop- and mature processes that facilitated delivery of quality at speed.
 - Wrote automated tests and helped design test support code. Developed and executed test plans and testing strategy for manual and automation. Designed Cucumber step definitions to support an 18-month refactors of smart search functionality. Reviewed production- and test code presented within PRs.
 - Assigned work to SDETs and Mentored other team members and led team-level conversations to help define quality, stakeholder roles in a quality release, and how to approach defining processes to support both. Mentored junior members. Facilitated communications with other delivery teams and with Support.
-
 
 ### Software QA/ End-User Support
 _Mariner Software (Minneapolis, MN). 2010-2014_
@@ -78,7 +76,7 @@ _Wayzata High School (Plymouth, MN)_
 ## Contact
 
 ### Website
-[trevorwagner.dev](https://trevorwagner.dev) 
+[trevorwagner.dev](https://trevorwagner.dev)
 
 ### LinkedIn
 [trevorwagner05](https://www.linkedin.com/in/trevorwagner05/)
