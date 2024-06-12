@@ -73,22 +73,23 @@ def build_rss_for_blog_posts(posts):
         ]
     )
 
-    for post in posts[:20]:
-        new_item = "".join(
-            [
-                "\n\t<item>",
-                f"\n\t\t<title>{post.page.title}</title>",
-                f"\n\t\t<link>https://trevorwagner.dev{escape(post.page.relative_path)}</link>",
-                f"\n\t\t<pubDate>{timestamp_rfc_822(post.published)}</pubDate>",
-                # TODO: Add summaries to each blog post MD, to use for Description here.
-                # TODO: Add summary element to manifest generation script.
-                # f'\n\t\t"<description><![CDATA[lorem ipsum]]></description>',
-                f"\n\t\t<guid>https://trevorwagner.dev{escape(post.page.relative_path)}</guid>",
-                f'\n\t\t<enclosure url="{post.cover_photo.url}" length="{post.cover_photo.get_attibute_value_for_key('file_content_length')}" type="{post.cover_photo.get_attibute_value_for_key('file_content_type')}"/>',
-                f"\n\t\t<content:encoded><![CDATA[{build_content_html_for_post(post)}]]></content:encoded>",
-                "\n\t</item>",
-            ]
-        )
+    for post in posts[:20] :
+        if post.page.draft == False:
+            new_item = "".join(
+                [
+                    "\n\t<item>",
+                    f"\n\t\t<title>{post.page.title}</title>",
+                    f"\n\t\t<link>https://trevorwagner.dev{escape(post.page.relative_path)}</link>",
+                    f"\n\t\t<pubDate>{timestamp_rfc_822(post.published)}</pubDate>",
+                    # TODO: Add summaries to each blog post MD, to use for Description here.
+                    # TODO: Add summary element to manifest generation script.
+                    # f'\n\t\t"<description><![CDATA[lorem ipsum]]></description>',
+                    f"\n\t\t<guid>https://trevorwagner.dev{escape(post.page.relative_path)}</guid>",
+                    f'\n\t\t<enclosure url="{post.cover_photo.url}" length="{post.cover_photo.get_attibute_value_for_key('file_content_length')}" type="{post.cover_photo.get_attibute_value_for_key('file_content_type')}"/>',
+                    f"\n\t\t<content:encoded><![CDATA[{build_content_html_for_post(post)}]]></content:encoded>",
+                    "\n\t</item>",
+                ]
+            )
 
         channel = "".join([channel, new_item])
 
