@@ -8,16 +8,17 @@ def build_sitemap_for_pages(pages):
     )
 
     for page in pages:
-        timestamp = page.md_file.mod_time.strftime("%Y-%m-%dT%H:%M:%S.%fZ")
-        new_item = "".join(
-            [
-                "\n\t<url>",
-                f"\n\t\t<loc>https://www.trevorwagner.dev{page.relative_path}</loc>",
-                f"\n\t\t<lastmod>{timestamp}</lastmod>",
-                "\n\t</url>",
-            ]
-        )
-        sitemap = "".join([sitemap, new_item])
+        if page.draft == False:
+            timestamp = page.md_file.mod_time.strftime("%Y-%m-%dT%H:%M:%S.%fZ")
+            new_item = "".join(
+                [
+                    "\n\t<url>",
+                    f"\n\t\t<loc>https://www.trevorwagner.dev{page.relative_path}</loc>",
+                    f"\n\t\t<lastmod>{timestamp}</lastmod>",
+                    "\n\t</url>",
+                ]
+            )
+            sitemap = "".join([sitemap, new_item])
 
     sitemap = "".join([sitemap, "\n</urlset>"])
 
