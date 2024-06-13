@@ -39,7 +39,7 @@ def build_content_html_for_post(post):
         if post.cover_photo is not None:
             photo_credit(a, post.cover_photo)
         with a.p():
-            a.href(_t="More posts", href="https://trevorwagner.dev/blog/")
+            a.a(_t="More posts", href="https://trevorwagner.dev/blog/")
         a.hr()
 
         with a.p():
