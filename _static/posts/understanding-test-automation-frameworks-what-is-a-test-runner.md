@@ -29,7 +29,7 @@ Regardless of whether a given command line call is executing the library directl
 ### Code-Level API for Test Execution
 Most test runners also provide classes and methods within code that can be used configure- and begin execution of a test run. For example, Jasmine allows defining a test run with JavaScript code that looks like this:
 
-```js
+<pre><code class="language-javascript">
 import Jasmine from 'jasmine';
 
 const jasmine = new Jasmine();
@@ -39,7 +39,7 @@ await jasmine.execute().then(() => {
   resolve();
 });
 
-```
+</code></pre>
 
 This can be useful in a number of cases, even if it's likely not especially intuitive for beginners. For example, a configuration like this can be used either to encapsulate suite configurations or extend (for example, by way of passing custom configuration options via command-line arguments or environment variables) built-in support the runner offers for configuration. It can also potenitally be used to configure parallel test runs launched within a process executed with a single command.
 
@@ -68,7 +68,7 @@ This can be valuable beyond monitoring test status in a terminal window or live 
 ### Test Run Result Affect Runner Exit Status
 When test specifications run they either pass they don't. The most common way for a test specification to fail is by way of an assertion error, where an assertion statement (tasked with comparing the actual result extracted from the system under tests against the expected result defined within code for the test) throws an error upon detecting a mismatch. Specifications can also produce errors (generally distinct from failures) if they encounter an unexpected behavior distinct from a mismatch.
 
-Regardless of whether the specification failure was the result of a test error or a test failure, a non-passing result generally occurs any time a test specification encounters an error or exception (as supported by the programming language tests are automated with) as the test specification executes. As an aside, [this can be used in service strategies to enforce test integrity and reduce overhead in automated testing](/blog/posts/_static/posts/making-the-most-of-throwing-errors/): if the state or status of a test specification varies from expectations when checked within something like an if statement, an error or exception thrown manually can help prevent a test that's effectively out of true from continuing to run. Because most programming langauges support including error messages with errors when they are thrown, this can also help reduce overhead when troubelshooting failing/ erroring tests.
+Regardless of whether the specification failure was the result of a test error or a test failure, a non-passing result generally occurs any time a test specification encounters an error or exception (as supported by the programming language tests are automated with) as the test specification executes. As an aside, [this can be used in service strategies to enforce test integrity and reduce overhead in automated testing](/blog/posts/making-the-most-of-throwing-errors/): if the state or status of a test specification varies from expectations when checked within something like an if statement, an error or exception thrown manually can help prevent a test that's effectively out of true from continuing to run. Because most programming langauges support including error messages with errors when they are thrown, this can also help reduce overhead when troubelshooting failing/ erroring tests.
 
 If any test specification completes with a non-passing result, the associated test run fails. Once a test run completes, the test runner will generally return a result status to the command line: passing runs generally exit cleanly, and failed runs generally result in nonzero/ unsuccessful exit status.
 
@@ -86,7 +86,7 @@ In addiiton, runners that allow for execution by way of a code-level API general
 Some test runners also allow subclassing or overriding portions of their APIs (as supported by the programming language they are implemented) to adapt and add behaviors to meet consumer needs.
 
 ## Conclusion
-To anybody familiar, there is (of course) much more to test runners than what's outlined in this post. Depending on the runner, it may provide functionality that supports parameterizing tests, [nesting/ collating test methods](/blog/posts/_static/posts/collating-test-methods-to-limit-trips-to-external-systems-in-automated-tests/), executing tests in parallel, specifying a subset of tests (within files located at the specified file path to include- or exclude from test runtime), defining test fixtures to persist between specifications, or something else. Some test runners (like Jasmine and Jest -- both for JavaScript) provide integrated assertion APIs (distinct from standalone assertion libraries like [Chai](https://www.chaijs.com/) -- also for JavaScript). The list goes on, especially with runners like pytest or (regardless of the language-specific implementation) Cucumber.
+To anybody familiar, there is (of course) much more to test runners than what's outlined in this post. Depending on the runner, it may provide functionality that supports parameterizing tests, [nesting/ collating test methods](/blog/posts/collating-test-methods-to-limit-trips-to-external-systems-in-automated-tests/), executing tests in parallel, specifying a subset of tests (within files located at the specified file path to include- or exclude from test runtime), defining test fixtures to persist between specifications, or something else. Some test runners (like Jasmine and Jest -- both for JavaScript) provide integrated assertion APIs (distinct from standalone assertion libraries like [Chai](https://www.chaijs.com/) -- also for JavaScript). The list goes on, especially with runners like pytest or (regardless of the language-specific implementation) Cucumber.
 
 For anybody unfamiliar, though, hopefully this provides a frame of reference for what a test runner does. Even if the objective for reading this post was to get a sense of what a specific test runner might be doing, hopefully this provides some context (beyond the documentation for that test runner, which should be essential reading) in terms of what test runners do conventionally.
 
