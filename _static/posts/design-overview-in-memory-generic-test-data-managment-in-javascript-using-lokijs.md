@@ -62,7 +62,7 @@ collection
    .chain()
    .find({ field: 'value' })   // <- Query parameters for a document we would like to match.
    .data({ removeMeta: true }) // <- LokiJS option to remove metadata from documents in ResultSet,
-                               //    which essentially is an array of documents matching the query.
+                               // which essentially is an array of documents matching the query.
 </code></pre>
 LokiJS is generally the only library dependency for this project. In one iteration of this project I believe I also recall using [lodash](https://www.npmjs.com/package/lodash) to deep-clone JSON.
 

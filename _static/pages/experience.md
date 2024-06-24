@@ -57,7 +57,7 @@ _Jamf (Minneapolis, MN). 2014 – 2018_
 ### Software QA/ End-User Support
 _Mariner Software (Minneapolis, MN). 2010-2014_
 
--  Served on teams that delivered fixes, features, and new releases in desktop- and mobile software focused primarily on literary- and culinary creatives. Wrote and executed manual test plans.
+- Served on teams that delivered fixes, features, and new releases in desktop- and mobile software focused primarily on literary- and culinary creatives. Wrote and executed manual test plans.
 - Wrote scripts in bash to automate segments of product shipment process, to generate test data, and to deploy/ configure test environments.
 - Established and maintained strong relationships with developers and other key stakeholders within the organization. Served as acting project and acting product owner on various projects for Window platform. Managed infrastructure and device inventory to automate the configuration of test environments (Mac/ Windows, via Linux).
 

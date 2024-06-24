@@ -23,7 +23,7 @@ I was tasked with testing the UI in an Angular that was part of a full-stack sol
 - **Business Layer:** Java, serving two APIs (one RESTful and the other SOAPish).
 - **Data Layer:** RDBMS (i.e. SQL).
 
-In order to manage test data and limit non-determinism related to the external systems I needed to make a choice:* accept the full stack as an external dependency for testing, or attempt to work around it.*  Ultimately I chose to work around the full stack, opting instead to write a system that managed test data independently of the business- and data layers.
+In order to manage test data and limit non-determinism related to the external systems I needed to make a choice:* accept the full stack as an external dependency for testing, or attempt to work around it.* Ultimately I chose to work around the full stack, opting instead to write a system that managed test data independently of the business- and data layers.
 
 In addition to managing test data, I also needed some sort of transport layer to handle mocking API endpoints consumed by the Angular app and provide mock business logic between the data management system and Angular. I was aware that Express gave me a couple tools that I could use to attempt to build a solution that I was confident in.
 

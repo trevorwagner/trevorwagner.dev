@@ -31,7 +31,7 @@ The Angular page was part of a larger 3-Tier Web app that looked like this:
 
 Historically, to get around issues related to data setup and teardown, the organization that developed this 3-Tier system made extensive use of canned test data sets -- mainly sets of SQL data that were added to instances deployed to Staging once they were spun up. It was nearly impossible to get a deployment with no canned data.
 
-In order to test behaviors on the page, I needed to make a choice: *accept the full stack as an external dependency for testing, or attempt to work around it.*  Ultimately I chose to work around the full stack, opting instead to write a system that managed test data independently of the business- and data layers, and to manage my own test data.
+In order to test behaviors on the page, I needed to make a choice: *accept the full stack as an external dependency for testing, or attempt to work around it.* Ultimately I chose to work around the full stack, opting instead to write a system that managed test data independently of the business- and data layers, and to manage my own test data.
 
 In production, the page displayed within an `<IFRAME>` element that was part of an outer page: the outer page provided view controls that made it possible to select (and search for) which record/s should display on an inner page (that displayed within the `<IFRAME>`). Selection within this UI presented a set of **display variables** that was passed to the inner page. Display variables were passed (as a JSON dictionary) to the inner page by way of an entity in JavaScript (as an [Observable](https://rxjs.dev/guide/observable)) that the inner page needed to subscribe to (using [RxJS](https://www.npmjs.com/package/rxjs)) in order to listen for events.
 

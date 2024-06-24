@@ -63,7 +63,7 @@ Once an automated test specification (test method, Gherkin scenario, etc.) throw
 For a moment, imagine two scenarios:
 
 - **Despite the fact that test runtime reaches the assertion statement, something went wrong very early on** that results in state not conforming to expectations. Despite this, the test continued to run, and although no errors fired earlier in the test, the actual result now differs from the expected result when the assertion statement is executed. The test fails in response to assertion error (at which point it's up to the engineer to track down the point where state started not to conform that led to the assertion error).
-- The same test encountered the same issue in state early on. **Because logic within the test specification (or test support code) caught nonconforming state early, the test now fails at the point of detection.**  The test stops running, and the error (with error message and stack trace) are printed to test results.
+- The same test encountered the same issue in state early on. **Because logic within the test specification (or test support code) caught nonconforming state early, the test now fails at the point of detection.** The test stops running, and the error (with error message and stack trace) are printed to test results.
 
 The second scenario is referred to in some circles as [failing fast](https://testsigma.com/blog/test-automation-achieve-fail-fast-fail-often/). As I understand it the term is somewhat unrecognized when discussing test design; I personally believe it deserves greater visibility.
 
