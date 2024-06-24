@@ -10,7 +10,7 @@ function replace_unwanted_characters_in_file() {
     | sed  s/'\xe2\x80\x9d'/\"/g          \
     | sed  s/'\xe2\x80\x94'/--/g          \
     | sed  s/'\xe2\x80\xa6'/.../g         \
-    | sed -e 's/\([.?!*-]\) \{2,\}/\1 /g' \
+    | sed -e 's/\([.?!*-_]\) \{2,\}/\1 /g' \
     | sed -e s/' \{1,\}$//g'              \
     | grep -A1 . - | grep -v "^--$"       \
     )
