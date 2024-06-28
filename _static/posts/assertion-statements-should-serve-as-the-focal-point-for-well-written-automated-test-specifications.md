@@ -88,7 +88,7 @@ Meanwhile, some of the most expensive activities involved in automated testing (
 - **Test readability.** Is it easy to get an idea of what the specification is doing without intimate knowledge of either how the specification or the system under test is implemented?
 - **Openness to modification/ revision.** How simple does the specification make it either to somehow modify the way test operations have been defined in code?
 
-Assertion statements provide a means for well-written automated test specifications to support all of these things by defining (and limiting focus to) their own target, making the conditions for success clear, and by establishing a focal point to organize the rest of the test with respect to. And the same way they provide a target for the system under test itself, they also provide a target for the authors to focus on, to aim for and seek feedback from, and to align efforts to. 
+Assertion statements provide a means for well-written automated test specifications to support all of these things by defining (and limiting focus to) their own target, making the conditions for success clear, and by establishing a focal point to organize the rest of the test with respect to. And the same way they provide a target for the system under test itself, they also provide a target for the authors to focus on, to aim for and seek feedback from, and to align efforts to.
 
 When repeated over time, the discipline it takes to define and strike a target of this nature reliably pays off.
 
