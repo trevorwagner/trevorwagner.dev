@@ -28,6 +28,7 @@ def build_html_for_page(page: Page):
                     a.meta(property=key, content=value)
 
             page_title(a, page)
+            a.link(rel="canonical", href=f"https://www.trevorwagner.dev{page.relative_path}")
             a(
                 '<script async src="https://us.umami.is/script.js" data-website-id="72e1cfab-c988-430b-9f25-1f52cf8720f4"></script>'
             )
