@@ -6,7 +6,7 @@ RewriteEngine On
 ErrorDocument 404 /404/
 
 # Remove "index.html"
-RewriteRule (.*)index\.html$ /$1 [R=301,NC]
+#RewriteRule (.*)index\.html$ /$1 [R=301,NC] -->
 
 
 # How Working QC in a Print Shop Helped Me Understand What I Was Looking At in Software QA
