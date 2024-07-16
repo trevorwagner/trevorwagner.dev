@@ -25,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $mail->Port       = '<%SMTP_PORT%>';
 
         //Recipients
-        $mail->setFrom($email, "{$name} (via trevorwagner.dev)");
+        $mail->setFrom('<%SMTP_USERNAME%>', "{$name} (via trevorwagner.dev)");
         $mail->addAddress('<%MESSAGE_RECIPIENT%>');
         $mail->addReplyTo($email, $name);
 
