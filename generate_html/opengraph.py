@@ -9,7 +9,7 @@ def assemble_opengraph_data_for_page(page: Page):
         "og:locale": "en_US",
         "og:site_name": "Trevor Wagner | Project-Focused Software Engineer, QA Automation",
         "og:title": escape(page.title),
-        "og:url": f"https://trevorwagner.dev{page.relative_path}",
+        "og:url": f"https://www.trevorwagner.dev{page.relative_path}",
         "og:description": escape(page.md_file.page_content[0:300]),
     }
 

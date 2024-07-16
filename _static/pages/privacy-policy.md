@@ -7,7 +7,7 @@ draft: false
 
 This is a site built and maintained by Upstream Consulting LLC
 ("we"/ "us"). We have prepared this document (accessible at
-[https://trevorwagner.dev/privacy/](https://trevorwagner.dev/privacy/))
+[https://www.trevorwagner.dev/privacy-policy/](https://www.trevorwagner.dev/privacy-policy/))
 to define terms of agreement for use of the site.
 
 ## Use of This Site Serves as Agreement to the Terms Listed on this Page
@@ -23,6 +23,12 @@ that the terms listed on this page (which, again: continued use
 of the site will serve as agreement to) seem agreeable.
 
 ## The Types of Data We Gather
+Currently there are two types of data we gather:
+
+- Analytics data, collected automatically using of a Web analytics service.
+- User-submitted data, submitted through [this site's contact form](/contact/).
+
+### Analytics Data
 As of January 11, 2024 we use [Umami](https://umami.is/) for Web
 analytics. When a visitor visits a page on this site, we are
 granted access to information including the following:
@@ -38,6 +44,24 @@ As our Umami installation is currently configured, it does not
 use [HTTP cookies](https://en.wikipedia.org/wiki/HTTP_cookie) to
 attempt to identify or track unique visitors.
 
+### User-Submitted Form Data
+Users have the opportunity to submit contact information by way of
+[the contact form provided on this site](/contact/). The form prompts
+for (and requires) three types of information for a valid submission:
+
+- Name
+- Email
+- Message
+
+By submitting a contact form request you acknowledge that you are
+legally allowed to submit the information requested within the form,
+that none of the information provided is illegal or prohibited by law
+for you to share (or for us to possess), and that your submission is
+voluntary.
+
+In addition, submission via the contact form serves as consent for us
+to contact you using any contact information you provide.
+
 ## How We Use The Data We Gather
 We use analytics data to track usage of this Website. We are able
 to determine things like the following:
@@ -50,4 +74,5 @@ to determine things like the following:
 ## Your Rights to Your Information
 You have a right to request the information we are able to
 identify as associated with you. The best way to reach us is
-through the social media links in the navigation menu.
+through the social media links in the navigation menu or through
+[the contact form provided on this site](/contact/).

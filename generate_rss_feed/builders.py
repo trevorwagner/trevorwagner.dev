@@ -39,7 +39,9 @@ def build_content_html_for_post(post):
         if post.cover_photo is not None:
             photo_credit(a, post.cover_photo)
         with a.p():
-            a.a(_t="More posts", href="https://trevorwagner.dev/blog/")
+            a.a(_t="More posts", href="https://www.trevorwagner.dev/blog/")
+        with a.p():
+            a.a(_t="Contact", href="https://www.trevorwagner.dev/contact/")
         a.hr()
 
         with a.p():
@@ -79,12 +81,12 @@ def build_rss_for_blog_posts(posts):
                 [
                     "\n\t<item>",
                     f"\n\t\t<title>{post.page.title}</title>",
-                    f"\n\t\t<link>https://trevorwagner.dev{escape(post.page.relative_path)}</link>",
+                    f"\n\t\t<link>https://www.trevorwagner.dev{escape(post.page.relative_path)}</link>",
                     f"\n\t\t<pubDate>{timestamp_rfc_822(post.published)}</pubDate>",
                     # TODO: Add summaries to each blog post MD, to use for Description here.
                     # TODO: Add summary element to manifest generation script.
                     # f'\n\t\t"<description><![CDATA[lorem ipsum]]></description>',
-                    f"\n\t\t<guid>https://trevorwagner.dev{escape(post.page.relative_path)}</guid>",
+                    f"\n\t\t<guid>https://www.trevorwagner.dev{escape(post.page.relative_path)}</guid>",
                     f'\n\t\t<enclosure url="{post.cover_photo.url}" length="{post.cover_photo.get_attibute_value_for_key('file_content_length')}" type="{post.cover_photo.get_attibute_value_for_key('file_content_type')}"/>',
                     f"\n\t\t<content:encoded><![CDATA[{build_content_html_for_post(post)}]]></content:encoded>",
                     "\n\t</item>",

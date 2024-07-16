@@ -23,6 +23,8 @@ if __name__ == "__main__":
         for file in list_page_files():
             md_file = build_md_file_record(file, get_file_contents(file))
             page_record = build_page_record(md_file)
+            if page_record.relative_path == '/contact/':
+                page_record.type="custom"
 
             session.add(page_record)
             session.commit()

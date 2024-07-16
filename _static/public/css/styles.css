@@ -3,6 +3,7 @@
 @import url("hamburger-button.css");
 @import url("overlay-menu.css");
 @import url("social-media-links.css");
+@import url("contact-form.css");
 
 body {
     font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
@@ -182,6 +183,28 @@ a:active {
 
 #content .post-summary time {
     margin-top: 0.0625rem;
+}
+
+.lowvis {
+    display: none !important;
+}
+
+.notice {
+    margin-top: 4.125rem;
+    margin-bottom: 1.625rem;
+    padding: 0.625rem 0.75rem 0.625rem;
+    background-color: rgb(213, 212, 212);
+    border: 1px solid rgb(102, 102, 102);
+}
+
+.notice.success {
+    border: 1px solid rgb(0, 77, 0);
+    background-color: rgb(140, 217, 140);
+}
+
+.notice.error {
+    border: 1px solid rgb(153, 0, 0);
+    background-color: rgb(255, 153, 153);
 }
 
 /* sm */

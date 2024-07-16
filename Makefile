@@ -1,6 +1,9 @@
 clean:
 	rm -fR ./_dist
 
+dependencies:
+	bash ./_fetch_dependencies.sh
+
 devserver:
 	bash ./_start_dev_server.sh
 
@@ -23,7 +26,7 @@ rss: inventory
 sane:
 	bash ./_sanitize_markdown.sh
 
-site: sane modtimes inventory pages sitemap rss
+site: sane modtimes inventory pages sitemap rss dependencies
 	cp -R ./_static/public/{.htaccess,css,js,images,robots.txt} ./_dist/html/
 
 sitemap: inventory

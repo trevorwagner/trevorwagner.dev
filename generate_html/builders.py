@@ -28,7 +28,10 @@ def build_html_for_page(page: Page):
                     a.meta(property=key, content=value)
 
             page_title(a, page)
-            a.link(rel="canonical", href=f"https://www.trevorwagner.dev{page.relative_path}")
+            a.link(
+                rel="canonical",
+                href=f"https://www.trevorwagner.dev{page.relative_path}",
+            )
             a(
                 '<script async src="https://us.umami.is/script.js" data-website-id="72e1cfab-c988-430b-9f25-1f52cf8720f4"></script>'
             )
@@ -36,17 +39,15 @@ def build_html_for_page(page: Page):
             a.link(rel="stylesheet", href="/css/styles.css")
 
             if page.type == "blogPost":
-                a.script(
-                    src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"
-                )
+                a.script(src="/js/lib/highlightjs/11.9.0/js/highlight.min.js")
                 if 'class="language-gherkin"' in page.md_file.page_content:
-                    a.script(
-                        src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/gherkin.min.js"
-                    )
+                    a.script(src="/js/lib/highlightjs/11.9.0/js/gherkin.min.js")
                 a.link(
                     rel="stylesheet",
-                    href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/base16/default-dark.css",
+                    href="/js/lib/highlightjs/11.9.0/css/default-dark.css",
                 )
+            if page.relative_path == "/contact/":
+                a.script(src="/js/contact-form.js")
 
         with a.body():
             header(a, page)
@@ -58,5 +59,14 @@ def build_html_for_page(page: Page):
             a.script(src="/js/slidedown-menu.js")
             if page.type == "blogPost":
                 a.script(_t="hljs.highlightAll();")
+
+            if page.relative_path == "/contact/":
+                a.script(
+                    _t="\t"
+                    + "window.onload = function() {\n\t\t"
+                    + "const formElement = buildContactForm();\n\t\t"
+                    + "document.getElementById('contact-form').innerHTML = formElement.outerHTML;\n\t"
+                    + "}"
+                )
 
     return str(a)

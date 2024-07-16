@@ -5,7 +5,7 @@ static_content = pathlib.Path(__file__).parent.resolve()
 
 
 # Noted that there definitely appears to be a lot of overlap
-# between these two methods.
+# between list_page_files() and list_post_files().
 def list_page_files():
     file_list = [static_content / "index.md"]
 
@@ -32,3 +32,8 @@ def get_file_contents(path):
 def get_file_mod_time(path):
     mod_time = path.stat().st_mtime
     return datetime.datetime.fromtimestamp(mod_time)
+
+
+php_contact_form_handler = get_file_contents(
+    static_content / "public/contact/form_submission_handler.php"
+)
