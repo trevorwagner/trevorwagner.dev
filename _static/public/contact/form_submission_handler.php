@@ -38,7 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $mail->send();
         echo '<p class="notice success">Message has been sent. Thank you!</p>';
     } catch (Exception $e) {
-        echo "<p class=\"notice error\">Message could not be sent. Mailer Error: {$mail->ErrorInfo}</p>";
+        echo "<p class=\"notice error\">Message could not be sent (Mailer Error).</p>";
     }
 }
 ?>
