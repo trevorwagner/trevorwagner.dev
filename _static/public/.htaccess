@@ -1,5 +1,7 @@
 RewriteEngine On
 
+RedirectMatch 403 ^/private/.*$
+
 #RewriteCond %{HTTP_HOST} ^www.trevorwagner.dev [NC]
 #RewriteRule (.*) https://trevorwagner.dev/$1 [L,R=301]
 
