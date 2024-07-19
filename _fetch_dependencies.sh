@@ -27,6 +27,7 @@ function fetch_phpmailer() {
     curl -# -o "${f_php_private}/lib/phpmailer/SMTP.php" \
         "https://raw.githubusercontent.com/PHPMailer/PHPMailer/v${PHPMAILER_VERSION}/src/SMTP.php"
 
+    echo 'Deny from all' > "${f_php_private}/.htaccess"
 }
 
 
