@@ -3,6 +3,8 @@ require_once '../private/lib/phpmailer/PHPMailer.php';
 require_once '../private/lib/phpmailer/Exception.php';
 require_once '../private/lib/phpmailer/SMTP.php';
 
+require_once '../private/config/email_settings.php';
+
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 use PHPMailer\PHPMailer\SMTP;
@@ -17,16 +19,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     try {
         //Server settings
         $mail->isSMTP();
-        $mail->Host       = '<%SMTP_HOST%>';
+        $mail->Host       = $SMTP_CONFIG['host'];
         $mail->SMTPAuth   = true;
-        $mail->Username   = '<%SMTP_USERNAME%>';
-        $mail->Password   = '<%SMTP_PW%>';
+        $mail->Username   = $SMTP_CONFIG['username'];
+        $mail->Password   = $SMTP_CONFIG['pw'];
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
-        $mail->Port       = '<%SMTP_PORT%>';
+        $mail->Port       = $SMTP_CONFIG['port'];
 
         //Recipients
-        $mail->setFrom('<%SMTP_USERNAME%>', "{$name} (via trevorwagner.dev)");
-        $mail->addAddress('<%MESSAGE_RECIPIENT%>');
+        $mail->setFrom($SMTP_CONFIG['username'], "{$name} (via trevorwagner.dev)");
+        $mail->addAddress($MESSAGE_RECIPIENT);
         $mail->addReplyTo($email, $name);
 
         //Content
