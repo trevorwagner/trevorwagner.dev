@@ -26,8 +26,6 @@ function fetch_phpmailer() {
     echo "PHPMailer v${PHPMAILER_VERSION}: Downloading SMTP.php..."
     curl --create-dirs -# -o "${f_php_private}/lib/phpmailer/SMTP.php" \
         "https://raw.githubusercontent.com/PHPMailer/PHPMailer/v${PHPMAILER_VERSION}/src/SMTP.php"
-
-    echo 'Deny from all' > "${f_php_private}/.htaccess" 
 }
 
 
