@@ -5,24 +5,15 @@ draft: false
 
 &nbsp;
 
-## Risk Assessments
+## Testing Strategy
 
-It's easy to think about the things you anticipate happening when a work product behaves as expected. What about when it doesn't, or even about what the things are that might go wrong? I have experience evaluating software both under development and post-shipment to provide descriptions of the ways those systems might fail and what the implications of anticipated failures might be.
+If you know what you want to test, and you have an idea how you'd like to test it, you should be off to a good start. Sometimes it's getting that point, though, that's the challenge.
 
-The risk assessments I write are effectively reports on what I find when I evaluate a system or component functionality. The more I can understand or have access to within that system, the more I can generally find.
-
-&nbsp;
-
-## Test Plans
-
-I have written test plans for everything from a simple read-only Web page to a complete rewrite of saved search functionality in a managed information system. I'm pretty methodical, and time has shown that the types of tests I plan don't just help testers.
-
-The test plans I write are effectively outlines that describe which parts of a system (or component functionality) should be inspected. Within the outline, the plan poses questions in terms of stakeholder concerns (and variations on those questions) to serve as lines of inquiry to address those concerns while at the same time providing testers and developers with flexibility if the functionality is in active development.
+For me, testing strategy generally incorporates one or more of the services outlined above into a general plan of attack or an approach to testing a piece of software (or component functionality).
 
 ### Relevant Insights
 
-- [How I Write Test Plans for New Functionality](/blog/posts/how-i-write-test-plans-for-new-functionality/)
-- [Three Rings: A Simple Model to Organize Test Planning](/blog/posts/three-rings-a-simple-model-for-test-planning/)
+- [Exploring How to Define a Software Testing Strategy Centered On a Well-Defined Testing Problem](/blog/posts/exploring-how-to-define-testing-strategy-centered-on-well-defined-testing-problem/)
 
 &nbsp;
 
@@ -54,12 +45,21 @@ When I write automated tests, these are the sorts of things I focus on, along wi
 
 &nbsp;
 
-## Testing Strategy
+## Test Plans
 
-If you know what you want to test, and you have an idea how you'd like to test it, you should be off to a good start. Sometimes it's getting that point, though, that's the challenge.
+I have written test plans for everything from a simple read-only Web page to a complete rewrite of saved search functionality in a managed information system. I'm pretty methodical, and time has shown that the types of tests I plan don't just help testers.
 
-For me, testing strategy generally incorporates one or more of the services outlined above into a general plan of attack or an approach to testing a piece of software (or component functionality).
+The test plans I write are effectively outlines that describe which parts of a system (or component functionality) should be inspected. Within the outline, the plan poses questions in terms of stakeholder concerns (and variations on those questions) to serve as lines of inquiry to address those concerns while at the same time providing testers and developers with flexibility if the functionality is in active development.
 
 ### Relevant Insights
 
-- [Exploring How to Define a Software Testing Strategy Centered On a Well-Defined Testing Problem](/blog/posts/exploring-how-to-define-testing-strategy-centered-on-well-defined-testing-problem/)
+- [How I Write Test Plans for New Functionality](/blog/posts/how-i-write-test-plans-for-new-functionality/)
+- [Three Rings: A Simple Model to Organize Test Planning](/blog/posts/three-rings-a-simple-model-for-test-planning/)
+
+&nbsp;
+
+## Risk Assessments
+
+It's easy to think about the things you anticipate happening when a work product behaves as expected. What about when it doesn't, or even about what the things are that might go wrong? I have experience evaluating software both under development and post-shipment to provide descriptions of the ways those systems might fail and what the implications of anticipated failures might be.
+
+The risk assessments I write are effectively reports on what I find when I evaluate a system or component functionality. The more I can understand or have access to within that system, the more I can generally find.
