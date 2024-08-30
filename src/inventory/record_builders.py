@@ -2,12 +2,12 @@ import frontmatter as fm
 import json, datetime, pathlib
 
 from _static import get_file_mod_time
-from inventory_service.models import BlogPost, Page, MDFile, Image, ImageAttribute
-from collect_inventory.analysis.md_files import (
+from src.inventory import BlogPost, Page, MDFile, Image, ImageAttribute
+from src.analysis.md_files import (
     get_page_relative_path,
     get_page_type,
 )
-from collect_inventory.analysis.image_files import get_photo_dimensions
+from src.analysis.image_files import get_photo_dimensions
 
 
 def build_image_record(url, photo_data, file_headers):

@@ -4,7 +4,7 @@ from pathlib import Path
 from re import match, sub
 from urllib.parse import urlparse
 
-from collect_inventory.http_io import http_get
+from src.http_io import http_get
 
 
 def get_filename_from_url(url):

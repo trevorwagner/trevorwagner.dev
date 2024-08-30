@@ -1,17 +1,20 @@
 from sqlalchemy.orm import Session
 
 from _static import list_page_files, list_post_files, get_file_contents
-from collect_inventory.analysis.image_files import (
+from src.analysis import (
     get_metadata_for_image,
     get_headers_for_image,
 )
-from collect_inventory.record_builders import (
+from src.inventory import (
+    engine,
+    init_db,
+    Page,
+    MDFile,
     build_image_record,
     build_md_file_record,
     build_page_record,
     build_blog_post_record,
 )
-from inventory_service import engine, init_db, Page, MDFile
 
 
 if __name__ == "__main__":
@@ -23,8 +26,8 @@ if __name__ == "__main__":
         for file in list_page_files():
             md_file = build_md_file_record(file, get_file_contents(file))
             page_record = build_page_record(md_file)
-            if page_record.relative_path == '/contact/':
-                page_record.type="custom"
+            if page_record.relative_path == "/contact/":
+                page_record.type = "custom"
 
             session.add(page_record)
             session.commit()

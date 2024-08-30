@@ -5,10 +5,10 @@ dependencies:
 	bash ./_fetch_dependencies.sh
 
 devserver:
-	bash ./_start_dev_server.sh
+	rm -fR _dist/html/.htaccess && bash ./_start_dev_server.sh
 
 inventory:
-	if [[ ! -f '_dist/site_inventory.db' ]]; then python3 -m collect_inventory; fi
+	if [[ ! -f '_dist/site_inventory.db' ]]; then python3 collect_inventory.py; fi
 
 modtimes: 
 	bash ./_fix_modtimes.sh
@@ -17,20 +17,20 @@ timestamp:
 	TZ=America/Chicago date -Iseconds
 
 pages: inventory
-	python3 -m generate_html
+	python3 generate_html.py
 		
 rss: inventory
-	python3 -m generate_rss_feed
-	cp ./_static/public/feed/index.php ./_dist/html/blog/feed/
+	python3 generate_rss_feed.py
+	cp ./_static/assets/feed/index.php ./_dist/html/blog/feed/
 
 sane:
 	bash ./_sanitize_markdown.sh
 
 site: sane modtimes inventory pages sitemap rss dependencies
-	cp -R ./_static/public/{.htaccess,css,js,images,robots.txt} ./_dist/html/
+	cp -R ./_static/assets/{.htaccess,css,js,images,robots.txt} ./_dist/html/
 
 sitemap: inventory
-	python3 -m generate_xml_sitemap
+	python3 generate_xml_sitemap.py
 
 test:
 	python -m pytest tests/ --verbose

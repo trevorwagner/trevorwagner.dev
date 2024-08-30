@@ -1,7 +1,7 @@
 from xml.sax.saxutils import escape
 
-from inventory_service import Page
-from generate_html.timestamps import timestamp_opengraph_format
+from src.inventory import Page
+from src.generators.dates.timestamps import timestamp_opengraph_format
 
 
 def assemble_opengraph_data_for_page(page: Page):

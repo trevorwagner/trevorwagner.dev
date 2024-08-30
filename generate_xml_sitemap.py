@@ -2,9 +2,8 @@ from pathlib import Path
 
 from sqlalchemy.orm import Session
 
-from inventory_service.models import Page, MDFile
-from generate_xml_sitemap.builders import build_sitemap_for_pages
-from inventory_service import engine, DIST
+from src.inventory import engine, DIST, MDFile, Page
+from src.generators.xml import build_sitemap_for_pages
 
 xml_sitemap_file = DIST / "html/sitemap.xml"
 

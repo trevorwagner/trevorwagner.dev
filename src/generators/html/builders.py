@@ -1,14 +1,16 @@
 from airium import Airium
+from markdown import markdown
 
-from generate_html.opengraph import assemble_opengraph_data_for_page
-from generate_html.html_components import (
+from src.generators.html.opengraph import assemble_opengraph_data_for_page
+from src.generators.html.components import (
     footer,
     header,
     overlay_menu,
     page_content,
     page_title,
+    photo_credit
 )
-from inventory_service import Page
+from src.inventory import Page
 
 
 def build_html_for_page(page: Page):
@@ -68,5 +70,29 @@ def build_html_for_page(page: Page):
                     + "document.getElementById('contact-form').innerHTML = formElement.outerHTML;\n\t"
                     + "}"
                 )
+
+    return str(a)
+
+
+def build_content_html_for_post(post, rss_metadata):
+    a = Airium()
+
+    with a.div():
+        if post.cover_photo is not None:
+            with a.div():
+                a.img(src=post.cover_photo.url)
+
+        a(markdown(post.page.md_file.page_content.replace('(/', '(https://www.trevorwagner.dev/')))
+
+        if post.cover_photo is not None:
+            photo_credit(a, post.cover_photo)
+        with a.p():
+            a.a(_t="More posts", href="https://www.trevorwagner.dev/blog/")
+        with a.p():
+            a.a(_t="Contact", href="https://www.trevorwagner.dev/contact/")
+        a.hr()
+
+        with a.p():
+            a("&#169; " + rss_metadata.copyright)
 
     return str(a)

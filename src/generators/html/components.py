@@ -5,8 +5,8 @@ from sqlalchemy.orm import Session
 
 from markdown import markdown
 
-from inventory_service import Image, Page, BlogPost, engine
-from generate_html.timestamps import timestamp_blog_post_format
+from src.inventory import Image, Page, BlogPost, engine
+from src.generators.dates.timestamps import timestamp_blog_post_format
 from _static import php_contact_form_handler
 
 

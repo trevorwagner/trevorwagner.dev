@@ -1,7 +1,7 @@
 from sqlalchemy.orm import Session
 
-from generate_html.builders import build_html_for_page
-from inventory_service import DIST, Page, engine, BlogPost
+from src.generators.html import build_html_for_page
+from src.inventory import DIST, Page, engine, BlogPost
 
 
 def save_content_to_file(path, content):

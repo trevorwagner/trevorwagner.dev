@@ -1,4 +1,5 @@
 import re
+from zoneinfo import ZoneInfo
 
 
 def timestamp_blog_post_format(timestamp):
@@ -16,3 +17,7 @@ def timestamp_opengraph_format(timestamp):
     generally used for og:publish_date.
     """
     return timestamp.strftime("").replace("%Y-%m-%dT%H:%M:%S%:z", "T")
+
+def timestamp_rfc_822(time):
+    timestamp = time.replace(tzinfo=ZoneInfo("America/Chicago"))
+    return timestamp.strftime("%a, %d %b %Y %H:%M:%S %z")

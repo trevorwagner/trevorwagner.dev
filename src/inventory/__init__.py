@@ -2,12 +2,14 @@ from pathlib import Path
 
 from sqlalchemy import create_engine
 
-from inventory_service.models import *
+from src.inventory.models import *
+from src.inventory.record_builders import *
 
-DIST = Path(__file__).parent.resolve() / "../_dist"
+DIST = Path(__file__).parent.resolve() / "../../_dist"
 DIST.mkdir(exist_ok=True)
 
 engine = create_engine("sqlite:///{}".format(DIST / "site_inventory.db"))
+
 
 
 def init_db():
