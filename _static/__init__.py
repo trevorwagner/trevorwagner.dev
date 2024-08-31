@@ -37,3 +37,7 @@ def get_file_mod_time(path):
 php_contact_form_handler = get_file_contents(
     static_content / "assets/contact/form_submission_handler.php"
 )
+
+php_blog_post_query_handler = get_file_contents(
+    static_content / "assets/blog/blog_post_query_handler.php"
+)

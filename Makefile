@@ -1,3 +1,6 @@
+blogpostjson:
+	python3 generate_blog_posts_json.py
+
 clean:
 	rm -fR ./_dist
 
@@ -26,7 +29,7 @@ rss: inventory
 sane:
 	bash ./_sanitize_markdown.sh
 
-site: sane modtimes inventory pages sitemap rss dependencies
+site: sane modtimes inventory pages sitemap rss blogpostjson dependencies
 	cp -R ./_static/assets/{.htaccess,css,js,images,robots.txt} ./_dist/html/
 
 sitemap: inventory
