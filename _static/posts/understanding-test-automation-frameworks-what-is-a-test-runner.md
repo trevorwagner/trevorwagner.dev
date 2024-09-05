@@ -7,9 +7,12 @@ draft: false
 
 ---
 
-At the most basic level, support to automate tests requires two things: a _means to define tests_, and a _means to execute tests as they have been defined_. In order to define tests, an engineer responsible for test automation needs to be able to write specifications that (by way of programming code) define which operations should occur within a test, including how to interact with the system under test, how to extract output, and how to compare the extracted output to a set of expectations (hopefully a limited set of expectations) defined within the test. In order to execute tests, one needs a means of executing a process that runs tests and one or more methods of configuring that test run: things like command-line options, environment variables, and configuration files all help make this possible. Providing a unified interface can help make it possible both for engineers automating tests on local machines and for engineers responsible for configuring automation services like those used within Continuous Integration what (at the most basic level) serves as a uniform means of configuring and running the same tests in the same way.
+At the most basic level, support to automate tests requires two things:
 
-**Test runners** are a special type of library that satisfies both of these basic requirements. In essence a test runner will provide two APIs that satisfy the needs outlined above:
+- a means of **defining the components of- and parameters for automated test runs**, including test specifications, test suites, test run settings, and test reporting.
+- a means to **execute test runs they have been defined**.
+
+**Test runners** are a special type of software library that satisfies both of these basic requirements. In essence a test runner will provide two APIs that satisfy the needs outlined above:
 
 - A code-level API that can be used to define test specifications, test steps (operations generally defined as a functional subset or component to be used within one or more specifications), and/ or other operations that should be carried out in runtime.
 - One or more external APIs that can be used to execute- and configure test runs.
@@ -27,7 +30,7 @@ Like with most user space processes, the execution of automated tests starts in 
 Regardless of whether a given command line call is executing the library directly or somehow indirectly (beyond the `node` example above, running code that then configures and invokes/ executes a test run from within general runtime), the execution of a test run needs to start somehow. One of the key things a test runner provides is an API that can be used to start execution from the command line.
 
 ### Code-Level API for Test Execution
-Most test runners also provide classes and methods within code that can be used configure- and begin execution of a test run. For example, Jasmine allows defining a test run with JavaScript code that looks like this:
+Most test runners also provide classes and methods within code that can be used configure- and begin execution of a test run. For example, [Jasmine](https://jasmine.github.io/) allows defining a test run with JavaScript code that looks like this:
 
 <pre><code class="language-javascript">
 import Jasmine from 'jasmine';
@@ -50,7 +53,7 @@ With test runners that use code to define specifications, test specifications ge
 
 With test runners (like Cucumber and behave) that use natural language to define specifications, specifications are stored in text files formatted using Gherkin syntax. Test specifications generally have titles that start with the keyword `Scenario:` (unless they are parameterized, at which point they start with `Scenario Outline:`).
 
-### Lifecycle Hooks
+### Test/ Suite Lifecycle Hooks
 In addition to allowing users to define test specifications, most runners also allow for defining operations that should occur before or after every single specification (or group of specifications) or before- or after a test run. This can be useful for maintaining state (for example, cleaning up data stored within the system under test or an auxiliary datastore somewhere) or taking action based on the exit status of a specification.
 
 Most runners define these as methods using special names. Cucumber and behave provide two different forms of lifecycle hooks: one type defined in code and another (strictly for setup) for all scenarios in a file by using the keyword `Background:`. The big three JavaScript test runners (Jasmine, Mocha, and Jest) use methods with names including the substring `before` and `after`.
@@ -60,7 +63,7 @@ In addition to executing test specifications as part of a test run, most test ru
 
 Test runners can also be configured to save reports of test results to file, like [JUnit-style XML](https://github.com/testmoapp/junitxml). That will be out of scope for this post; this post will deal more specifically with the ways results are reflected during- and after test runtime.
 
-### Current Status or Progress to Standard Output/ stderr
+### Current Status or Progress to Standard Output/ `stderr`
 In addition to other output allowed to display in standard output (pytest, for example, requires special configuration to capture current output to standard output), many test runners will print the progress of the test run to standard output (and/ or standard error), including which test specifications have been run and what the result of each test was.
 
 This can be valuable beyond monitoring test status in a terminal window or live CI log as a test run executes: with some runners it is possible to correlate log output printed to standard output with the name of the test being run.
@@ -74,7 +77,7 @@ If any test specification completes with a non-passing result, the associated te
 
 A nonzero/ unsuccessful exit status from a runner fails the task in CI executing it (although many CI platforms are able to determine before the process exits whether tests appear to be failing or not).
 
-## Test Runners Generally Provide Means of for Configuration and Extension
+## Test Runners Generally Provide Means of Configuration and Extension
 One of the natural benefits of any automated test is the level of consistency a test runner provides to execute tests runs the same way every time. Most test runners provide support for configurations that make this consistency customizable and sharable (for example, via code used to invoke test runs either via the command-line API or the code-level API for test execution).
 
 ### Extension via Configuration
