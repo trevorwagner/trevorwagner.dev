@@ -82,7 +82,13 @@ def build_content_html_for_post(post, rss_metadata):
             with a.div():
                 a.img(src=post.cover_photo.url)
 
-        a(markdown(post.page.md_file.page_content.replace('(/', '(https://www.trevorwagner.dev/')))
+        a(
+            markdown(
+                post.page.md_file.page_content.replace(
+                    "(/", "(https://www.trevorwagner.dev/"
+                )
+            )
+        )
 
         if post.cover_photo is not None:
             photo_credit(a, post.cover_photo)
