@@ -89,7 +89,7 @@ Again: I want users to be able to configure a server with a minimum of highly-re
 
 ### RouteSet Wrapper Class
 
-RouteSet is a base class that establishes a wrapper around `express.Router` stored on instances of the class. This wrapper class provides a lifecycle hook (setRoutes()) that allows users to define any number of custom subclasses (sometimes I refer to these as "route classes") that they can attach using Express (see AppContainer Wrapper Class, below) as the custom classes are instantiated:
+RouteSet is a base class that establishes a wrapper around `express.Router` stored on instances of the class. This wrapper class provides a lifecycle hook (`setRoutes()`) that allows users to define any number of custom subclasses (sometimes I refer to these as "route classes") that they can attach using Express (see AppContainer Wrapper Class, below) as the custom classes are instantiated:
 
 <pre><code class="language-typescript">
 appContainer.attachRouteSets([
@@ -99,7 +99,7 @@ appContainer.attachRouteSets([
 ]);
 </code></pre>
 
-The first time I wrote this library, I only established a wrapper around HTTP routes (not for WebSocket endpoints). For WebSocket routes (of which at the time I only needed one), I attached it directly to the instance of `http.Server` after it was extracted from express.Application (using `http.createServer()`). To make the design more modular I eventually established two RouteSet base classes: one routeSet for HTTP routes and one that establishes a similar sort of wrapper around WebSocket ws routes. Both support using at() right after instantiation as outlined in the above code snippet.
+The first time I wrote this library, I only established a wrapper around HTTP routes (not for WebSocket endpoints). For WebSocket routes (of which at the time I only needed one), I attached it directly to the instance of `http.Server` after it was extracted from express.Application (using `http.createServer()`). To make the design more modular I eventually established two RouteSet base classes: one routeSet for HTTP routes and one that establishes a similar sort of wrapper around WebSocket ws routes. Both support using `at()` right after instantiation as outlined in the above code snippet.
 
 Because WebSocket routes are a little more complex to define behaviors for to maintain contact with active clients, it requires a little more code to make work. Among other reasons: WebSocket is message-based and JavaScript is event-driven (so we will need to define behaviors in terms of message event callbacks). What's more, the establishment of WebSocket routes require upgrading an HTTP request (which means more event callbacks). Furthermore, the server is generally expected to manage open WebSocket client connections and establish heartbeat routines that expect "pong" responses by the client in response to the server's "ping."  All of this needs to be handled somehow in code (more event callbacks here, too).
 
@@ -122,7 +122,7 @@ Configuration options (for example, the port `http.Server` should listen on, the
 
 Because most of the low-level work here is done by JavaScript, I'm not sure there would be value in attempting to write this library in TypeScript. In general, because this is a test support library, any library that consumed it would likely either need the library to be transpiled or for the library to be in a place that can be imported from. Without getting into the details, I've written this library in TypeScript. At first I imported it directly to testing projects (i.e. sets of code that tested against the system under test) that depended on it; this resulted in a number of headaches that led me to explore transpiling. If I recall correctly, attempting to transpile led to its own set of headaches that led me to re-evaluate whether it was worthwhile to write in TypeScript to begin with.
 
-In general, my experience has been that it reduces overhead (a lot) to build this library in JavaScript and type it with a custom types.d.ts file. Just obtain the code and use it; no need to transpile or host artifacts. If you want to run tests, the JavaScript code is ready to test.
+In general, my experience has been that it reduces overhead (a lot) to build this library in JavaScript and type it with a custom `types.d.ts` file. Just obtain the code and use it; no need to transpile or host artifacts. If you want to run tests, the JavaScript code is ready to test.
 
 ## Exploring Alternatives
 
@@ -141,9 +141,9 @@ I also believe there's potentially room to use a solution like this with mobile 
 
 As long as I'm taking requests I understand that fastify is also an option to accomplish a lot of what I'm doing off the shelf. I actually found fastify while looking for a way to provide custom types for this library. Fastify supports WebSockets with the use of a plugin. Fastify has also released two major version upgrades since I wrote this library initially (early 2020), each of which required following a guide to upgrade from.
 
-Conclusion
+## Conclusion
 
-Let's say somebody wanted to use this (for some reason) within a Jasmine describe() block. Assuming the routes within PersonRouteSet were already defined, here's the code they'd need to make it work:
+Let's say somebody wanted to use this (for some reason) within a Jasmine `describe()` block. Assuming the routes within PersonRouteSet were already defined, here's the code they'd need to make it work:
 
 <pre><code class="language-typescript">
 import { ApplicationContainer } from 'reusable-mock-api-service';
@@ -166,7 +166,7 @@ describe('my functionality', () => {
 });
 </code></pre>
 
-At this point, any routes defined within PersonRouteSet are available for interaction during test runtime, and the server will close down gracefully within the afterAll() statement.
+At this point, any routes defined within PersonRouteSet are available for interaction during test runtime, and the server will close down gracefully within the `afterAll()` statement.
 
 Meanwhile, the design I provide here is a simple, easy-to-use system based on three packages (Express, `http.Server`, and ws, as I note above, under Exploring Alternatives) are stable enough that I wouldn't anticipate to change any time soon.
 
