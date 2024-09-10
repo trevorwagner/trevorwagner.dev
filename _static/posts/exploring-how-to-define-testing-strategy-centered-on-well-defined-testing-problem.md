@@ -1,6 +1,6 @@
 ---
 
-title: "Exploring How to Define a Testing Problem at the Center of a Well-Defined Software Testing Strategy"
+title: "Exploring How to Define a Testing Problem as the Center of a Well-Defined Software Testing Strategy"
 publishDate: "2024-08-28T10:41:06-05:00"
 coverPhoto: "https://static.trevorwagner.dev/images/alexander-hoggard-Loiv3Mj4qXw-unsplash/1200x675.jpg"
 thumbnail: "https://static.trevorwagner.dev/images/alexander-hoggard-Loiv3Mj4qXw-unsplash/300x169.jpg"
