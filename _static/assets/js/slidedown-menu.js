@@ -6,6 +6,7 @@ function toggleMenu() {
     overlay.classList.toggle('active');
     hamburger.classList.toggle('active');
     menuActive = !menuActive;
+    document.body.style.overflow = !menuActive ? '' : 'hidden';
 }
 
 hamburger.addEventListener('click', () => {

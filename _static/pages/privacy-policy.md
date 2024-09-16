@@ -3,8 +3,6 @@ title: "Privacy Policy"
 draft: false
 ---
 
-&nbsp;
-
 This is a site built and maintained by Upstream Consulting LLC
 ("we"/ "us"). We have prepared this document (accessible at
 [https://www.trevorwagner.dev/privacy-policy/](https://www.trevorwagner.dev/privacy-policy/))

@@ -7,7 +7,7 @@ const buildErrorMessage = function (errors) {
     const errorMessage = document.createElement('div');
     errorMessage.classList.add('notice');
     errorMessage.classList.add('error');
-    errorMessage.innerHTML += '<p>Unable to submit form due to errors:</p>\n';
+    errorMessage.innerHTML += '<p>Unable to submit form due to issues:</p>\n';
 
     if (errors.length > 0) {
         errorMessage.innerHTML += `<ul>\n\t<li>${errors.join('</li>\n\t<li>')}</li>\n</ul>`;

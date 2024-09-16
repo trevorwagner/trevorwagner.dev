@@ -3,12 +3,12 @@ from markdown import markdown
 
 from src.generators.html.opengraph import assemble_opengraph_data_for_page
 from src.generators.html.components import (
-    footer,
+    footer_content,
     header,
     overlay_menu,
     page_content,
     page_title,
-    photo_credit
+    photo_credit,
 )
 from src.inventory import Page
 
@@ -25,38 +25,57 @@ def build_html_for_page(page: Page):
             a.meta(name="author", content="Trevor Wagner")
             a.meta(name="viewport", content="width=device-width, initial-scale=1.0")
 
+
             if page.relative_path != "/blog/":
                 for key, value in assemble_opengraph_data_for_page(page).items():
                     a.meta(property=key, content=value)
 
             page_title(a, page)
-            a.link(
-                rel="canonical",
-                href=f"https://www.trevorwagner.dev{page.relative_path}",
-            )
+
+            a('<link rel="preconnect" href="https://fonts.googleapis.com">')
+            a('<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>')
+            a('<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">')
+
             a(
                 '<script async src="https://us.umami.is/script.js" data-website-id="72e1cfab-c988-430b-9f25-1f52cf8720f4"></script>'
             )
 
-            a.link(rel="stylesheet", href="/css/styles.css")
+            a.link(rel="stylesheet", href="/css/styles.css", media="screen")
+
+            if page.relative_path == "/blog/":
+                a.link(rel="stylesheet", href="/css/layout/blog-home.css")
 
             if page.type == "blogPost":
+                a.link(rel="stylesheet", href="/css/layout/blog-post.css")
+
                 a.script(src="/js/lib/highlightjs/11.9.0/js/highlight.min.js")
+
                 if 'class="language-gherkin"' in page.md_file.page_content:
                     a.script(src="/js/lib/highlightjs/11.9.0/js/gherkin.min.js")
+
                 a.link(
                     rel="stylesheet",
                     href="/js/lib/highlightjs/11.9.0/css/default-dark.css",
                 )
+
+            a.link(
+                rel="canonical",
+                href=f"https://www.trevorwagner.dev{page.relative_path}",
+            )
+
+            if page.relative_path == "/experience/":
+                a.link(rel="stylesheet", href="/css/resume.css")
+
             if page.relative_path == "/contact/":
                 a.script(src="/js/contact-form.js")
 
         with a.body():
             header(a, page)
             overlay_menu(a, page)
-            with a.div():
+            with a.div(klass="w-content-footer"):
                 page_content(a, page)
-                footer(a)
+                with a.footer():
+                    footer_content(a)
 
             a.script(src="/js/slidedown-menu.js")
             if page.type == "blogPost":

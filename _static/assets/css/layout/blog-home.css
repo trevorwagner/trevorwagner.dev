@@ -1,0 +1,37 @@
+.post-summary {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 567 / 459;
+}
+
+#content h2 {
+    margin-top: 0;
+}
+
+#content time {
+    display: block;
+}
+
+.post-summary img {
+    width: 100%;
+    aspect-ratio: 1.618 / 1;
+    object-fit: cover;
+}
+
+.post-summary h2 {
+    display: block;
+    margin-top: 1.6471rem;
+}
+
+@media only screen and (min-width: 768px) {
+    .post-summary {
+        aspect-ratio: 913 / 216 !important;
+    }
+
+    .post-summary img {
+        width: 29% !important;
+        margin-top: 1.1%;
+        margin-left: 6.8%;
+        float: right;
+    }
+}

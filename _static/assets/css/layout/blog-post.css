@@ -1,0 +1,47 @@
+#content .w-publication-date {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    height: 32px !important;
+}
+
+#content time {
+    display: block;
+    margin: auto auto auto 0 !important;
+}
+
+#content .cover-photo p {
+    margin: 0 0 12px !important;
+}
+
+@media only screen and (min-width: 600px) {
+    #content .w-publication-date {
+        height: 41px;
+    }
+
+    #content .cover-photo p {
+        margin-top: 3px;
+    }
+}
+
+@media only screen and (min-width: 768px) and (orientation: portrait) {
+
+    #content .w-publication-date {
+        height: 50px;
+    }
+
+    .cover-photo p {
+        margin: 0 0 29px !important;
+    }
+}
+
+@media only screen and (min-width: 768px) and (orientation: landscape) {
+
+    #content .w-publication-date {
+        height: 50px;
+    }
+
+    .cover-photo p {
+        margin: 0 0 11px !important;
+    }
+}

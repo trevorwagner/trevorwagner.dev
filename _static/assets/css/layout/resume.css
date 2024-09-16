@@ -1,0 +1,17 @@
+#content .w-content-header {
+    min-height: 95px;
+}
+
+@media only screen and (min-width: 600px) {
+    #content .w-content-header {
+        min-height: 89px;
+    }
+}
+
+
+@media only screen and (min-width: 768px) and (orientation: portrait) {
+    #content .w-content-header {
+        min-height: 125px;
+    }
+
+}

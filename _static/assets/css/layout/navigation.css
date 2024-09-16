@@ -1,0 +1,44 @@
+.navigation {
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+header .navigation {
+    display: none;
+}
+
+#overlay-menu .navigation {
+    display: flex;
+
+    height: 167px;
+    margin-top: 78px;
+
+    margin-left: 16px;
+}
+
+@media only screen and (min-width: 600px) {
+    #overlay-menu .navigation {
+        height: 191px;
+
+        margin-top: 111px;
+        margin-left: 19px;
+    }
+}
+
+@media only screen and (min-width: 768px) and (orientation: portrait) {
+    #overlay-menu .navigation {
+        margin-left: 27px;
+    }
+}
+
+@media only screen and (min-width: 768px) and (orientation: landscape) {
+    header .navigation {
+        display: flex;
+
+        height: 184px;
+        width: 265px;
+        margin-top: 44px;
+
+        margin-left: 10px;
+    }
+}

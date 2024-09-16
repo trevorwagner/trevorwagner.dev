@@ -2,7 +2,6 @@
 title: "Welcome"
 draft: false
 ---
-&nbsp;
 
 I'm a software engineer from Minnesota who specializes in test automation. Conventionally, software development
 organizations would classify me as a Software Development Engineer in Test (SDET). I have nearly **20 years' experience** in

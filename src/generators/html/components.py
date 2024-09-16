@@ -12,7 +12,8 @@ from _static import php_contact_form_handler
 
 def blog_post_summary_link(a: Airium, post: BlogPost):
     with a.div(klass="post-summary"):
-        a.img(src=post.thumbnail.url, alt=escape(post.page.title))
+        with a.a(href=post.page.relative_path):
+            a.img(src=post.thumbnail.url, alt=escape(post.page.title))
         with a.a(href=post.page.relative_path):
             a.h2(_t=escape(post.page.title))
         a.time(_t=escape(timestamp_blog_post_format(post.published)))
@@ -41,11 +42,11 @@ def cover_photo(a: Airium, page: Page):
     return
 
 
-def footer(a: Airium):
-    with a.footer():
-        a.hr()
+def footer_content(a: Airium, hidden=False):
+    with a.div(klass="s-match-footer" if hidden is True else ""):
         a.p(
-            _t=f"&#169; {datetime.now().strftime('%Y')} Upstream Consulting LLC. All Rights Reserved."
+            _t=f"&#169; {datetime.now().strftime('%Y')} Upstream Consulting LLC. All Rights Reserved.",
+            klass="detail",
         )
     return
 
@@ -60,16 +61,23 @@ def hamburger_button(a: Airium):
 
 def header(a: Airium, page: Page):
     with a.header():
-        hamburger_button(a)
+        with a.div(klass="w-header"):
+            hamburger_button(a)
 
-        with a.h1():
-            a.a(_t="Trevor Wagner", href="/")
-        a.p(_t="Project-Focused Software Engineer, QA Automation")
+            a.div(klass="headshot")
 
-        navigation_menu(a, page)
-        social_media_links(a, reverse=False)
+            with a.div(klass="w-nameplate"):
+                with a.h1():
+                    a.a(_t="Trevor Wagner", href="/")
+                a.p(
+                    _t="Project-Focused Software Engineer, QA Automation",
+                    klass="detail",
+                )
 
-        a.div(klass="clear-both")
+            navigation_menu(a, page)
+            social_media_links(a, reverse=False)
+
+            a.div(klass="clear-both")
     return
 
 
@@ -106,10 +114,19 @@ def page_content(a: Airium, page: Page):
             if page.relative_path == "/contact/":
                 a(f"\n{php_contact_form_handler}\n")
 
-        a.h1(_t=escape(str(page.title)))
+        if page.relative_path not in ["/services/"]:
+            with a.div(klass="w-content-header"):
+                with a.div(klass="w-page-title"):
+                    a.h1(_t=escape(str(page.title)))
+
+                if page.type == "blogPost":
+                    with a.div(klass="w-publication-date"):
+                        a.time(
+                            _t=timestamp_blog_post_format(page.blog_post.published),
+                            klass="detail",
+                        )
 
         if page.type == "blogPost":
-            a.time(_t=timestamp_blog_post_format(page.blog_post.published))
             cover_photo(a, page)
 
         if page.relative_path != "/blog/":
@@ -129,6 +146,7 @@ def page_content(a: Airium, page: Page):
                 )
                 for post in blog_posts:
                     blog_post_summary_link(a, post)
+        footer_content(a, hidden=True)
     return
 
 
@@ -144,7 +162,7 @@ def page_title(a: Airium, page: Page):
 
 
 def photo_credit(a: Airium, image: Image):
-    with a.p(_t="Photo by "):
+    with a.p(_t="Photo by ", klass="detail"):
         if image.attributes_contains_key("author_url"):
             a.a(
                 _t=image.get_attibute_value_for_key("author_name"),
@@ -166,28 +184,31 @@ def photo_credit(a: Airium, image: Image):
 
 
 link_list = [
-    {"name": "RSS Feed", "icon": "rss_icon.svg", "url": "/blog/feed/"},
+    {"name": "RSS Feed", "icon": "rss_icon.svg", "url": "/blog/feed/", "klass": "rss"},
     {
         "name": "Contact",
         "icon": "email_icon.svg",
         "url": "/contact/",
+        "klass": "contact",
     },
     {
         "name": "GitHub",
         "icon": "github_logo.svg",
         "url": "https://github.com/trevorwagner",
+        "klass": "github",
     },
     {
         "name": "LinkedIn",
         "icon": "linkedin_logo.svg",
         "url": "https://www.linkedin.com/in/trevorwagner05/",
+        "klass": "github",
     },
 ]
 
 
 def render_link(a: Airium, item):
     with a.li():
-        with a.a(href=item["url"]):
+        with a.a(href=item["url"], klass=item["klass"]):
             a.img(src="/images/{}".format(item["icon"]), alt=item["name"])
     return
 
