@@ -84,4 +84,8 @@ For each, how does it make sense to plan a path forward that capitalizes as much
 
 By defining the testing problem clearly and making that testing problem the center point for the strategy used to ultimately solve it, hopefully questions like these become easier to solve if they do arise. But at the same time, an organization, team or individual will hopefully not encounter them as often with a good strategy based on a clear understanding of the problem they aim to solve.
 
+&nbsp;
+
+<span class=detail>
 _**Quick Footnote:** To be clear, this should hopefully not serve as an exhaustive list. One noteworthy example of another category of feedback that this post intentionally sidesteps because it doesn't fit into the same box as functional validation is the sort of subjective feedback produced through acceptance tesing or unstructured exploratory testing. Another is performance data, which it seems organizations for some reason are asking behavioral test engineers to be prepared to make part of automated quality gates. Yet another involves a business dimension to defining testing problems (for example,_ which subset of users still use Internet Explorer 11?_) related directly to the business ROI for a given set of inquiries._
+</span>

@@ -60,7 +60,7 @@ app.use('/whyNot', greetingsRouter);
 app.listen(3000, ()=>{console.log('Express running on port 3000.')} );
 </code></pre>
 
-If you submit a GET request to http://localhost:3000/whyNot/sayHello, the server will return the response body hello world!.
+If you submit a GET request to `http://localhost:3000/whyNot/sayHello`, the server will return the a response with body text `hello world!`.
 
 Using `express.Router` in this manner creates two opportunities for test support code:
 
