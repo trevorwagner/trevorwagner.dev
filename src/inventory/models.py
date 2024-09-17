@@ -58,6 +58,7 @@ class Page(Base):
 
     id: Mapped[int] = mapped_column(primary_key=True)
     title: Mapped[str] = mapped_column(sa.String(255), nullable=False)
+    alt_title: Mapped[str] = mapped_column(sa.String(255), nullable=True)
     draft: Mapped[bool] = mapped_column(sa.Boolean, nullable=False)
     type: Mapped[str] = mapped_column(sa.String(10), nullable=False)
     relative_path: Mapped[str] = mapped_column(sa.String(255), nullable=False)

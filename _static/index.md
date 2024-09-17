@@ -1,5 +1,7 @@
 ---
-title: "Welcome"
+title: "Trevor Wagner | Project-Focused Software Engineer, QA Automation"
+altTitle: "Welcome"
+
 draft: false
 ---
 

@@ -80,6 +80,7 @@ def build_page_record(md_file: MDFile):
 
     return Page(
         title=md_file_metadata["title"],
+        alt_title=md_file_metadata["altTitle"] if 'altTitle' in md_file_metadata else None,
         type=page_type,
         draft=md_file_metadata["draft"],
         relative_path=page_relative_path,

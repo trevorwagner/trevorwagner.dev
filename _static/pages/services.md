@@ -1,13 +1,9 @@
 ---
 title: "Services"
+altTitle: "Test Enginering Focused on Results, Not Just Metrics"
+
 draft: false
 ---
-
-<div class="w-content-header">
-    <div class="w-page-title">
-        <h1>Test Engineering Focused on Results, Not Just Metrics.</h1>
-    </div>
-</div>
 
 ## Testing Strategy
 

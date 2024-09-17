@@ -82,7 +82,8 @@ if __name__ == "__main__":
         )
 
         blog_home = Page(
-            title="Recent Posts",
+            title="Blog: Recent Posts",
+            alt_title="Recent Posts",
             draft=False,
             type="custom",
             relative_path="/blog/",

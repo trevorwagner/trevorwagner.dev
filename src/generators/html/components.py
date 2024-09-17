@@ -114,17 +114,17 @@ def page_content(a: Airium, page: Page):
             if page.relative_path == "/contact/":
                 a(f"\n{php_contact_form_handler}\n")
 
-        if page.relative_path not in ["/services/"]:
-            with a.div(klass="w-content-header"):
-                with a.div(klass="w-page-title"):
-                    a.h1(_t=escape(str(page.title)))
+        with a.div(klass="w-content-header"):
+            with a.div(klass="w-page-title"):
+                use_title = str(page.alt_title) if page.alt_title is not None else str(page.title)
+                a.h1(_t=escape(use_title))
 
-                if page.type == "blogPost":
-                    with a.div(klass="w-publication-date"):
-                        a.time(
-                            _t=timestamp_blog_post_format(page.blog_post.published),
-                            klass="detail",
-                        )
+            if page.type == "blogPost":
+                with a.div(klass="w-publication-date"):
+                    a.time(
+                        _t=timestamp_blog_post_format(page.blog_post.published),
+                        klass="detail",
+                    )
 
         if page.type == "blogPost":
             cover_photo(a, page)
@@ -151,13 +151,11 @@ def page_content(a: Airium, page: Page):
 
 
 def page_title(a: Airium, page: Page):
-    if page.relative_path == "/":
-        a.title(_t="Trevor Wagner | Project-Focused Software Engineer, QA Automation")
+    if page.type == "blogPost":
+        a.title(_t="Blog Post: {} | Trevor Wagner".format(escape(page.title)))
     else:
-        if page.type == "blogPost":
-            a.title(_t="Blog Post: {} | Trevor Wagner".format(escape(page.title)))
-        else:
-            a.title(_t="{} | Trevor Wagner".format(escape(page.title)))
+        a.title(
+            _t="{} | Trevor Wagner".format(escape(page.title)))
     return
 
 
