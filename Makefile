@@ -8,7 +8,10 @@ dependencies:
 	bash ./_fetch_dependencies.sh
 
 devserver:
-	rm -fR _dist/html/.htaccess && bash ./_start_dev_server.sh
+	rm -fR _dist/html/.htaccess
+	if [[ ! -d '_dist/html/private/config/' ]]; then mkdir -p '_dist/html/private/config/'; fi
+	if [[ ! -f '_dist/html/private/config/email_settings.php' ]]; then touch '_dist/html/private/config/email_settings.php'; fi
+	bash ./_start_dev_server.sh
 
 inventory:
 	if [[ ! -f '_dist/site_inventory.db' ]]; then python3 collect_inventory.py; fi
