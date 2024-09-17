@@ -4,9 +4,11 @@ draft: false
 ---
 
 ### Summary
+<span class="detail">
 _Helping software developers deliver better software through customer focus, automation, and leadership._
+</span>
 
----
+&nbsp;
 
 ## Technical Experience
 
@@ -59,8 +61,6 @@ _Mariner Software (Minneapolis, MN). 2010-2014_
 - Wrote scripts in bash to automate segments of product shipment process, to generate test data, and to deploy/ configure test environments.
 - Established and maintained strong relationships with developers and other key stakeholders within the organization. Served as acting project and acting product owner on various projects for Window platform. Managed infrastructure and device inventory to automate the configuration of test environments (Mac/ Windows, via Linux).
 
----
-
 ## Education
 
 ### B.A.: English/ German
@@ -68,8 +68,6 @@ _University of Minnesota – Morris (Morris, MN)_
 
 ### High School Diploma
 _Wayzata High School (Plymouth, MN)_
-
----
 
 ## Contact
 
