@@ -1,8 +1,7 @@
 ---
 title: "Making the Most of Throwing Errors: Exploring Why \"Fail\" Could be One of the Most Valuable Things Automated Test Code Can Do"
 publishDate: "2023-10-26T16:32:00-05:00"
-coverPhoto: "https://static.trevorwagner.dev/images/alek-kalinowski-9HsRmdogZsU-unsplash/1200x800.jpg"
-thumbnail: "https://static.trevorwagner.dev/images/alek-kalinowski-9HsRmdogZsU-unsplash/300x200.jpg"
+coverPhoto: "alek-kalinowski-9HsRmdogZsU-unsplash"
 draft: false
 
 ---

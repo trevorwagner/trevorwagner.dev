@@ -85,11 +85,6 @@ class BlogPost(Base):
     )
     cover_photo: Mapped["Image"] = relationship(foreign_keys=cover_photo_id)
 
-    thumbnail_id: Mapped[int] = mapped_column(
-        sa.ForeignKey("images.id"), nullable=False
-    )
-    thumbnail: Mapped["Image"] = relationship(foreign_keys=thumbnail_id)
-
     page_id: Mapped[int] = mapped_column(sa.ForeignKey("pages.id"))
     page: Mapped["Page"] = relationship(back_populates="blog_post")
 
@@ -101,9 +96,10 @@ class Image(Base):
     __tablename__ = "images"
 
     id: Mapped[int] = mapped_column(primary_key=True)
-    url: Mapped[str] = mapped_column(sa.String(255))
+    name: Mapped[str] = mapped_column(sa.String(255))
 
     attributes: Mapped[List["ImageAttribute"]] = relationship(back_populates="image")
+    variants: Mapped[List["ImageVariant"]] = relationship("ImageVariant", order_by="ImageVariant.width.desc()")
 
     def get_attibute_value_for_key(self, key: str):
         matches = list(filter(lambda attribute: attribute.key == key, self.attributes))
@@ -135,3 +131,23 @@ class ImageAttribute(Base):
 
     def __repr__(self):
         return f"<ImageAttribute {self.key} for Image {self.image_id}>"
+
+
+class ImageVariant(Base):
+    __tablename__ = "image_variants"
+
+    image_id: Mapped[int] = mapped_column(sa.ForeignKey("images.id"))
+    image: Mapped["Image"] = relationship(back_populates="variants")
+
+    width: Mapped[int]
+    height: Mapped[int]
+
+    mime_type: Mapped[str]
+    length: Mapped[int]
+
+    url: Mapped[str]
+
+    __table_args__ = (sa.PrimaryKeyConstraint("image_id", "width"),)
+
+    def __repr__(self):
+        return f"<ImageVariant @{self.width}px for Image {self.image_id}>"

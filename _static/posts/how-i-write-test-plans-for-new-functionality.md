@@ -1,8 +1,7 @@
 ---
 title: "How I Write Test Plans for New Functionality"
 publishDate: "2023-06-24T22:14:00-05:00"
-coverPhoto: "https://static.trevorwagner.dev/images/glenn-carstens-peters-RLw-UC03Gwc-unsplash/1200x798.jpg"
-thumbnail: "https://static.trevorwagner.dev/images/glenn-carstens-peters-RLw-UC03Gwc-unsplash/300x199.jpg"
+coverPhoto: "glenn-carstens-peters-RLw-UC03Gwc-unsplash"
 draft: false
 
 ---

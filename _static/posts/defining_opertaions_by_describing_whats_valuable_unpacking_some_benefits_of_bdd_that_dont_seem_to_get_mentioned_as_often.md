@@ -1,8 +1,7 @@
 ---
 title: "Defining Operations by Describing What's Valuable: Unpacking Some Benefits of Text-Driven BDD Testing That Don't Seem to Get Mentioned as Often"
 publishDate: "2024-01-24T15:10:00-06:00"
-coverPhoto: "https://static.trevorwagner.dev/images/uniqsurface-C8F095Z9i5c-unsplash/1200x794.jpg"
-thumbnail: "https://static.trevorwagner.dev/images/uniqsurface-C8F095Z9i5c-unsplash/300x198.jpg"
+coverPhoto: "uniqsurface-C8F095Z9i5c-unsplash"
 draft: false
 
 ---

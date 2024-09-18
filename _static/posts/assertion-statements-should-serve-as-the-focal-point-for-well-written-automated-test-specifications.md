@@ -2,8 +2,7 @@
 
 title: "More than a Hot Take: An Assertion Statement Should Serve as the Focal Point for Any Well-Written Automated Test Specification"
 publishDate: "2024-06-24T14:14:48-05:00"
-coverPhoto: "https://static.trevorwagner.dev/images/balint-mendlik-4-ORHffEh3I-unsplash/1200x794.jpg"
-thumbnail: "https://static.trevorwagner.dev/images/balint-mendlik-4-ORHffEh3I-unsplash/300x198.jpg"
+coverPhoto: "balint-mendlik-4-ORHffEh3I-unsplash"
 draft: false
 
 ---

@@ -1,8 +1,7 @@
 ---
 title: "How I Engineered a Solution to Improve UI Testing Stability and Reduce Test Runtime by 90%"
 publishDate: "2023-08-11T14:50:00-05:00"
-coverPhoto: "https://static.trevorwagner.dev/images/thomas-jarrand-K9GS65i36aQ-unsplash/1200x800.jpg"
-thumbnail: "https://static.trevorwagner.dev/images/thomas-jarrand-K9GS65i36aQ-unsplash/300x200.jpg"
+coverPhoto: "thomas-jarrand-K9GS65i36aQ-unsplash"
 draft: false
 
 ---

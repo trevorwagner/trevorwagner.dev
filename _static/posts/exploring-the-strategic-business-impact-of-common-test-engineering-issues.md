@@ -1,8 +1,7 @@
 ---
 title: "Exploring the Strategic Business Impact of Common Issues Complicating Value Delivered by Software Test Engineering"
 publishDate: "2024-06-11T17:51:29-05:00"
-coverPhoto: "https://static.trevorwagner.dev/images/kai-pilger-1k3vsv7iIIc-unsplash/1200x800.jpg"
-thumbnail: "https://static.trevorwagner.dev/images/kai-pilger-1k3vsv7iIIc-unsplash/300x200.jpg"
+coverPhoto: "kai-pilger-1k3vsv7iIIc-unsplash"
 draft: false
 
 ---

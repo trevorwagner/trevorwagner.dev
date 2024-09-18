@@ -13,7 +13,20 @@ from _static import php_contact_form_handler
 def blog_post_summary_link(a: Airium, post: BlogPost):
     with a.div(klass="post-summary"):
         with a.a(href=post.page.relative_path):
-            a.img(src=post.thumbnail.url, alt=escape(post.page.title))
+            use_variants = list(
+                filter(
+                    lambda v: int(v.width) <= 800, post.cover_photo.variants
+                )
+            )
+
+            with a.picture():
+                for variant in use_variants:
+                    a.source(
+                        type=variant.mime_type,
+                        srcset=variant.url,
+                    )
+                a.img(src=use_variants[0].url, alt=escape(post.page.title))
+
         with a.a(href=post.page.relative_path):
             a.h2(_t=escape(post.page.title))
         a.time(_t=escape(timestamp_blog_post_format(post.published)))
@@ -37,7 +50,22 @@ def contact_form(a: Airium, page: Page):
 
 def cover_photo(a: Airium, page: Page):
     with a.div(klass="cover-photo"):
-        a.img(src=page.blog_post.cover_photo.url)
+        with a.picture():
+            use_variants = list(
+                filter(
+                    lambda v: 950 >= int(v.width) >= 500, page.blog_post.cover_photo.variants
+                )
+            )
+
+            for variant in use_variants:
+                a.source(
+                    type=variant.mime_type,
+                    srcset=variant.url,
+                )
+            a.img(
+                src=use_variants[0].url,
+                alt=page.blog_post.cover_photo.get_attibute_value_for_key("description"),
+            )
         photo_credit(a, page.blog_post.cover_photo)
     return
 
@@ -116,7 +144,11 @@ def page_content(a: Airium, page: Page):
 
         with a.div(klass="w-content-header"):
             with a.div(klass="w-page-title"):
-                use_title = str(page.alt_title) if page.alt_title is not None else str(page.title)
+                use_title = (
+                    str(page.alt_title)
+                    if page.alt_title is not None
+                    else str(page.title)
+                )
                 a.h1(_t=escape(use_title))
 
             if page.type == "blogPost":
@@ -154,8 +186,7 @@ def page_title(a: Airium, page: Page):
     if page.type == "blogPost":
         a.title(_t="Blog Post: {} | Trevor Wagner".format(escape(page.title)))
     else:
-        a.title(
-            _t="{} | Trevor Wagner".format(escape(page.title)))
+        a.title(_t="{} | Trevor Wagner".format(escape(page.title)))
     return
 
 

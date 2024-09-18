@@ -1,8 +1,7 @@
 ---
 title: "Design Overview: Reusable Mock API with Modular Routing Using Express/ http.Server and Optional WebSockets"
 publishDate: "2023-08-08T15:38:00-05:00"
-coverPhoto: "https://static.trevorwagner.dev/images/anthony-U8Zj6ihgEkc-unsplash/1200x800.jpg"
-thumbnail: "https://static.trevorwagner.dev/images/anthony-U8Zj6ihgEkc-unsplash/300x200.jpg"
+coverPhoto: "anthony-U8Zj6ihgEkc-unsplash"
 draft: false
 
 ---

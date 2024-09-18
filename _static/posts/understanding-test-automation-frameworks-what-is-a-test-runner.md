@@ -1,8 +1,7 @@
 ---
 title: "Understanding Test Automation Frameworks: What is a Test Runner?"
 publishDate: "2024-06-13T14:25:24-05:00"
-coverPhoto: "https://static.trevorwagner.dev/images/trevor-wagner/bike/link/1200x793.jpg"
-thumbnail: "https://static.trevorwagner.dev/images/trevor-wagner/bike/link/300x198.jpg"
+coverPhoto: "trevor-wagner/bike/link"
 draft: false
 
 ---

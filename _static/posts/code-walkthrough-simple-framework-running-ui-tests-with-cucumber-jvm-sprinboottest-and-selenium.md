@@ -1,8 +1,7 @@
 ---
 title: "Code Walkthrough: Simple Framework Running UI Tests with Cucumber-JVM, SpringBootTest, and Selenium"
 publishDate: "2023-07-08T15:31:00-05:00"
-coverPhoto: "https://static.trevorwagner.dev/images/alex-guillaume-IWnuBhG_y34-unsplash/1200x900.jpg"
-thumbnail: "https://static.trevorwagner.dev/images/alex-guillaume-IWnuBhG_y34-unsplash/300x225.jpg"
+coverPhoto: "alex-guillaume-IWnuBhG_y34-unsplash"
 draft: false
 
 ---

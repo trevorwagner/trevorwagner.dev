@@ -1,10 +1,9 @@
 from sqlalchemy.orm import Session
 
+import json
+
 from _static import list_page_files, list_post_files, get_file_contents
-from src.analysis import (
-    get_metadata_for_image,
-    get_headers_for_image,
-)
+from src.analysis import get_metadata_for_image
 from src.inventory import (
     engine,
     init_db,
@@ -45,27 +44,20 @@ if __name__ == "__main__":
             # I anticipate that some blog posts may not have cover photos.
             # TODO: This is not catching where coverPhoto is set but has no contents.
             if "coverPhoto" in blog_post.page.md_file.page_metadata:
-                cover_url = blog_post.page.md_file.page_metadata["coverPhoto"]
 
-                cover_metadata = get_metadata_for_image(cover_url)
-                cover_headers = get_headers_for_image(cover_url)
-                blog_post.cover_photo = build_image_record(
-                    cover_url, cover_metadata, cover_headers
+                photo_name = blog_post.page.md_file.page_metadata["coverPhoto"]
+
+                image_metadata = get_metadata_for_image(
+                    "https://static.trevorwagner.dev/images/image-details.php?n={}".format(
+                        photo_name
+                    )
                 )
+
+                blog_post.cover_photo = build_image_record(photo_name, json.loads(image_metadata))
 
             # Currently all blog posts need a thumbnail to be specified.
             # If I expect to support a default thumbnail, then I need to do extra work.
             # This should should alert me either to operator error or need for extra work.
-            try:
-                thumb_url = blog_post.page.md_file.page_metadata["thumbnail"]
-                thumb_metadata = get_metadata_for_image(thumb_url)
-                blog_post.thumbnail = build_image_record(
-                    thumb_url, thumb_metadata, None
-                )
-            except KeyError:
-                raise KeyError(
-                    f'No thumbnail was provided for the post "{blog_post.page.title}" (via {blog_post.page.md_file.file_path})'
-                )
 
             blog_posts.append(blog_post)
 

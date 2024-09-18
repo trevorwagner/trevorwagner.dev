@@ -46,7 +46,7 @@ def build_rss_for_blog_posts(posts, metadata):
                     # TODO: Add summary element to manifest generation script.
                     # f'\n\t\t"<description><![CDATA[lorem ipsum]]></description>',
                     f"\n\t\t<guid>https://www.trevorwagner.dev{escape(post.page.relative_path)}</guid>",
-                    f'\n\t\t<enclosure url="{post.cover_photo.url}" length="{post.cover_photo.get_attibute_value_for_key('file_content_length')}" type="{post.cover_photo.get_attibute_value_for_key('file_content_type')}"/>',
+                    f'\n\t\t<enclosure url="{post.cover_photo.variants[0].url}" length="{post.cover_photo.variants[0].length}" type="{post.cover_photo.variants[0].mime_type}"/>',
                     f"\n\t\t<content:encoded><![CDATA[{build_content_html_for_post(post, metadata)}]]></content:encoded>",
                     "\n\t</item>",
                 ]

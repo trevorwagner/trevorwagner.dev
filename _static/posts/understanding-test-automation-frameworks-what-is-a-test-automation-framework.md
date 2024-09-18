@@ -1,8 +1,7 @@
 ---
 title: "Understanding Test Automation Frameworks: What is a Test Automation Framework?"
 publishDate: "2024-06-28T15:42:06-05:00"
-coverPhoto: "https://static.trevorwagner.dev/images/trevor-wagner/bike/back-end/1200x799.jpg"
-thumbnail: "https://static.trevorwagner.dev/images/trevor-wagner/bike/back-end/300x200.jpg"
+coverPhoto: "trevor-wagner/bike/back-end"
 draft: false
 
 ---

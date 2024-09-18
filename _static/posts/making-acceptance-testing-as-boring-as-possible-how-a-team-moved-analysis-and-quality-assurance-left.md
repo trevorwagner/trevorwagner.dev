@@ -1,8 +1,7 @@
 ---
 title: "Making Acceptance Testing as Boring as Possible: How a Team Moved Analysis and Quality Assurance Left Without Need for a Testable Build"
 publishDate: "2023-07-10T10:25:00-05:00"
-coverPhoto: "https://static.trevorwagner.dev/images/hafidh-satyanto-AM0MZ34mGiY-unsplash/1200x800.jpg"
-thumbnail: "https://static.trevorwagner.dev/images/hafidh-satyanto-AM0MZ34mGiY-unsplash/300x200.jpg"
+coverPhoto: "hafidh-satyanto-AM0MZ34mGiY-unsplash"
 draft: false
 
 ---

@@ -1,8 +1,7 @@
 ---
 title: "Design Overview: In-Memory Generic Repository for Storing Test Data in JavaScript using LokiJS"
 publishDate: "2023-08-01T17:49:00-05:00"
-coverPhoto: "https://static.trevorwagner.dev/images/karen-tsoi-CXMzH6dMobQ-unsplash/1200x800.jpg"
-thumbnail: "https://static.trevorwagner.dev/images/karen-tsoi-CXMzH6dMobQ-unsplash/300x200.jpg"
+coverPhoto: "karen-tsoi-CXMzH6dMobQ-unsplash"
 draft: false
 
 ---

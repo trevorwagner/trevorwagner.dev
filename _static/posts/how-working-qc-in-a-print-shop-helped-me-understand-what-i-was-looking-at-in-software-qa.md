@@ -1,8 +1,7 @@
 ---
 title: "How Working QC in a Print Shop Helped Me Understand What I Was Looking At in Software QA"
 publishDate: "2023-06-16T17:01:00-05:00"
-coverPhoto: "https://static.trevorwagner.dev/images/christina-rumpf-XWDMmk-yW7Q-unsplash/1200x800.jpg"
-thumbnail: "https://static.trevorwagner.dev/images/christina-rumpf-XWDMmk-yW7Q-unsplash/300x200.jpg"
+coverPhoto: "christina-rumpf-XWDMmk-yW7Q-unsplash"
 draft: false
 
 ---

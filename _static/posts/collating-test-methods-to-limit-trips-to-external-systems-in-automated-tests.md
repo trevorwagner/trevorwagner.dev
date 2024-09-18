@@ -1,8 +1,7 @@
 ---
 title: "Collating Test Methods to Limit Trips to External Systems in Automated Tests"
 publishDate: "2023-06-29T16:16:00-05:00"
-coverPhoto: "https://static.trevorwagner.dev/images/sebastien-uwagwk2FywU-unsplash/1200x797.jpg"
-thumbnail: "https://static.trevorwagner.dev/images/sebastien-uwagwk2FywU-unsplash/300x199.jpg"
+coverPhoto: "sebastien-uwagwk2FywU-unsplash"
 draft: false
 
 ---

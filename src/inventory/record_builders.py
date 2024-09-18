@@ -2,55 +2,46 @@ import frontmatter as fm
 import json, datetime, pathlib
 
 from _static import get_file_mod_time
-from src.inventory import BlogPost, Page, MDFile, Image, ImageAttribute
+from src.inventory import BlogPost, Page, MDFile, Image, ImageAttribute, ImageVariant
 from src.analysis.md_files import (
     get_page_relative_path,
     get_page_type,
 )
-from src.analysis.image_files import get_photo_dimensions
 
 
-def build_image_record(url, photo_data, file_headers):
-    parsed_metadata = json.loads(photo_data)
+def build_image_record(image_name, image_data):
+    new_record = Image(name=image_name)
 
-    new_record = Image(url=url)
-
-    if "author" in parsed_metadata:
+    if "author" in image_data:
         new_record.attributes.append(
             ImageAttribute(
-                key="author_name", value=parsed_metadata["author"]["username"]
+                key="author_name", value=image_data["author"]["username"]
             )
         )
-        if "profile" in parsed_metadata["author"]:
+        if "profile" in image_data["author"]:
             new_record.attributes.append(
                 ImageAttribute(
-                    key="author_url", value=parsed_metadata["author"]["profile"]
+                    key="author_url", value=image_data["author"]["profile"]
                 ),
             )
-        if "source" in parsed_metadata:
+        if "source" in image_data:
             new_record.attributes.append(
-                ImageAttribute(key="source_url", value=parsed_metadata["source"]),
+                ImageAttribute(key="source_url", value=image_data["source"]),
             )
 
-    image_dimensions = get_photo_dimensions(url)
-
-    new_record.attributes.extend(
-        [
-            ImageAttribute(key="image_height", value=image_dimensions["w"]),
-            ImageAttribute(key="image_width", value=image_dimensions["h"]),
-        ]
-    )
-
-    if file_headers is not None:
-        new_record.attributes.extend(
-            [
-                ImageAttribute(
-                    key="file_content_length", value=file_headers.get("Content-Length")
-                ),
-                ImageAttribute(
-                    key="file_content_type", value=file_headers.get("Content-Type")
-                ),
-            ]
+    if "description" in image_data:
+        new_record.attributes.append(
+            ImageAttribute(key="description", value=image_data["description"]),
+        )
+    for v_item in image_data["variants"]:
+        new_record.variants.append(
+            ImageVariant(
+                url=v_item['url'],
+                width=v_item["width"],
+                height=v_item["height"],
+                mime_type=v_item["mime-type"],
+                length=v_item["length"],
+            )
         )
 
     return new_record
@@ -80,7 +71,9 @@ def build_page_record(md_file: MDFile):
 
     return Page(
         title=md_file_metadata["title"],
-        alt_title=md_file_metadata["altTitle"] if 'altTitle' in md_file_metadata else None,
+        alt_title=(
+            md_file_metadata["altTitle"] if "altTitle" in md_file_metadata else None
+        ),
         type=page_type,
         draft=md_file_metadata["draft"],
         relative_path=page_relative_path,

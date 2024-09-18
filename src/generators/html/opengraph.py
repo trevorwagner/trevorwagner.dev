@@ -14,17 +14,15 @@ def assemble_opengraph_data_for_page(page: Page):
     }
 
     if page.type == "blogPost":
-        data["og:type"] = "article"
-        data["og:image"] = page.blog_post.cover_photo.url
-        data["og:image:url"] = page.blog_post.cover_photo.url
-        data["og:image:secure_url"] = page.blog_post.cover_photo.url
+        use_cover_photo = page.blog_post.cover_photo.variants[0]
 
-        data["og:image:width"] = int(
-            page.blog_post.cover_photo.get_attibute_value_for_key("image_height")
-        )
-        data["og:image:height"] = int(
-            page.blog_post.cover_photo.get_attibute_value_for_key("image_width")
-        )
+        data["og:type"] = "article"
+        data["og:image"] = use_cover_photo.url
+        data["og:image:url"] = use_cover_photo.url
+        data["og:image:secure_url"] = use_cover_photo.url
+
+        data["og:image:width"] = use_cover_photo.width
+        data["og:image:height"] = use_cover_photo.height
         data["og:publish_date"] = timestamp_opengraph_format(page.blog_post.published)
 
         data["article:published_time"] = timestamp_opengraph_format(

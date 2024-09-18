@@ -99,7 +99,8 @@ def build_content_html_for_post(post, rss_metadata):
     with a.div():
         if post.cover_photo is not None:
             with a.div():
-                a.img(src=post.cover_photo.url)
+                with a.picture():
+                    a.img(src=post.cover_photo.variants[0].url)
 
         a(
             markdown(

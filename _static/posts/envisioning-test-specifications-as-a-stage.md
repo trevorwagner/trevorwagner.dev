@@ -1,8 +1,7 @@
 ---
 title: "Test Code Readability: Envisioning Test Specifications as a Stage"
 publishDate: "2023-10-17T13:51:00-05:00"
-coverPhoto: "https://static.trevorwagner.dev/images/mark-williams-9bNmhMKQM1Q-unsplash/1200x800.jpg"
-thumbnail: "https://static.trevorwagner.dev/images/mark-williams-9bNmhMKQM1Q-unsplash/300x200.jpg"
+coverPhoto: "mark-williams-9bNmhMKQM1Q-unsplash"
 draft: false
 
 ---
