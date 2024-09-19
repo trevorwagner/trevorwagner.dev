@@ -71,7 +71,7 @@ header a:visited,
 }
 
 .navigation a:hover {
-    border-bottom: 3px solid #4CA90A;
+    color: #afbbcf !important;
 }
 
 .clear-both {
