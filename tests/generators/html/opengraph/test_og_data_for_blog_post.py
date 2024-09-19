@@ -15,18 +15,18 @@ test_page = Page(
             name="trevorwagner/test/photo",
             variants=[
                 ImageVariant(
-                    width=600,
-                    height=800,
-                    mime_type="image/jpeg",
-                    length="1010101",
-                    url="https://static.example.com/images/trevorwagner/test/photo/800x600.jpg",
-                ),
-                ImageVariant(
                     width=1024,
                     height=768,
                     mime_type="image/jpeg",
                     length="2020202",
                     url="https://static.example.com/images/trevorwagner/test/photo/1024x768.jpg",
+                ),
+                ImageVariant(
+                    width=600,
+                    height=800,
+                    mime_type="image/jpeg",
+                    length="1010101",
+                    url="https://static.example.com/images/trevorwagner/test/photo/800x600.jpg",
                 ),
             ],
         ),
@@ -105,3 +105,47 @@ def test_og_data_populates_expected_page_modified_time():
     result = og_data["article:modified_time"]
 
     assert result == "2024-06-24T14:14:48-05:00"
+
+
+def test_og_data_populates_expected_url_for_image():
+    og_data = assemble_opengraph_data_for_page(test_page)
+    result = og_data["og:image"]
+
+    # URL for the largest image on the page/ first in the list in data.
+    assert (
+        result
+        == "https://static.example.com/images/trevorwagner/test/photo/1024x768.jpg"
+    )
+
+
+def test_og_data_populates_expected_url_for_image_url():
+    og_data = assemble_opengraph_data_for_page(test_page)
+    result = og_data["og:image:url"]
+
+    # URL for the largest image on the page/ first in the list in data.
+    assert (
+        result
+        == "https://static.example.com/images/trevorwagner/test/photo/1024x768.jpg"
+    )
+
+
+def test_og_data_populates_expected_url_for_image_url():
+    og_data = assemble_opengraph_data_for_page(test_page)
+    result = og_data["og:image:url"]
+
+    # URL for the largest image on the page/ first in the list in data.
+    assert (
+        result
+        == "https://static.example.com/images/trevorwagner/test/photo/1024x768.jpg"
+    )
+
+
+def test_og_data_populates_expected_url_for_image_secure_url():
+    og_data = assemble_opengraph_data_for_page(test_page)
+    result = og_data["og:image:secure_url"]
+
+    # URL for the largest image on the page/ first in the list in data.
+    assert (
+        result
+        == "https://static.example.com/images/trevorwagner/test/photo/1024x768.jpg"
+    )
