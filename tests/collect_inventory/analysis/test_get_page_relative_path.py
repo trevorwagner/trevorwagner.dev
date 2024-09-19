@@ -1,4 +1,4 @@
-from collect_inventory.analysis.md_files import get_page_relative_path
+from src.analysis.md_files import get_page_relative_path
 
 
 def test_returns_path_within_blog_for_md_file_in_posts():

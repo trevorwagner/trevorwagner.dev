@@ -1,4 +1,4 @@
-from collect_inventory.analysis.md_files import get_page_type
+from src.analysis.md_files import get_page_type
 
 
 def test_returns_blog_post_for_file_in_posts():
