@@ -11,12 +11,14 @@ def timestamp_blog_post_format(timestamp):
     return timestamp.strftime("%b {}, %Y").format(day_non_padded)
 
 
-def timestamp_opengraph_format(timestamp):
+def timestamp_opengraph_format(time):
     """
-    Formats timestamp as date string in the format (???)
+    Formats timestamp as date string in the format (ISO-8601)
     generally used for og:publish_date.
     """
-    return timestamp.strftime("").replace("%Y-%m-%dT%H:%M:%S%:z", "T")
+    timestamp = time.replace(tzinfo=ZoneInfo("America/Chicago"))
+    return timestamp.strftime("%Y-%m-%dT%H:%M:%S%:z")
+
 
 def timestamp_rfc_822(time):
     timestamp = time.replace(tzinfo=ZoneInfo("America/Chicago"))
