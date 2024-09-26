@@ -21,7 +21,7 @@ body {
 
 code {
     font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Courier New", "Courier Prime", monospace;
-    font-size: 93%;
+    font-size: 91%;
     line-height: 1.348rem;
 }
 
@@ -162,6 +162,10 @@ header a:visited,
     padding: 0 0.299rem;
 }
 
+.w-content-footer code.hljs {
+    background-color: #0A0C10 !important;
+}
+
 .w-content-footer h1,
 .w-content-footer h2,
 .w-content-footer h3 {
@@ -241,6 +245,6 @@ footer div {
 
 @media only screen and (min-width: 768px) and (orientation: landscape) {
     .w-nameplate a {
-        border-bottom: 3px solid #4CA90A;
+        border-bottom: 2px solid #4CA90A;
     }
 }
