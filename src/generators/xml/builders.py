@@ -52,7 +52,7 @@ def build_rss_for_blog_posts(posts, metadata):
                 ]
             )
 
-        channel = "".join([channel, new_item])
+            channel = "".join([channel, new_item])
 
     channel = "".join([channel, "\n\n</channel>"])
 
