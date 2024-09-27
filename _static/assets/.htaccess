@@ -95,4 +95,4 @@ RewriteRule ^2023/11/28/more-than-a-hot-take-testing-code-responsible-for-testin
 
 
 # "Defining Operations by Describing What's Valuable: Unpacking Some Benefits of Text-Driven BDD Testing That Don't Seem to Get Mentioned as Often"
-RewriteRule ^$ /posts/defining_opertaions_by_describing_whats_valuable_unpacking_some_benefits_of_bdd_that_dont_seem_to_get_mentioned_as_often/ /blog/?p=13 [R=permanent,NC,L]
+RewriteRule ^posts/defining_opertaions_by_describing_whats_valuable_unpacking_some_benefits_of_bdd_that_dont_seem_to_get_mentioned_as_often/? /blog/?p=13 [R=permanent,NC,L]
