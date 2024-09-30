@@ -20,7 +20,7 @@ JavaScript/ TypeScript. Java 8, 11. bash/ zsh/ sh. Python 2, 3. batch. Groovy.
 Linux (including Ubuntu, RHEL/ CentOS). macOS. iOS. Windows. Windows Server. Android.
 
 ### Other Software/ Technologies
-NodeJS. Tomcat 7, 8. MySQL 5. NoSQL. Selenium/ Webdriver. Cucumber/ Gherkin. Angular CLI. JUnit. TestNG. Spock. Jasmine. Karma. Mocha + chai. LokiJS. ExpressJS. Docker. VMWare Fusion 6-7. VirtualBox 4+. Maven. Gradle. Active Directory. Git. SVN. JIRA/ Atlassian Suite. Jenkins. CircleCI. Browserstack. TestRail. SalesForce. MantisBT. HTML/ Web Publishing. XML. RESTful APIs. IntelliJ. Visual Studio Code.
+NodeJS. Tomcat 7, 8. MySQL 5. NoSQL. Selenium/ Webdriver. Cypress. Cucumber/ Gherkin. Angular CLI. JUnit. TestNG. Spock. Jasmine. Karma. Mocha + chai. LokiJS. ExpressJS. Docker. VMWare Fusion 6-7. VirtualBox 4+. Maven. Gradle. Active Directory. Git. SVN. JIRA/ Atlassian Suite. Jenkins. CircleCI. Browserstack. TestRail. SalesForce. MantisBT. HTML/ Web Publishing. XML. RESTful APIs. IntelliJ. Visual Studio Code.
 
 ## Professional Experience
 
@@ -36,7 +36,7 @@ NodeJS. Tomcat 7, 8. MySQL 5. NoSQL. Selenium/ Webdriver. Cucumber/ Gherkin. Ang
 <span class="detail">_FullStory (Atlanta, GA/ Remote). 2021-2023_</span>
 
 - Served as an active QA resource (concurrently) on two agile delivery teams within the company's main SaaS offering (for the capture script submitting visitor session details to a Go API and playback functionality assembling rehydrated session data to display within a Web page). Attended team meetings and ceremonies. Performed release testing. Reviewed pull requests. Evaluated current coverage strategy and suggested updates.
-- Designed and prototyped new UI and integration testing solutions in JavaScript/ TypeScript, including a sharable WebDriver factory class and an in-memory generic DAL for test data management. Provided formal design documentation of UI test solution for review within the org. Delivered presentations of completed work and kick-off meetings for new projects as needed.
+- Designed and prototyped new UI and integration testing solutions in JavaScript/ TypeScript, including a sharable WebDriver factory class and an in-memory generic DAL for test data management. Provided formal design documentation of UI test solution for review within the org. Delivered presentations of completed work and kick-off meetings for new projects as needed. Developed and debugged tests written using Cypress.
 - Helped consolidate- and increase visibility of the QA discipline within the organization. Organized and led bi-weekly and weekly meetings for coordination within the Test Engineering and with Productivity. Served as an org-wide SME for Browserstack. Wrote a problem 19-page statement (including possible solutions) centering on functional risk presented within a custom multi-component feature flag system. Developed training materials that outline best testing practices including wiki posts and a 25-minute video presentation.
 
 ### Test Analysis Engineer
