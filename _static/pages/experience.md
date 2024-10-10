@@ -24,7 +24,7 @@ NodeJS. Tomcat 7, 8. MySQL 5. NoSQL. Selenium/ Webdriver. Cypress. Cucumber/ Ghe
 
 ## Professional Experience
 
-### Owner/ Member, Principal Consultant
+### Principal, Consultant
 <span class="detail">_Upstream Consulting LLC (St. Paul, MN/ Remote). 2023-present_
 </span>
 
