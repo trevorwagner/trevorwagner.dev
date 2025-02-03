@@ -1,5 +1,6 @@
 ---
-title: "Test Parametrization: Exploring Reusable Test Design and the Benefits of Making Automated Test Code DRY"
+
+title: "Test Parameterization: Exploring Reusable Test Design and the Benefits of Making Automated Test Code DRY"
 publishDate: "2024-10-09T23:27:15-05:00"
 coverPhoto: "daniel-klein-uehGpZefOBE-unsplash"
 draft: false
@@ -20,7 +21,7 @@ Most popular test runners support **parameterizing test specifications** -- that
 
 Here is an example of a working parameterized test in JavaScript (executed using Jasmine), for a simple method (no concerns about unexpected input here) tasked with multiplying two values:
 
-<pre><code class="language-javascript">
+```javascript
 const multiply_values = (v1, v2) => {
     return v1 * v2
 }
@@ -38,7 +39,7 @@ describe(`when the multiply_values function is invoked`, () => {
     })
 })
 
-</code></pre>
+```
 
 Not counting the `describe()` statement itself, this example code does the same work in ten lines that three copy-pasted `it()` methods would (as currently formatted) require twelve lines for. The example code is (generally, minus variable assignments) less redundant, and it lists the input values and expected results all in a unified and easy-to-parse truth table. As a bonus, it fills in a descriptive name for the test based on values provided within the test case.
 
@@ -76,7 +77,7 @@ The general idea making this work is that, if a programmer can extract values us
 
 Here is a working example (written in Python) using Pytest as a runner to define tests very similar to what was provided in the introduction:
 
-<pre><code class="language-python">
+```python
 import pytest
 
 def multiply_values(v1, v2):
@@ -95,11 +96,11 @@ def test_multiply_values_returns_expected_product(test_case):
     result = multiply_values(v1, v2)
     assert result == expected
 
-</code></pre>
+```
 
 Here is an example using Cucumber as a runner to define what looks like a very similar set of tests:
 
-<pre><code class="language-gherkin">
+```gherkin
 Scenario Outline:
   Given v1 is provided a value of &lt;v1_value&gt;
   And v2 is provided a value of &lt;v2_value&gt;
@@ -108,11 +109,11 @@ Scenario Outline:
 
 Examples:
   | v1_value | v2_value | expected_product |
-  | 2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| 1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| 2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
-  | 2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| 2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| 4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
-  | 2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| 3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| 6&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
+  | 2        | 1        | 2                |
+  | 2        | 2        | 4                |
+  | 2        | 3        | 6                |
 
-</code></pre>
+```
 
 In these examples, parameterized test specifications (much like general program code designed in a manner that promotes DRY) enjoy many of the same benefits as [parallel construction in natural language](https://en.wikipedia.org/wiki/Parallelism_(grammar)). Taking advantage of an opportunity to condense a series of otherwise-verbose statements into a well-organized compound statement can help make sentences (like the one you are reading right now) describing complex relationships simpler, easier to follow, and generally more efficient as a result. Not only does the printer require less toner (or the speaker less breath) with parallel construction; the reader or listener should hopefully be able to recognize with relative ease how serialized items, phrases, or clauses relate to each other within a (parallelized) grammatical construction in order to be able to unpack meaning efficiently.
 
@@ -151,7 +152,7 @@ At the same time, though: the easier this makes simply swapping _one set of valu
 
 For a simple set of tests exercising something like [the in-memory test data management system I've written about previously](/blog/posts/design-overview-in-memory-generic-test-data-managment-in-javascript-using-lokijs/) as (developed as part of [a mock backend solution for UI testing](/blog/posts/how-i-improved-testing-stability-and-reduced-test-runtime-by-90/)) (where `RecordSet.create(snapshot)` is expected to clone values from the snapshot passed to it as a means of protecting snapshot data provided in the original argument from mutation), a limited suite of specifications open to parameterization can look something like this:
 
-<pre><code class="language-javascript">
+```javascript
 const peopleData = new PersonRepository('testData.people')
 
 describe(`when the CREATE verb is used to save a new record snapshot`, ()=> {
@@ -180,7 +181,7 @@ describe(`when the CREATE verb is used to save a new record snapshot`, ()=> {
   })
 })
 
-</code></pre>
+```
 
 Here, instead of settling for a one-off test against a specific real-world use case, this code provides a reusable subset of tests that can potentially be made use of locally (i.e. in an IDE on a local machine as opposed to in CI) to test any set of values specified for `person.firstName` and `person.lastName` (even if, for example, Paul was given a last name of `PurpleMonkeyDishwasher` or even a first name of `Paula`) in addition to the values currently persisted in VCS (which is what gets executed in CI).
 

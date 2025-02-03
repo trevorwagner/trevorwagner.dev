@@ -1,4 +1,5 @@
 ---
+
 title: "More than a Hot Take: Testing Code Responsible for Testing Is a Sensible Way to Protect against Risk, Safeguard Return on Investment"
 publishDate: "2023-11-28T15:53:00-05:00"
 coverPhoto: "c-d-x-8zKHg5JUp2U-unsplash"

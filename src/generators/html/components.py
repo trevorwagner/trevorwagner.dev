@@ -162,7 +162,7 @@ def page_content(a: Airium, page: Page):
             cover_photo(a, page)
 
         if page.relative_path != "/blog/":
-            a(markdown(str(page.md_file.page_content)))
+            a(markdown(str(page.prepared_content)))
 
             if page.relative_path == "/contact/":
                 contact_form(a, page)

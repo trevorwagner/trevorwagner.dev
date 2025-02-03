@@ -90,7 +90,7 @@ def test_og_data_populates_expected_page_description():
     og_data = assemble_opengraph_data_for_page(test_page)
     result = og_data["og:description"]
 
-    assert result == test_page.md_file.page_content[0:300]
+    assert result == test_page.prepared_content[0:300]
 
 
 def test_og_data_populates_expected_page_published_time():

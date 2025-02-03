@@ -1,3 +1,4 @@
 #!/usr/bin/env sh
 
-source _sanitize_markdown.sh
+printf $'Removing smart characters and unnecessary formatting from markdown files...\n';
+find ./_static -name "*.md" -exec bash ./util/bin/sanitize_markdown.sh "{}" \;

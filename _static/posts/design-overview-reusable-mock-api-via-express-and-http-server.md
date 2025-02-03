@@ -1,4 +1,5 @@
 ---
+
 title: "Design Overview: Reusable Mock API with Modular Routing Using Express/ http.Server and Optional WebSockets"
 publishDate: "2023-08-08T15:38:00-05:00"
 coverPhoto: "anthony-U8Zj6ihgEkc-unsplash"
@@ -42,22 +43,22 @@ Express provides a class [Router](https://expressjs.com/en/api.html#router) that
 
 So if you define your router (and a route for it) like this:
 
-<pre><code class="language-javascript">
+```javascript
 const greetingsRouter = express.Router();
 
 router.get('sayHello', (req, res) => {
     res.send('hello world!');
 });
-</code></pre>
+```
 
 ...then you attach the route to Express, using `app.use()` like this:
 
-<pre><code class="language-javascript">
+```javascript
 const app = express();
 
 app.use('/whyNot', greetingsRouter);
 app.listen(3000, ()=>{console.log('Express running on port 3000.')} );
-</code></pre>
+```
 
 If you submit a GET request to `http://localhost:3000/whyNot/sayHello`, the server will return the a response with body text `hello world!`.
 
@@ -90,17 +91,17 @@ Again: I want users to be able to configure a server with a minimum of highly-re
 
 RouteSet is a base class that establishes a wrapper around `express.Router` stored on instances of the class. This wrapper class provides a lifecycle hook (`setRoutes()`) that allows users to define any number of custom subclasses (sometimes I refer to these as "route classes") that they can attach using Express (see AppContainer Wrapper Class, below) as the custom classes are instantiated:
 
-<pre><code class="language-typescript">
+```typescript
 appContainer.attachRouteSets([
     new PersonRoutes().at('/people'),
     new PlaceRoutes().at('/places'),
     new ThingRoutes().at('/things'),
 ]);
-</code></pre>
+```
 
 The first time I wrote this library, I only established a wrapper around HTTP routes (not for WebSocket endpoints). For WebSocket routes (of which at the time I only needed one), I attached it directly to the instance of `http.Server` after it was extracted from express.Application (using `http.createServer()`). To make the design more modular I eventually established two RouteSet base classes: one routeSet for HTTP routes and one that establishes a similar sort of wrapper around WebSocket ws routes. Both support using `at()` right after instantiation as outlined in the above code snippet.
 
-Because WebSocket routes are a little more complex to define behaviors for to maintain contact with active clients, it requires a little more code to make work. Among other reasons: WebSocket is message-based and JavaScript is event-driven (so we will need to define behaviors in terms of message event callbacks). What's more, the establishment of WebSocket routes require upgrading an HTTP request (which means more event callbacks). Furthermore, the server is generally expected to manage open WebSocket client connections and establish heartbeat routines that expect "pong" responses by the client in response to the server's "ping."  All of this needs to be handled somehow in code (more event callbacks here, too).
+Because WebSocket routes are a little more complex to define behaviors for to maintain contact with active clients, it requires a little more code to make work. Among other reasons: WebSocket is message-based and JavaScript is event-driven (so we will need to define behaviors in terms of message event callbacks). What's more, the establishment of WebSocket routes require upgrading an HTTP request (which means more event callbacks). Furthermore, the server is generally expected to manage open WebSocket client connections and establish heartbeat routines that expect "pong" responses by the client in response to the server's "ping." All of this needs to be handled somehow in code (more event callbacks here, too).
 
 When I wrote this again later, I wrote two subclasses for RouteSet (one for each transmission type): **HTTPRouteSet** and **WSRouteSet**.
 
@@ -144,7 +145,7 @@ As long as I'm taking requests I understand that fastify is also an option to ac
 
 Let's say somebody wanted to use this (for some reason) within a Jasmine `describe()` block. Assuming the routes within PersonRouteSet were already defined, here's the code they'd need to make it work:
 
-<pre><code class="language-typescript">
+```typescript
 import { ApplicationContainer } from 'reusable-mock-api-service';
 import { PersonRouteSet } from '../../routes/custom-routers/';
 
@@ -163,7 +164,7 @@ describe('my functionality', () => {
         applicationContainer.stop();
     });
 });
-</code></pre>
+```
 
 At this point, any routes defined within PersonRouteSet are available for interaction during test runtime, and the server will close down gracefully within the `afterAll()` statement.
 

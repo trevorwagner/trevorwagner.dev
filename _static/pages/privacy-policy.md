@@ -1,6 +1,8 @@
 ---
+
 title: "Privacy Policy"
 draft: false
+
 ---
 
 This is a site built and maintained by Upstream Consulting LLC

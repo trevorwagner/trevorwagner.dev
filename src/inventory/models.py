@@ -2,6 +2,8 @@ import datetime, json
 
 from typing import List
 
+import re
+
 import sqlalchemy as sa
 from sqlalchemy.ext.hybrid import hybrid_property
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, relationship
@@ -71,6 +73,18 @@ class Page(Base):
     def __repr__(self):
         return f"<Page {self.id}>"
 
+    @hybrid_property
+    def prepared_content(self):
+        return re.sub(
+            r"```",
+            "</code></pre>",
+            re.sub(
+                r"```([a-zA-Z]+)",
+                r'<pre><code class="language-\1">',
+                self.md_file.page_content,
+            ),
+        )
+
 
 class BlogPost(Base):
     __tablename__ = "blog_posts"
@@ -99,7 +113,9 @@ class Image(Base):
     name: Mapped[str] = mapped_column(sa.String(255))
 
     attributes: Mapped[List["ImageAttribute"]] = relationship(back_populates="image")
-    variants: Mapped[List["ImageVariant"]] = relationship("ImageVariant", order_by="ImageVariant.width.desc()")
+    variants: Mapped[List["ImageVariant"]] = relationship(
+        "ImageVariant", order_by="ImageVariant.width.desc()"
+    )
 
     def get_attibute_value_for_key(self, key: str):
         matches = list(filter(lambda attribute: attribute.key == key, self.attributes))

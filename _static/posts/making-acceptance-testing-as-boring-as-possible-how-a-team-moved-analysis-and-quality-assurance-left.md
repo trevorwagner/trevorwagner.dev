@@ -1,4 +1,5 @@
 ---
+
 title: "Making Acceptance Testing as Boring as Possible: Exploring How a Team Shifted Testing Left Without Need for a Testable Build"
 publishDate: "2023-07-10T10:25:00-05:00"
 coverPhoto: "hafidh-satyanto-AM0MZ34mGiY-unsplash"

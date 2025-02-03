@@ -1,4 +1,5 @@
 ---
+
 title: "Defining Operations by Describing What's Valuable: Unpacking Some Benefits of Text-Driven BDD Testing That Don't Seem to Get Mentioned as Often"
 publishDate: "2024-01-24T15:10:00-06:00"
 coverPhoto: "uniqsurface-C8F095Z9i5c-unsplash"
@@ -19,14 +20,14 @@ As I do this, I plan on italicizing use of the words [define](https://en.wiktion
 ## What A Text-Driven BDD Test Specification Looks Like
 If you wanted to write a simple end-to-end test against a workflow on a login screen using Gherkin (a line-oriented syntax common to text-driven BDD test runners), you could write a test specification/ scenario that looked like this:
 
-<pre><code class="language-gherkin">
+```gherkin
 Scenario: A login attempt with incorrect password and correct username is rejected by the login screen
    Given a user has visited the login screen
    And the user enters a value of "usernameWeKnowIsCorrect" to the Username field
    And the user enters a value of "passwordWeKnowIsIncorrect" to the Password field
    When when the user clicks the Login button
    Then the login screen should display an error message "Login Failed"
-</code></pre>
+```
 
 When the test runner (I wrote this as a [Cucumber](https://cucumber.io/) scenario) encounters this, it will iterate through each line and attempt to locate a step definition with a matching pattern that matches the line. If there's a match, it will run code paired with the matching pattern; otherwise most runners will throw an error (and some will print code it suggests to define a step definition that will match the step it encountered that resulted in an error).
 

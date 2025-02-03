@@ -1,4 +1,5 @@
 ---
+
 title: "Making the Most of Throwing Errors: Exploring Why \"Fail\" Could be One of the Most Valuable Things Automated Test Code Can Do"
 publishDate: "2023-10-26T16:32:00-05:00"
 coverPhoto: "alek-kalinowski-9HsRmdogZsU-unsplash"
@@ -20,12 +21,12 @@ _Don't be afraid to spike a test if it's not doing what you want it to._
 
 In JavaScript, for example, code to throw an error can look as simple as this:
 
-<pre><code class="language-javascript">
+```javascript
 if (instance.fieldValue !== 1) {
    throw Error(`Expected fieldValue to be 1, but was ${instance.fieldValue}.`)
 
 }
-</code></pre>
+```
 
 At a strictly technical level, failing a test proactively conventionally results in three things:
 
@@ -112,7 +113,7 @@ Error messages provide an opportunity to let the test code (or the test support 
 
 When I wrote [the test data management system I used to perform UI testing with a mock back end](/blog/posts/design-overview-in-memory-generic-test-data-managment-in-javascript-using-lokijs/), it was very important that tests fail fast if a situation was encountered that might cause ambiguity in test data. For example, if I wanted to retrieve one (and only one) record with the repository's retrieve(query) function, then I could expect that returning zero matches was a problem (I expected a record to be there but it wasn't) and returning more than one match (at which point for a query expecting a single match it's ambiguous which record the user meant to retrieve) was also a problem. I handle these both of these potential issues while also returning the one match I'm actually expecting with code like this:
 
-<pre><code class="language-javascript">
+```javascript
 if(matches.length > 1) {
   throw Error(`Expected to find only one record matching the query ${JSON.stringify(query)}, but found ${matches.length}: \n${JSON.stringify(matches.length)}`);
 }
@@ -122,7 +123,7 @@ if(matches.length === 0) {
 }
 
 return matches[0];
-</code></pre>
+```
 
 If neither condition is true, the snippet returns the first match; if either condition is true, execution stops after the error associated with that condition (with corresponding error message) is thrown.
 

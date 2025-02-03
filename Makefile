@@ -5,32 +5,33 @@ clean:
 	rm -fR ./_dist
 
 dependencies:
-	bash ./_fetch_dependencies.sh
+	bash ./util/bin/fetch_dependencies.sh
 
 devserver:
 	rm -fR _dist/html/.htaccess
 	if [[ ! -d '_dist/html/private/config/' ]]; then mkdir -p '_dist/html/private/config/'; fi
 	if [[ ! -f '_dist/html/private/config/email_settings.php' ]]; then touch '_dist/html/private/config/email_settings.php'; fi
-	bash ./_start_dev_server.sh
+	bash ./util/bin/start_dev_server.sh
 
 inventory:
 	if [[ ! -f '_dist/site_inventory.db' ]]; then python3 collect_inventory.py; fi
 
 modtimes: 
-	bash ./_fix_modtimes.sh
+	bash ./util/bin/fix_modtimes.sh
 
 timestamp:
 	TZ=America/Chicago date -Iseconds
 
 pages: inventory
 	python3 generate_html.py
-		
+
 rss: inventory
 	python3 generate_rss_feed.py
 	cp ./_static/assets/feed/index.php ./_dist/html/blog/feed/
 
 sane:
-	bash ./_sanitize_markdown.sh
+	printf $$'\nRemoving smart characters and unnecessary formatting from markdown files...\n\n';
+	find ./_static -name "*.md" -exec bash ./util/bin/sanitize_markdown.sh "{}" \;
 
 site: sane modtimes inventory pages sitemap rss blogpostjson dependencies
 	cp -R ./_static/assets/{.htaccess,css,js,images,robots.txt} ./_dist/html/
@@ -38,5 +39,12 @@ site: sane modtimes inventory pages sitemap rss blogpostjson dependencies
 sitemap: inventory
 	python3 generate_xml_sitemap.py
 
-test:
+test: test.py test.sh
+	rm -fR ./test
+
+test.py:
 	python -m pytest tests/ --verbose
+
+test.sh: 
+	./util/test/bats/bin/bats \
+		$$(find util/test -type f -name "test*.bats" -not \( -path "util/test/bats/*" -o -path "util/test/test_helper/*" \))

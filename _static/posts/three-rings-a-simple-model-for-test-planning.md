@@ -1,4 +1,5 @@
 ---
+
 title: "Three Rings: A Simple Model to Organize Test Planning"
 publishDate: "2023-06-25T12:46:00-05:00"
 coverPhoto: "willian-justen-de-vasconcellos-rM9V6BjNaKM-unsplash"

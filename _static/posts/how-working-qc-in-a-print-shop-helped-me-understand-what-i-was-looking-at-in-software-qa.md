@@ -1,4 +1,5 @@
 ---
+
 title: "How Working QC in a Print Shop Helped Me Understand What I Was Looking At in Software QA"
 publishDate: "2023-06-16T17:01:00-05:00"
 coverPhoto: "christina-rumpf-XWDMmk-yW7Q-unsplash"

@@ -1,4 +1,5 @@
 ---
+
 title: "How I Write Test Plans for New Functionality"
 publishDate: "2023-06-24T22:14:00-05:00"
 coverPhoto: "glenn-carstens-peters-RLw-UC03Gwc-unsplash"

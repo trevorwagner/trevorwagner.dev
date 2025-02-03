@@ -1,4 +1,5 @@
 ---
+
 title: "Exploring How to Define a Testing Problem as the Center of a Well-Defined Software Testing Strategy"
 publishDate: "2024-08-28T10:41:06-05:00"
 coverPhoto: "alexander-hoggard-Loiv3Mj4qXw-unsplash"

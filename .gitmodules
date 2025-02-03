@@ -1,0 +1,9 @@
+[submodule "util/test/bats"]
+	path = util/test/bats
+	url = https://github.com/bats-core/bats-core.git
+[submodule "util/test/test_helper/bats-support"]
+	path = util/test/test_helper/bats-support
+	url = https://github.com/bats-core/bats-support.git
+[submodule "util/test/test_helper/bats-assert"]
+	path = util/test/test_helper/bats-assert
+	url = https://github.com/bats-core/bats-assert.git

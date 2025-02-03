@@ -1,4 +1,5 @@
 ---
+
 title: "Understanding Test Automation Frameworks: What is a Test Runner?"
 publishDate: "2024-06-13T14:25:24-05:00"
 coverPhoto: "trevor-wagner/bike/link"
@@ -31,7 +32,7 @@ Regardless of whether a given command line call is executing the library directl
 ### Code-Level API for Test Execution
 Most test runners also provide classes and methods within code that can be used configure- and begin execution of a test run. For example, [Jasmine](https://jasmine.github.io/) allows defining a test run with JavaScript code that looks like this:
 
-<pre><code class="language-javascript">
+```javascript
 import Jasmine from 'jasmine';
 
 const jasmine = new Jasmine();
@@ -41,7 +42,7 @@ await jasmine.execute().then(() => {
   resolve();
 });
 
-</code></pre>
+```
 
 This can be useful in a number of cases, even if it's likely not especially intuitive for beginners. For example, a configuration like this can be used either to encapsulate suite configurations or extend (for example, by way of passing custom configuration options via command-line arguments or environment variables) built-in support the runner offers for configuration. It can also potenitally be used to configure parallel test runs launched within a process executed with a single command.
 

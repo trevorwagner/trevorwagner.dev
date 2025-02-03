@@ -1,4 +1,5 @@
 ---
+
 title: "Exploring the Strategic Business Impact of Common Issues Complicating Value Delivered by Software Test Engineering"
 publishDate: "2024-06-11T17:51:29-05:00"
 coverPhoto: "kai-pilger-1k3vsv7iIIc-unsplash"

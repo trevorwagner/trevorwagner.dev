@@ -1,4 +1,5 @@
 ---
+
 title: "Collating Test Methods to Limit Trips to External Systems in Automated Tests"
 publishDate: "2023-06-29T16:16:00-05:00"
 coverPhoto: "sebastien-uwagwk2FywU-unsplash"
@@ -12,7 +13,7 @@ This approach to test design seems to be pretty common, but I believe there is a
 
 The pattern I see commonly generally makes the test methods that use it atomic. Here is an example (written in JavaScript, using Jasmine for test runner and assertions):
 
-<pre><code class="language-javascript">
+```javascript
 describe(`a GET call to the people/id endpoint`, () => {
    it(`returns HTTP 200`, async () => {
       const response = await axios({
@@ -33,13 +34,13 @@ describe(`a GET call to the people/id endpoint`, () => {
       expect(Object.keys(response.data).length).toEqual(5)
    });
 });
-</code></pre>
+```
 
 ...and so-on. Every test method runs its own axios call, which then waits for a response from the endpoint/ server in order to continue running tests.
 
 It's nice, but it could be better. Consider this as an alternative:
 
-<pre><code class="language-javascript">
+```javascript
 describe(`a GET call to the people/id endpoint`, ()=>{
    let response;
 
@@ -66,7 +67,7 @@ describe(`a GET call to the people/id endpoint`, ()=>{
       expect(response.data.name).toEqual('John Doe');
    }):
 }):
-</code></pre>
+```
 
 This is a pattern I've used successfully in a couple different programming languages (mainly JavaScript and Groovy). By collating test methods (at least, that's what I call it) in such a way that they all depend on a reduced number of calls for data (here: one), you reduce the number of operations you need to make in order to get the data you need to run each test. A little further below, I'll expand on why I believe it pays to use this pattern.
 

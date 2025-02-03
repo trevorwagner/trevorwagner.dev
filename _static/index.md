@@ -1,8 +1,10 @@
 ---
+
 title: "Trevor Wagner | Project-Focused Software Engineer, QA Automation"
 altTitle: "Welcome"
 
 draft: false
+
 ---
 
 I'm a software engineer from Minnesota who specializes in test automation. Conventionally, software development

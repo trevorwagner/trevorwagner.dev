@@ -1,4 +1,5 @@
 ---
+
 title: "Test Code Readability: Envisioning Test Specifications as a Stage"
 publishDate: "2023-10-17T13:51:00-05:00"
 coverPhoto: "mark-williams-9bNmhMKQM1Q-unsplash"
@@ -93,7 +94,7 @@ In context, it's not a complete surprise that other other technology related to 
 
 For tests that look like this (even if the example is a little unconcise), hopefully it's clear how to make them readable :
 
-<pre><code class="language-javascript">
+```javascript
 import { fixture } from 'system-under-test';
 import * as chai from 'chai';
 
@@ -111,6 +112,6 @@ describe(`it`, () => {
       expect(actual).to.equal(expected);
    });
 })
-</code></pre>
+```
 
 For anything much more complex than this, hopefully the extended analogy I've outlined here provides sense helps make test specifications you write easier to share and easier to read.

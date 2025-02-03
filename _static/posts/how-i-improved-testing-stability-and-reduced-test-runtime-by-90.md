@@ -1,4 +1,5 @@
 ---
+
 title: "How I Engineered a Solution to Improve UI Testing Stability and Reduce Test Runtime by 90%"
 publishDate: "2023-08-11T14:50:00-05:00"
 coverPhoto: "thomas-jarrand-K9GS65i36aQ-unsplash"
@@ -127,7 +128,7 @@ The WebSocket endpoint used a heartbeat that used a very short interval (IIRC so
 
 On startup (within a Cucumber `BeforeAll` callback), I started the mock API service. The way I did this was very similar to examples I've provided in previous posts:
 
-<pre><code class="language-typescript">
+```typescript
 const appContainer = new ApplicationContainer(containerSettings);
 
 appContainer.attachRouteSets([
@@ -137,7 +138,7 @@ appContainer.attachRouteSets([
 ]);
 
 appContainer.start();
-</code></pre>
+```
 For test data teardown I referred to the instance of database that gets instantiated at global scope any time somebody uses the test data management service: LokiJS provides a method that can be used to list all available collections: the way I designed the DAL, the only way a collection would be attached to LokiJS was if it had been called (with the repository's get `collection()` method) during test runtime.
 
 I used distinct naming patterns to name collections for repositories with data I expected to be volatile between tests and for repositories with data that I expected to persist between tests. So if a collection contained test data it would use `testData`. as a prefix, for something like `testData.calendars`. Framework configuration would use `framework`. as a prefix, for something like `framework.configuration`.

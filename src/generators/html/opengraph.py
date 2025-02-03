@@ -10,7 +10,7 @@ def assemble_opengraph_data_for_page(page: Page):
         "og:site_name": "Trevor Wagner | Project-Focused Software Engineer, QA Automation",
         "og:title": escape(page.title),
         "og:url": f"https://www.trevorwagner.dev{page.relative_path}",
-        "og:description": escape(page.md_file.page_content[0:300]),
+        "og:description": escape(page.prepared_content[0:300]),
     }
 
     if page.type == "blogPost":

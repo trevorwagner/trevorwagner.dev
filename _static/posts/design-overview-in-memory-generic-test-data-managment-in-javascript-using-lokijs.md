@@ -1,4 +1,5 @@
 ---
+
 title: "Design Overview: In-Memory Generic Repository for Storing Test Data in JavaScript using LokiJS"
 publishDate: "2023-08-01T17:49:00-05:00"
 coverPhoto: "karen-tsoi-CXMzH6dMobQ-unsplash"
@@ -56,24 +57,24 @@ On its own, LokiJS provides a `find()` method that makes it possible to return a
 
 For any methods defining data management or data introspection, the `find()` method in LokiJS essentially serves as the backbone to return any matching documents; the method calling `find()` retrieves and evaluates the results of (including how many matching documents are returned in response to) a search by a consumer.
 
-<pre><code class="language-javascript">
+```javascript
 collection
    .chain()
    .find({ field: 'value' })   // <- Query parameters for a document we would like to match.
    .data({ removeMeta: true }) // <- LokiJS option to remove metadata from documents in ResultSet,
                                // which essentially is an array of documents matching the query.
-</code></pre>
+```
 LokiJS is generally the only library dependency for this project. In one iteration of this project I believe I also recall using [lodash](https://www.npmjs.com/package/lodash) to deep-clone JSON.
 
 ## Datastore and Repositories
 
 The data itself is stored within an instance of LokiJS that serves as a global constant. I accomplish this by exporting a new LokiJS database:
 
-<pre><code class="language-javascript">
+```javascript
 var database = new loki('database.json');
 
 module.exports = database;
-</code></pre>
+```
 
 Within this, the DAL serves as a layer that defines logic to interact with the database. So rather than interact directly with a LokiJS collection, the DAL interacts with the collection at a low level and presents high-level APIs (namely a CRUD API) that facilitates interaction with the data at a high level. Every repository carries its own LokiJS collection as a field that uses `get collection()` as what's effectively a factory method (it retrieves the existing collection from database if it exists; otherwise it creates a new one using methods and fields stored on the repository class).
 
@@ -193,7 +194,7 @@ I do write system-level tests for this library in TypeScript that (among other t
 
 When everything is said and done, engineers writing tests can access this system by importing it. To define a new repository, an engineer only needs to write a few short lines of code:
 
-<pre><code class="language-typescript">
+```typescript
 Import { RecordSet } from 'test-data-management-system';
 
 // n.b.: `iPerson` is a schema interface/ DTO created to define fields and
@@ -204,15 +205,15 @@ Class PeopleRecordSet extends RecordSet<iPerson> {
       Super('people-data', { create-index: 'personID' });
    }
 }
-</code></pre>
+```
 
 With this, the engineer can take advantage of full CRUD API, data checking, data events and so-on by instantiating the repository where needed in test code:
 
-<pre><code class="language-typescript">
+```typescript
 const peopleRecords = new PeopleRecordSet();
 
 const newPerson = peopleRecords.create({ firstName: 'new', lastName: 'person' });
-</code></pre>
+```
 
 One line of code to instantiate the repository. Another to create a dictionary that matches a record stored within the repository.
 

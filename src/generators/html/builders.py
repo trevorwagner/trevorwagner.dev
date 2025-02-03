@@ -25,7 +25,6 @@ def build_html_for_page(page: Page):
             a.meta(name="author", content="Trevor Wagner")
             a.meta(name="viewport", content="width=device-width, initial-scale=1.0")
 
-
             if page.relative_path != "/blog/":
                 for key, value in assemble_opengraph_data_for_page(page).items():
                     a.meta(property=key, content=value)
@@ -50,7 +49,7 @@ def build_html_for_page(page: Page):
 
                 a.script(src="/js/lib/highlightjs/11.9.0/js/highlight.min.js")
 
-                if 'class="language-gherkin"' in page.md_file.page_content:
+                if 'class="language-gherkin"' in page.prepared_content:
                     a.script(src="/js/lib/highlightjs/11.9.0/js/gherkin.min.js")
 
                 a.link(
@@ -104,7 +103,7 @@ def build_content_html_for_post(post, rss_metadata):
 
         a(
             markdown(
-                post.page.md_file.page_content.replace(
+                post.page.prepared_content.replace(
                     "(/", "(https://www.trevorwagner.dev/"
                 )
             )
