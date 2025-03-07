@@ -1,11 +1,19 @@
 ---
 
 title: "Services"
-altTitle: "Test Enginering Focused on Results, Not Just Metrics"
+altTitle: "Test Enginering Focused on Results, Not Just Metrics."
 
 draft: false
 
 ---
+
+To maximize ROI, Test Engineering needs to make the most of the opportunity it is granted to cover work product as thoroughly and extensively as possible. 
+
+When Test Engineering is approached strictly as a simple set of tasks, though, and focus shifts from results to metrics, organizations often encounter common setbacks that hamper ROI and potentially also [becomes a liability bigger-picture for the organization](/blog/?p=14).
+
+The services outlined here (provided through **Upstream Consulting LLC**) help software development organizations improve ROI in Test Engineering by focusing on solving clearly-defined engineering problems related to gathering data and feedback.
+
+&nbsp;
 
 ## Testing Strategy
 

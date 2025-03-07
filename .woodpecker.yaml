@@ -1,0 +1,27 @@
+clone:
+  git:
+    image: woodpeckerci/plugin-git
+    settings:
+      recursive: true
+
+steps:
+  - name: test (bash)
+    image: debian:latest
+    when:
+      - event: push
+        path: "util/*"
+      - event: manual
+    commands:
+      - echo $(bash --version)$'\n\n'$(./util/test/bats/bin/bats --version)$'\n'
+      - bash ./util/test/bats/bin/bats $$(find util/test -type f -name "test*.bats" -not \( -path "util/test/bats/*" -o -path "util/test/test_helper/*" \))
+  - name: test (python)
+    image: python:3.12
+    when:
+      - event: push
+        path: "src/*"
+      - event: manual
+    environment:
+      PIP_ROOT_USER_ACTION: ignore
+    commands:
+      - pip install -r requirements.txt
+      - python -m pytest tests/ --verbose --capture=no

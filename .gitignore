@@ -1,5 +1,3 @@
 .idea
 _dist
 __pycache__
-util/test/bats/
-util/test/test_helper/

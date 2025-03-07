@@ -1,43 +1,45 @@
 ---
 
 title: "Trevor Wagner | Project-Focused Software Engineer, QA Automation"
-altTitle: "Welcome"
+altTitle: "Software Testing is a Real Problem."
 
 draft: false
 
 ---
 
-I'm a software engineer from Minnesota who specializes in test automation. Conventionally, software development
-organizations would classify me as a Software Development Engineer in Test (SDET). I have nearly **20 years' experience** in
-Software Engineering and in QA/ QC of some sort, including test development, testing strategy, and custom framework
-development.
+**Software Test Engineering** is an engineering practice area focused on producing **data and feedback** related to the **current functional state of software work product**.
 
-## Experience
+When Test Engineering works well, the solutions it delivers generally serve as a valuable source of **business intelligence**. The value it delivers enables the organizations that depend on it to make timely, well-informed decisions that include anticipating and responding to risk.
 
-Since 2017 I've been working in QA Automation (automating tests and as an SDET). Prior to that, I provided
-manual testing (Acceptance Testing and Regression) in various capacities for about ten years. Other experience as a
-front-end engineer, desktop and end-user support, and as a Webmaster provide additional insight into my work. In QA,
-I've tested solutions for **Desktop**, **Mobile**, and the **Enterprise** (including **SaaS** solutions).
+I provide [services to enable software development organizations to improve testing ROI](/services/) by making _quality_ of test coverage just as important as the _quantity_ of coverage.
 
-Mainly my experience is in JVM-based language (**Java** and **Groovy**) and **JavaScript**/ **TypeScript**. I have some
-experience with **Python** (this site was generated using [a custom Python static site generator](https://github.com/trevorwagner/trevorwagner.dev)), **PHP** (I once
-used PHP in a rewrite of a 54-page brochure-style Website), and various low-level scripting languages.
+## Conventional Solutions Often Encounter Common Setbacks.
+To maximize ROI, Test Engineering needs to make the most of the opportunity it is granted to cover work product as thoroughly and extensively as possible. 
 
-## Services
+When Test Engineering is approached strictly as a simple set of tasks, though (when **focus shifts from results to metrics**), organizations often encounter common setbacks that hamper ROI. For example:
 
-Currently I provide freelance **IT Consulting** services C2C through **Upstream Consulting LLC**. Services provided
-include
-**custom software development** with a focus on **Software QA** and **Test Engineering**.
+- **Testing Strategy** - When organizations limit focus to verifying support for workflows instead of tailoring strategy [as a solution to a clearly-defined testing problem](/blog/?p=18), it can often lead to operational churn and missed opportunities for coverage that is both appropriate and efficient. Examples include meeting arbitrary quantified coverage- or process requirements, and setting automatic quality gates.
+- **Framework/ Tooling Development** - Instead of enlisting experts to maximize support for coverage and accommodate foreseeable changes over time, organizations task development generalists with automating workflows. When they do, they often end up with unwieldy, inefficient test suites coupled to expert systems that cannot be debugged or transferred (or even tested) without significant additional investment.
+- **Test Planning** - Instead of developing test plans to gather data on whether work product sufficiently meets stakeholder concerns, many organizations opt for simple strategies (often involving things like codepaths, traceability matrices, current trends, and "best practices") to validate the implementation and poll for likely (or unlikely) failure scenarios. In addition to potentially missing opportunities for coverage, test plans developed using these strategies also [fail to capitalize on an opportunity to foster collaboration](/blog/?p=6).
+- **Test Automation** - When organizations approach automated tests as a commodity that anybody can (and should) produce, they often end up with suites of tests that require a lot of time to read, debug, and organize. The tests may not produce clear signal, and they may either flake or otherwise not execute consistently. 
 
-I provide [a full breakdown of the services I provide on this page](/services/).
+As a result, testing can serve as a [liability bigger-picture for the organization](/blog/?p=14).
 
-## Blog
+## I Help Software Development Organizations Find Opportunities for Improvement, Starting with Good Questions.
+[Over the years](/experience/), I've helped multiple organizations engineer solutions that make serviceable, efficient visibility into the functional state of work product a vital part of assuring quality for product- and engineering initiatives of strategic value. 
 
-In addition to experience in _how_, I also have a lot of experience in _why_ as it relates to Software QA and Test
-Engineering. In my experience, if you're going to invest time and effort into figuring out _how to test_, being able to
-answer questions related to _why_ is an important step to to making the most of that investment.
+Past successes have included the following:
 
-I've always enjoyed writing. In a round-about way, it's part of helped me understand what I'm doing (and why) in
-Software QA.
+- **Testing for Web-Based APIs**, including for **REST** and **SOAP** APIs.
+- **Web UI Testing**, including for JavaScript MVCs like **Angular** and **React**.
+- **Testing Against Data Abstraction and Data Integrity**, including for **RDBMS** and **NoSQL**.
+- **Testing for Mobile- and Desktop Applications** including macOS, iOS, and Windows and for services running in various distributions of Linux.
+- **Testing Integrations with External Systems**, including in-house integrations, integrations with SMB SaaS solutions, and integrations with some of the most widely-used services in the world.
+- **Framework/ Tooling Development**, including framework development and development of test support tooling.
+- **Systems Analysis**, including analysis of existing production systems and testing frameworks and tooling, risk assessments, recommendations for improvement, prototyping, and piloting.
 
-I make some of [the writing I do available on a Blog, here](/blog/).
+Currently I [provide services to clients](/services/) through **Upstream Consulting LLC**.
+
+I write about my experiences (and provide insights drawn from them) on [this blog](/blog/).
+
+I can be [contacted directly using this contact form](/contact/) or [here on LinkedIn](https://www.linkedin.com/in/trevorwagner05/).
