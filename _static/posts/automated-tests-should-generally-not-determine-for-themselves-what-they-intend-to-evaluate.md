@@ -1,7 +1,7 @@
 ---
 
 title: "More than a Hot Take: Test Specifications Should Generally Not Determine for Themselves What They Intend to Evaluate"
-publishDate: "2025-02-28T14:48:21-06:00"
+publishDate: "2025-03-07T14:07:08-06:00"
 coverPhoto: "gunnar-bengtsson-5t7vrCXrFMI-unsplash"
 draft: false
 
