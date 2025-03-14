@@ -6,7 +6,10 @@ from sqlalchemy.orm import Session
 from markdown import markdown
 
 from src.inventory import Image, Page, BlogPost, engine
-from src.generators.dates.timestamps import timestamp_blog_post_format
+from src.generators.dates.timestamps import (
+    timestamp_blog_post_format,
+    timestamp_opengraph_format,
+)
 from _static import php_contact_form_handler
 
 
@@ -14,9 +17,7 @@ def blog_post_summary_link(a: Airium, post: BlogPost):
     with a.div(klass="post-summary"):
         with a.a(href=post.page.relative_path):
             use_variants = list(
-                filter(
-                    lambda v: int(v.width) <= 800, post.cover_photo.variants
-                )
+                filter(lambda v: int(v.width) <= 800, post.cover_photo.variants)
             )
 
             with a.picture():
@@ -29,7 +30,10 @@ def blog_post_summary_link(a: Airium, post: BlogPost):
 
         with a.a(href=post.page.relative_path):
             a.h2(_t=escape(post.page.title))
-        a.time(_t=escape(timestamp_blog_post_format(post.published)))
+        a.time(
+            _t=escape(timestamp_blog_post_format(post.published)),
+            datetime=timestamp_opengraph_format(post.published),
+        )
         a.div(klass="clear-both")
     return
 
@@ -53,7 +57,8 @@ def cover_photo(a: Airium, page: Page):
         with a.picture():
             use_variants = list(
                 filter(
-                    lambda v: 950 >= int(v.width) >= 500, page.blog_post.cover_photo.variants
+                    lambda v: 950 >= int(v.width) >= 500,
+                    page.blog_post.cover_photo.variants,
                 )
             )
 
@@ -64,7 +69,9 @@ def cover_photo(a: Airium, page: Page):
                 )
             a.img(
                 src=use_variants[0].url,
-                alt=page.blog_post.cover_photo.get_attibute_value_for_key("description"),
+                alt=page.blog_post.cover_photo.get_attibute_value_for_key(
+                    "description"
+                ),
             )
         photo_credit(a, page.blog_post.cover_photo)
     return
@@ -155,6 +162,7 @@ def page_content(a: Airium, page: Page):
                 with a.div(klass="w-publication-date"):
                     a.time(
                         _t=timestamp_blog_post_format(page.blog_post.published),
+                        datetime=timestamp_opengraph_format(page.blog_post.published),
                         klass="detail",
                     )
 
