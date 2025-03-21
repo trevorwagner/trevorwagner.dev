@@ -30,8 +30,8 @@ class MDFile(Base):
     mod_time: Mapped[datetime.datetime] = mapped_column(
         sa.DateTime(timezone=True), server_default=sa.func.now(), nullable=False
     )
-    _page_metadata: Mapped[str] = mapped_column(sa.VARCHAR)
-    page_content: Mapped[str] = mapped_column(sa.VARCHAR)
+    _page_metadata: Mapped[str] = mapped_column(sa.VARCHAR, nullable=True)
+    page_content: Mapped[str] = mapped_column(sa.VARCHAR, nullable=True)
 
     page: Mapped["Page"] = relationship(back_populates="md_file")
 

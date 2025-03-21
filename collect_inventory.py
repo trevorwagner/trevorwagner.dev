@@ -2,7 +2,7 @@ from sqlalchemy.orm import Session
 
 import json
 
-from _static import list_page_files, list_post_files, get_file_contents
+from _static import list_page_files, list_post_files, get_file_contents, static_content
 from src.analysis import get_metadata_for_image
 from src.inventory import (
     engine,
@@ -53,7 +53,9 @@ if __name__ == "__main__":
                     )
                 )
 
-                blog_post.cover_photo = build_image_record(photo_name, json.loads(image_metadata))
+                blog_post.cover_photo = build_image_record(
+                    photo_name, json.loads(image_metadata)
+                )
 
             # Currently all blog posts need a thumbnail to be specified.
             # If I expect to support a default thumbnail, then I need to do extra work.
@@ -79,7 +81,12 @@ if __name__ == "__main__":
             draft=False,
             type="custom",
             relative_path="/blog/",
-            md_file=None,
+            md_file=MDFile(
+                file_path="{}/pages/blog.md".format(static_content),
+                mod_time=latest_blog_post.md_file.mod_time,
+                _page_metadata=None,
+                page_content=None,
+            ),
         )
 
         session.add(blog_home)
