@@ -1,11 +1,10 @@
 from airium import Airium
 from datetime import datetime
 from xml.sax.saxutils import escape
-from sqlalchemy.orm import Session
 
 from markdown import markdown
 
-from src.inventory import Image, Page, BlogPost, engine
+from src.inventory import Image, Page, BlogPost, engine, posts
 from src.generators.dates.timestamps import (
     timestamp_blog_post_format,
     timestamp_opengraph_format,
@@ -35,6 +34,60 @@ def blog_post_summary_link(a: Airium, post: BlogPost):
             datetime=timestamp_opengraph_format(post.published),
         )
         a.div(klass="clear-both")
+    return
+
+
+def card_next_post(a: Airium, with_page: Page):
+    with a.div(klass="c-next-blog-post"):
+        a.h2(_t="Next Post")
+        with a.ul():
+            a.li().a(
+                href=with_page.relative_path,
+                _t=with_page.title,
+            )
+    return
+
+
+def card_previous_post(a: Airium, with_page: Page):
+    with a.div(klass="c-previous-blog-post"):
+        a.h2(_t="Previous Post")
+        with a.ul():
+            a.li().a(
+                href=with_page.relative_path,
+                _t=with_page.title,
+            )
+    return
+
+
+def card_recent_blog_posts_for_page(
+    a: Airium, current_page: Page, limit: int, exclude_posts: list[BlogPost]
+):
+    with a.div(klass="c-recent-blog-posts"):
+        section_heading = (
+            "Recent Blog Posts"
+            if current_page.type != "blogPost"
+            else "More Recent Posts"
+        )
+
+        page_mask = None
+        if current_page.type == "blogPost":
+            page_mask = exclude_posts
+
+        a.h2(_t=section_heading)
+
+        recent_posts = posts.list_recent_posts(limit, page_mask)
+
+        if len(recent_posts) > 0:
+            with a.ul():
+                for blog_post in recent_posts:
+                    a.li().a(
+                        href=blog_post.page.relative_path,
+                        _t=blog_post.page.title,
+                    )
+
+        with a.p():
+            a.a(href="/blog/", _t="More...")
+
     return
 
 
@@ -176,17 +229,38 @@ def page_content(a: Airium, page: Page):
                 contact_form(a, page)
 
         else:
-            with Session(engine) as session:
-                blog_posts = (
-                    session.query(BlogPost)
-                    .join(Page)
-                    .filter(Page.draft == False)
-                    .order_by(BlogPost.published.desc())
-                    .all()
+            blog_posts = posts.list_recent_posts(None, None)
+            for post in blog_posts:
+                blog_post_summary_link(a, post)
+
+    if page.relative_path not in ["/privacy-policy/", "/blog/", "/404/", "/contact/"]:
+        with a.div(klass="w-more-info"):
+
+            if page.type == "blogPost":
+                linked_blog_posts = [page.blog_post]
+
+                next_post = posts.get_next_post(page.blog_post)
+                previous_post = posts.get_previous_post(page.blog_post)
+
+                if next_post is not None:
+                    card_next_post(a, next_post.page)
+                    linked_blog_posts.append(next_post)
+
+                if previous_post is not None:
+                    card_previous_post(a, previous_post.page)
+                    linked_blog_posts.append(previous_post)
+
+                card_recent_blog_posts_for_page(
+                    a=a,
+                    current_page=page,
+                    limit=(5 - (len(linked_blog_posts) - 1)),
+                    exclude_posts=linked_blog_posts,
                 )
-                for post in blog_posts:
-                    blog_post_summary_link(a, post)
-        footer_content(a, hidden=True)
+
+            else:
+                card_recent_blog_posts_for_page(
+                    a=a, current_page=page, limit=5, exclude_posts=[]
+                )
     return
 
 

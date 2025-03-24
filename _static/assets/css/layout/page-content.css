@@ -1,10 +1,6 @@
-.w-content-footer {
-    position: relative;
-    margin: 0 auto;
-    width: 100%;
-
-    height: auto !important;
-    height: 100%;
+.w-page {
+    display: flex;
+    flex-direction: column;
 
     min-height: 100%;
 }
@@ -14,28 +10,14 @@
 }
 
 #content,
-footer {
-    padding: 0 16px;
+footer,
+.w-more-info {
+    padding: 16px 16px 14px;
     box-sizing: border-box;
 }
 
 #content {
     padding-top: 67px;
-}
-
-footer {
-    position: absolute;
-    width: 100%;
-    bottom: 0;
-}
-
-footer,
-#content .s-match-footer {
-    margin-top: 3.6437rem;
-}
-
-#content .s-match-footer {
-    visibility: hidden;
 }
 
 #content .w-page-title {
@@ -56,11 +38,30 @@ footer,
     margin-top: 11px !important;
 }
 
+main {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+footer {
+    width: 100%;
+    margin-top: auto;
+    min-height: 51px;
+
+}
+
+footer p,
+#content .s-match-footer p {
+    margin-top: 12px;
+}
+
 @media only screen and (min-width: 600px) {
 
     #content,
-    footer {
-        padding: 0 19px;
+    footer,
+    .w-more-info {
+        padding: 19px 19px 16px;
     }
 
     #content {
@@ -84,15 +85,19 @@ footer,
     #content .s-match-footer p {
         margin-top: 15px;
     }
-
 }
 
 @media only screen and (min-width: 768px) and (orientation: portrait) {
 
     #content,
     footer {
-        padding: 96px 27px 0;
         max-width: 967px;
+    }
+
+    #content,
+    footer,
+    .w-more-info {
+        padding: 27px 27px 19px;
     }
 
     #content .w-content-header {
@@ -103,15 +108,22 @@ footer,
         min-height: 109px;
     }
 
+    /* footer {
+        padding-bottom: 27px;
+    } */
+
 }
 
 @media only screen and (min-width: 768px) and (orientation: landscape) {
 
     #content,
-    footer {
-        padding-left: 312px;
+    footer,
+    .w-more-info {
         padding-right: 19px;
+        padding-left: 312px;
+
         max-width: 987px;
+        min-width: 987px;
     }
 
     #content {
@@ -119,12 +131,30 @@ footer,
     }
 
     #content .w-content-header {
-        min-height: 166px;
+        min-height: 171px;
     }
 
     #content .w-page-title {
         padding-top: 0;
         min-height: 144px;
+    }
+}
+
+@media only screen and (min-width: 1260px) and (orientation: landscape) {
+    main {
+        max-width: 1280px;
+        flex-direction: row;
+    }
+
+    .w-more-info {
+        background-color: #ffffff !important;
+
+        margin-top: 191px;
+        padding-left: 0px;
+        padding-top: 0px;
+
+        min-width: 260px;
+        max-width: 260px;
     }
 
 }

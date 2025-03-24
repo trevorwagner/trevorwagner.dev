@@ -33,7 +33,9 @@ def build_html_for_page(page: Page):
 
             a('<link rel="preconnect" href="https://fonts.googleapis.com">')
             a('<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>')
-            a('<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">')
+            a(
+                '<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">'
+            )
 
             a(
                 '<script async src="https://us.umami.is/script.js" data-website-id="72e1cfab-c988-430b-9f25-1f52cf8720f4"></script>'
@@ -68,13 +70,13 @@ def build_html_for_page(page: Page):
             if page.relative_path == "/contact/":
                 a.script(src="/js/contact-form.js")
 
-        with a.body():
+        with a.body().div(klass="w-page"):
             header(a, page)
             overlay_menu(a, page)
-            with a.div(klass="w-content-footer"):
+            with a.main():
                 page_content(a, page)
-                with a.footer():
-                    footer_content(a)
+            with a.footer():
+                footer_content(a)
 
             a.script(src="/js/slidedown-menu.js")
             if page.type == "blogPost":

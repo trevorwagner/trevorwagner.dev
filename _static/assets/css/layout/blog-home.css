@@ -28,6 +28,10 @@
 }
 
 @media only screen and (min-width: 768px) {
+    #content .w-content-header {
+        min-height: 171px;
+    }
+
     .post-summary {
         aspect-ratio: 913 / 216 !important;
     }

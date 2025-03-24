@@ -5,18 +5,18 @@
 @import url("./layout/overlay-menu.css");
 @import url("./layout/navigation.css");
 @import url("./layout/social-media-links.css");
-@import url("./layout/content.css");
+@import url("./layout/page-content.css");
 @import url("./layout/contact-form.css");
 
 html,
 body {
+    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
     height: 100%;
+    font-size: 15px;
 }
 
 body {
-    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
     background-color: #0A0C10;
-    font-size: 17px;
 }
 
 code {
@@ -30,10 +30,6 @@ li,
 label,
 input[type=submit] {
     font-size: 1.049rem;
-}
-
-.detail {
-    font-size: 0.97rem;
 }
 
 h1,
@@ -90,115 +86,117 @@ header a:visited,
     filter: invert(100%) sepia(26%) saturate(0%) hue-rotate(192deg) brightness(105%) contrast(106%);
 }
 
-.w-content-footer p,
-.w-content-footer li {
+main p,
+main li {
     color: #0A0C10;
 }
 
-.w-content-footer li {
+main li {
     margin-left: 1.348rem;
 }
 
-.w-content-footer p,
-.w-content-footer pre,
-.w-content-footer li {
+main p,
+main pre,
+main li {
     margin-bottom: 0.685rem;
 }
 
-.w-content-footer {
+.w-page {
     background-color: #FFFFFF;
 }
 
-.w-content-footer a:link,
-.w-content-footer a:visited {
+main a:link,
+main a:visited {
     color: #394560;
 }
 
-.w-content-footer .detail {
+main .detail {
     font-weight: 400;
 }
 
-.w-content-footer a:link,
-.w-content-footer a:visited {
+main a:link,
+main a:visited {
     font-weight: 600;
 }
 
-.w-content-footer a:hover {
+main a:hover {
     color: #0A0C10;
 }
 
-.w-content-footer strong {
+main strong {
     font-weight: 650;
     color: #000000;
 }
 
-.w-content-footer em {
+main em {
     font-style: italic;
 }
 
-.w-content-footer ul {
+main ul {
     list-style: disc;
 }
 
-.w-content-footer ol {
+main ol {
     list-style: decimal;
 }
 
-.w-content-footer ul,
-.w-content-footer ol {
+main ul,
+main ol {
     margin-bottom: 0.927rem;
 }
 
-.w-content-footer p,
-.w-content-footer li {
+main p,
+main li {
     line-height: 1.489rem;
     font-weight: 450;
 }
 
-.w-content-footer p code,
-.w-content-footer li code {
+main p code,
+main li code {
     color: #000000;
     background-color: #EEF3FA;
     padding: 0 0.299rem;
 }
 
-.w-content-footer code.hljs {
+main code.hljs {
     background-color: #0A0C10 !important;
 }
 
-.w-content-footer h1,
-.w-content-footer h2,
-.w-content-footer h3 {
+main h1,
+main h2,
+main h3 {
     color: #000000;
 }
 
-.w-content-footer h2,
-.w-content-footer h3 {
+main h2,
+main h3 {
     margin-bottom: 0.19rem;
 }
 
-.w-content-footer h1 {
+main h1 {
     align-self: flex-end;
     font-size: 1.65rem;
     line-height: 1.816rem;
     font-weight: 550;
 }
 
-.w-content-footer h2 {
+main h2 {
     font-size: 1.49rem;
     line-height: 1.816rem;
     margin-top: 1.816rem;
     font-weight: 550;
 }
 
-.w-content-footer h3 {
+main h3,
+.w-more-info h2 {
     font-size: 1.22rem;
     line-height: 1.489rem;
     margin-top: 1.489rem;
     font-weight: 550;
 }
 
-footer div {
+footer div, 
+.w-more-info div:nth-child(1) {
     border-top: 1px solid #0A0C10;
 }
 
@@ -215,12 +213,12 @@ footer div {
     background-color: #f98686;
 }
 
-.w-content-footer input[type=text],
-.w-content-footer textarea {
+main input[type=text],
+main textarea {
     border: 1px solid #AFBBCF;
 }
 
-.w-content-footer input[type=submit] {
+main input[type=submit] {
     border: none;
     border-radius: 0px;
     background-color: #0A0C10;
@@ -228,14 +226,22 @@ footer div {
     cursor: pointer;
 }
 
-.w-content-footer input[type=submit]:hover {
+main input[type=submit]:hover {
     background-color: #AFBBCF;
     color: #0A0C10;
 }
 
-.w-content-footer input[type=submit]:active {
+main input[type=submit]:active {
     background-color: white;
     color: #0A0C10;
+}
+
+.w-more-info ul {
+    list-style-type: none;
+}
+
+.w-more-info li {
+    margin-left: 0;
 }
 
 .post-summary h2 {
@@ -243,8 +249,24 @@ footer div {
     font-size: 1.049rem !important;
 }
 
+.detail, .w-more-info p, .w-more-info li {
+    font-size: 97% !important;
+}
+
 @media only screen and (min-width: 768px) and (orientation: landscape) {
     .w-nameplate a {
         border-bottom: 2px solid #4CA90A;
     }
+
+}
+
+@media only screen and (min-width: 1260px) and (orientation: landscape) {
+    .w-more-info div:nth-child(1) {
+        border: none;
+    }
+
+    .w-more-info h2 {
+        margin-top: 0;
+    }
+    
 }
