@@ -16,7 +16,8 @@
     width: 100%;
 }
 
-.post-summary img, .post-summary source {
+.post-summary img,
+.post-summary source {
     width: 100%;
     aspect-ratio: 1.618 / 1;
     object-fit: cover;
@@ -42,4 +43,15 @@
         margin-left: 6.8%;
         float: right;
     }
+
+    main h2 {
+        color: #394560;
+        font-size: 97% !important;
+        font-weight: 450 !important;
+    }
+
+    main h2:hover {
+        color: #0A0C10;
+    }
+
 }

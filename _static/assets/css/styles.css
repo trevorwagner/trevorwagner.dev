@@ -12,7 +12,7 @@ html,
 body {
     font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
     height: 100%;
-    font-size: 15px;
+    font-size: 16px;
 }
 
 body {
@@ -96,9 +96,12 @@ main li {
 }
 
 main p,
-main pre,
+main pre {
+    margin-bottom: 0.9333rem;
+}
+
 main li {
-    margin-bottom: 0.685rem;
+    margin-bottom: 0.7333rem;
 }
 
 .w-page {
@@ -147,8 +150,16 @@ main ol {
 
 main p,
 main li {
-    line-height: 1.489rem;
     font-weight: 450;
+}
+
+main p {
+    line-height: 1.667rem;
+}
+
+main li {
+    line-height: 1.667rem;
+
 }
 
 main p code,
@@ -170,19 +181,20 @@ main h3 {
 
 main h2,
 main h3 {
-    margin-bottom: 0.19rem;
+    margin-bottom: 0.5333rem;
+    ;
 }
 
 main h1 {
     align-self: flex-end;
     font-size: 1.65rem;
-    line-height: 1.816rem;
+    line-height: 2.0rem;
     font-weight: 550;
 }
 
 main h2 {
     font-size: 1.49rem;
-    line-height: 1.816rem;
+    line-height: 1.9333rem;
     margin-top: 1.816rem;
     font-weight: 550;
 }
@@ -190,12 +202,12 @@ main h2 {
 main h3,
 .w-more-info h2 {
     font-size: 1.22rem;
-    line-height: 1.489rem;
+    line-height: 1.8rem;
     margin-top: 1.489rem;
     font-weight: 550;
 }
 
-footer div, 
+footer div,
 .w-more-info div:nth-child(1) {
     border-top: 1px solid #0A0C10;
 }
@@ -249,11 +261,47 @@ main input[type=submit]:active {
     font-size: 1.049rem !important;
 }
 
-.detail, .w-more-info p, .w-more-info li {
+.detail,
+.w-more-info p,
+.w-more-info li {
     font-size: 97% !important;
 }
 
+.detail a,
+.w-more-info a {
+    font-weight: 450 !important;
+}
+
 @media only screen and (min-width: 768px) and (orientation: landscape) {
+
+    html,
+    body {
+        font-size: 15px;
+    }
+
+    main h2,
+    main h3 {
+        margin-bottom: 0.8rem;
+    }
+
+    main p,
+    main pre {
+        margin-bottom: 1.0667rem;
+    }
+
+    main li {
+        margin-bottom: 0.8rem;
+    }
+
+    main p {
+        line-height: 1.75rem;
+    }
+    
+    main li {
+        line-height: 1.75rem;
+    
+    }
+
     .w-nameplate a {
         border-bottom: 2px solid #4CA90A;
     }
@@ -266,7 +314,8 @@ main input[type=submit]:active {
     }
 
     .w-more-info h2 {
+        font-size: 1.0rem;
         margin-top: 0;
+        margin-bottom: 0;
     }
-    
 }
