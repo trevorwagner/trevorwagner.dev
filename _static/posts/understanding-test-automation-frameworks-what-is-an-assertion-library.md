@@ -7,7 +7,7 @@ draft: false
 
 ---
 
-Some of the most important work performed by an automated tests specification takes place within an **assertion statement**. At the most basic level, an assertion statement serves to define a comparison to confirm (when executed during test runtime) that output retrieved from the system under test (often referred to the _actual output_ or _actual result_) matches a set of conditions specified within the definition of the assertion statement. If there is a mismatch, the assertion statement generally emits some sort of error that results in the test runner reporting a result status of `fail` for the specification.
+Some of the most important work performed by an automated tests specification is handled within an **assertion statement**. At the most basic level, an assertion statement serves to define a comparison to confirm (when executed during test runtime) that output retrieved from the system under test (often referred to the _actual output_ or _actual result_) matches a set of conditions specified within the definition of the assertion statement. If there is a mismatch, the assertion statement generally emits some sort of error that results in the test runner reporting a result status of `fail` for the specification.
 
 When used well, an assertion statement can provide all of the following benefits within the specification's composition by defining what gets evaluated and how:
 
