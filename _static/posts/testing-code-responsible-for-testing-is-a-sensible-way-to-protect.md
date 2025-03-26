@@ -44,7 +44,7 @@ Whatever we decide call a particular test run (or continuous set of runs), whate
 
 In essence this is **business intelligence**, and like any intelligence, its value is measured in its accuracy and timeliness. For this to happen, automated tests need to work as expected. If tests don't work as expected, the forensic information returned by a test net may not be either accurate or timely. If pre-shipment checks return false positives, they may flag a passing build unnecessarily. If they fail to catch non-conforming behaviors as expected it may result in an escape of unexpected behavior that was specifically identified as a blocker for shipment. None of this is either accurate nor timely.
 
-# Automated Tests Require an Investment
+## Automated Tests Require an Investment
 
 However unintuitive it might seem initially (for anybody reading 100% literally here, that was light sarcasm), test code does not materialize out of thin air (if it helps, I don't mean this part sarcastically at all). Test automation requires experts of some sort to design and implement. They require hard resources (computers, drive space, electricity, servers, etc.) and soft resources (software, licenses, etc.) to use to in development. And above all of this, automated tests take time. None of this is free in software development, or even generally cheap.
 
@@ -57,7 +57,7 @@ In addition to challenges to the intrinsic value of any affected automated tests
 
 To return to the axe analogy developed within the introduction: not only does the axe that you've invested in not work as expected here; because the axe is dull you can't cut down the tree andyou need to re-adjust your plans related to cutting down the tree (including how to cut the tree down and anything for which cutting the tree down effectively blocks).
 
-# The Risk of Code Breaking (Including Code Responsible for Testing) Follows Us Everywhere
+## The Risk of Code Breaking (Including Code Responsible for Testing) Follows Us Everywhere
 
 One thing that is consistent about software is that it and its context can be expected to change. Either the code itself changes some subsystem (like nearby code, a dependency library, or even the operating system or hardware itself) changes. This includes browser automation libraries, libraries we use in test support code, and even test runners themselves. Sometimes changes to internally-developed test support code breaks tests.
 
@@ -67,7 +67,7 @@ Other times, though, we're not as lucky. For example, even if the authors of the
 
 The same as with production code, test code is prone to breaking, including along the lines provided above. Evaluating code responsible for testing (including test support code) also provides data that can be used to make business decisions related to the value delivered by a specific build of the system under test. And although not every sort of integration with lower-level libraries or subsystems (browser automation libraries tend to be a good example) leave themselves open to evaluation, finding (or making, were possible) opportunities to gather data where possible can help to make data-driven determinations about the fitness of code responsible for testing to ship.
 
-# Catching Issues in Test Code Early Can Help Protect against Unnecessary Complication When Troubleshooting
+## Catching Issues in Test Code Early Can Help Protect against Unnecessary Complication When Troubleshooting
 
 If we accept that any code (including code responsible for automated testing) is prone to breaking, then we also accept that some amount of troubleshooting and fixing will need to be undertaken to locate the root cause, as well as to propose, implement, and test a fix. The scope of any of this likely relates to the amount of our code used to define the solution. For example, if production code breaks, then the root cause likely has something to do with the system/s the production code implements or depends on. If we can catch that break before shipment (before it's deployed to production), generally that simplifies the amount of work that needs to happen to deliver a fix.
 
@@ -79,7 +79,7 @@ What's more: what if a fix to test code in one place results in tests failing in
 
 And again: this all challenges the ability of test code to deliver data that can be used to inform business decisions in a manner that is timely and accurate.
 
-# Conclusion
+## Conclusion
 
 Let's return to the example provided within the introduction, related to chopping a tree down with an axe discovered to be dull. Now that you're onsite and you've committed to chopping, imagine you passed on an opportunity to test whether the axe is dull earlier on: you've chosen not to check it before using it. Now that you've invested in chopping the tree down, you notice that you are not making as much progress as you might like, and you've applied resources (in addition to time, your energy and your hopes) to the attempt.
 
@@ -89,7 +89,7 @@ If code responsible for testing (or supporting testing) fails at a time when it'
 
 In general, though, the reasoning in support of automating testing of code responsible for automated testing aligns pretty closely with the reasoning in support of automating testing any code in the first place. It takes time and resources to develop, we expect it to do its job, and when it doesn't do its job we're confronted with a lot of churn. Such a failure can be expected at the same sorts of points production code can be expected to fail -- the point is that sometimes you don't know until you see it fail, and depending on when you notice a failure, you may find yourself invested in a lot of extra work inadvertently. If you want to make the best of your opportunity, it's best to make sure your tooling for the job is sharp and capable before the work starts.
 
-## Which Code Would Be Valuable to Test?
+### Which Code Would Be Valuable to Test?
 
 Much the same way as I do when evaluating production code, I tend to approach this in terms of value and risk. Personally I believe any utility code that supports testing that interacts with or modifies data beyond getting and setting a value on an object presents opportunity (thereby risk) for failure. Transforming data, building data structures, and interacting with external systems are all great examples. Use of an external library are good examples. I also believe it's worthwhile to test custom assertion statements. Really anything custom likely helpful to test, and testing helps protect against breaks resulting from upstream changes.
 
