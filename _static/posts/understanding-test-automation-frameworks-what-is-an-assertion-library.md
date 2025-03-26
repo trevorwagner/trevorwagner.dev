@@ -11,9 +11,9 @@ Some of the most important work performed by an automated tests specification ta
 
 When used well, an assertion statement can provide all of the following benefits within the specification's composition by defining what gets evaluated and how:
 
-1. They define a **clear objective** for the inquiry that the specification executes in service of.
-2. They provide **clear constraints** (by way of criteria for success) for test runtime and as well as **clear reporting** when a behavior exhibited by the system under test overshoots those constraints.
-3. They provide a **clear focal point** to organize test composition around. Much like the role a topic sentence plays within a paragraph, assertion statements provide a description of the topic (by way the objective for inquiry) for the specification.
+1. It defines a **clear objective** for the inquiry that the specification executes in service of.
+2. It provides **clear constraints** (by way of criteria for success) for test runtime and as well as **clear reporting** when a behavior exhibited by the system under test overshoots those constraints.
+3. It provides a **clear focal point** to organize test composition around. Much like the role a topic sentence plays within a paragraph, assertion statements provide a description of the topic (by way the objective for inquiry) for the specification.
 
 Beyond supporting good composition for an automated test, assertion statements play a key role in helping test specifications produce **signal** (by way of test results) that is vital to informing the data and feedback that automated tests are responsible for. In general, the clearer the signal is that a test specification produces when it is executed, the easier (also readable as: _more efficient_) it should be to gather data and feedback from test results (whatever the result was) in a manner that limits the need for in-depth investigation. When an assertion statement is used correctly, this signal is usable regardless of whether any specifications they execute within produce a result status of `pass` or `fail`.
 
