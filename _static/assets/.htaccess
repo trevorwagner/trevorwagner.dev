@@ -1,7 +1,20 @@
 RewriteEngine On
 
-#RewriteCond %{HTTP_HOST} ^www.trevorwagner.dev [NC]
-#RewriteRule (.*) https://trevorwagner.dev/$1 [L,R=301]
+<FilesMatch ".*.php">
+    Order allow,deny
+    Deny from all
+    Satisfy all
+</filesMatch>
+
+<Files index.php >
+    Order allow,Deny
+    Allow from all
+    Satisfy all
+</Files>
+
+RedirectMatch 408 /[Aa]dmin.*
+RedirectMatch 408 /(.git|.well-known|[Aa]ssets|cgi-bin|files|index|libraries|modules|shop|test|wp-.*|[Ww]ord[Pp]ress)/
+RedirectMatch 408 /(css|images)/index.php
 
 ErrorDocument 404 /404/
 
