@@ -49,14 +49,14 @@ def build_html_for_page(page: Page):
             if page.type == "blogPost":
                 a.link(rel="stylesheet", href="/css/layout/blog-post.css")
 
-                a.script(src="/js/lib/highlightjs/11.9.0/js/highlight.min.js")
+                a.script(src="/js/lib/highlightjs/11.11.1/js/highlight.min.js")
 
                 if 'class="language-gherkin"' in page.prepared_content:
-                    a.script(src="/js/lib/highlightjs/11.9.0/js/gherkin.min.js")
+                    a.script(src="/js/lib/highlightjs/11.11.1/js/gherkin.min.js")
 
                 a.link(
                     rel="stylesheet",
-                    href="/js/lib/highlightjs/11.9.0/css/default-dark.css",
+                    href="/js/lib/highlightjs/11.11.1/css/default-dark.css",
                 )
 
             a.link(
