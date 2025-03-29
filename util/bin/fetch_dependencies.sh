@@ -2,9 +2,9 @@
 
 set -eo pipefail
 
-HLJS_VERSION="11.9.0"
+HLJS_VERSION="11.11.1"
 HLJS_THEME="default-dark"
-PHPMAILER_VERSION="6.9.1"
+PHPMAILER_VERSION="6.9.3"
 
 
 function fetch_phpmailer() {
