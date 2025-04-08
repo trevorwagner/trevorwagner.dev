@@ -66,7 +66,7 @@ def card_recent_blog_posts_for_page(
         section_heading = (
             "Recent Blog Posts"
             if current_page.type != "blogPost"
-            else "More Recent Posts"
+            else "Recent Posts"
         )
 
         page_mask = None
