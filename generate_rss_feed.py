@@ -1,5 +1,4 @@
 from datetime import datetime
-from pathlib import Path
 
 from sqlalchemy.orm import Session
 
@@ -8,9 +7,8 @@ from src.generators.xml import build_rss_for_blog_posts, SiteMetadata
 from src.generators.dates import timestamp_rfc_822
 
 rss_xml_file = DIST / "html/blog/feed/rss.xml"
-feed_index_php = Path(__file__).parent.resolve() / "../_static/public/feed/index.php"
 
-if __name__ in "__main__":
+if __name__ == "__main__":
 
     build_time = datetime.now()
 
@@ -23,12 +21,12 @@ if __name__ in "__main__":
         self="https://www.trevorwagner.dev/blog/feed/",
         copyright=f'{build_time.strftime("%Y")} Upstream Consulting LLC. All rights reserved.',
     )
-    
+
     with Session(engine) as session:
         blog_posts = (
             session.query(BlogPost).join(Page).order_by(BlogPost.published.desc()).all()
         )
-        rss = build_rss_for_blog_posts(blog_posts, site_metadata)
+        rss = build_rss_for_blog_posts(posts=blog_posts, metadata=site_metadata)
 
     rss_xml_file.parent.mkdir(parents=True, exist_ok=True)
 
