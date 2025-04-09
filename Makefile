@@ -34,7 +34,7 @@ sane:
 	find ./_static -name "*.md" -exec bash ./util/bin/sanitize_markdown.sh "{}" \;
 
 site: sane modtimes inventory pages sitemap rss blogpostjson dependencies
-	for asset in '.htaccess' 'css' 'js' 'images' 'robots.txt'; do cp -R _static/assets/"${asset}" ./_dist/html/ ; done
+	for asset in '.htaccess' 'css' 'js' 'images' 'robots.txt'; do cp -R _static/assets/"$${asset}" ./_dist/html/ ; done
 
 sitemap: inventory
 	python3 generate_xml_sitemap.py
