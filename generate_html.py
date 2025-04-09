@@ -12,7 +12,7 @@ def save_content_to_file(path, content):
         f.write(content)
 
 
-if __name__ in "__main__":
+if __name__ == "__main__":
     with Session(engine) as session:
         # Generate brochure pages
         brochure_pages = (
@@ -21,18 +21,23 @@ if __name__ in "__main__":
             .filter(Page.draft == False)
             .all()
         )
-        for page in brochure_pages:
-            if page.draft != True:
-                html = build_html_for_page(page)
-                save_content_to_file(DIST / f"html{page.relative_path}index.html", html)
 
-        # Generate blog posts
+        for page in brochure_pages:
+            html = build_html_for_page(page)
+            save_content_to_file(
+                path=DIST / f"html{page.relative_path}index.html", content=html
+            )
+
+        # Generate blog post pages
         blog_pages = (
             session.query(Page).join(BlogPost).filter(Page.draft == False).all()
         )
+
         for page in blog_pages:
             html = build_html_for_page(page)
-            save_content_to_file(DIST / f"html{page.relative_path}index.html", html)
+            save_content_to_file(
+                path=DIST / f"html{page.relative_path}index.html", content=html
+            )
 
         # Generate custom pages (currently /blog/, /content/)
         custom_pages = (
@@ -41,6 +46,7 @@ if __name__ in "__main__":
             .filter(Page.draft == False)
             .all()
         )
+
         for page in custom_pages:
             html = build_html_for_page(page)
 
@@ -52,4 +58,6 @@ if __name__ in "__main__":
                     DIST / f"html{page.relative_path}index.php", content
                 )
             else:
-                save_content_to_file(DIST / f"html{page.relative_path}index.html", html)
+                save_content_to_file(
+                    path=DIST / f"html{page.relative_path}index.html", content=html
+                )
