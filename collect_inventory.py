@@ -1,6 +1,6 @@
-from sqlalchemy.orm import Session
-
 import json
+
+from sqlalchemy.orm import Session
 
 from _static import list_page_files, list_post_files, get_file_contents, static_content
 from src.analysis import get_metadata_for_image
@@ -25,8 +25,9 @@ if __name__ == "__main__":
         for file in list_page_files():
             md_file = build_md_file_record(file, get_file_contents(file))
             page_record = build_page_record(md_file)
-            if page_record.relative_path == "/contact/":
-                page_record.type = "custom"
+            page_record.type = (
+                "custom" if page_record.relative_path == "/contact/" else "brochurePage"
+            )
 
             session.add(page_record)
             session.commit()
@@ -67,14 +68,6 @@ if __name__ == "__main__":
         session.add_all(posts_sorted_by_pubdate)
         session.commit()
 
-        latest_blog_post = (
-            session.query(Page)
-            .join(MDFile)
-            .filter(Page.type == "blogPost")
-            .order_by(MDFile.mod_time.desc())
-            .first()
-        )
-
         blog_home = Page(
             title="Blog: Recent Posts",
             alt_title="Recent Posts",
@@ -83,7 +76,7 @@ if __name__ == "__main__":
             relative_path="/blog/",
             md_file=MDFile(
                 file_path="{}/pages/blog.md".format(static_content),
-                mod_time=latest_blog_post.md_file.mod_time,
+                mod_time=posts_sorted_by_pubdate[-1].page.md_file.mod_time,
                 _page_metadata=None,
                 page_content=None,
             ),
