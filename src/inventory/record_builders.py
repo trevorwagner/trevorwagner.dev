@@ -1,5 +1,5 @@
 import frontmatter as fm
-import json, datetime, pathlib
+import datetime, pathlib
 
 from _static import get_file_mod_time
 from src.inventory import BlogPost, Page, MDFile, Image, ImageAttribute, ImageVariant

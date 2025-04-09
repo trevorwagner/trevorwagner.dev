@@ -4,7 +4,7 @@ from xml.sax.saxutils import escape
 
 from markdown import markdown
 
-from src.inventory import Image, Page, BlogPost, engine, posts
+from src.inventory import Image, Page, BlogPost, posts
 from src.generators.dates.timestamps import (
     timestamp_blog_post_format,
     timestamp_opengraph_format,

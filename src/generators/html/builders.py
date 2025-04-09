@@ -37,9 +37,9 @@ def build_html_for_page(page: Page):
                 '<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">'
             )
 
-            a(
-                '<script async src="https://us.umami.is/script.js" data-website-id="72e1cfab-c988-430b-9f25-1f52cf8720f4"></script>'
-            )
+            # a(
+            #     '<script async src="https://us.umami.is/script.js" data-website-id="72e1cfab-c988-430b-9f25-1f52cf8720f4"></script>'
+            # )
 
             a.link(rel="stylesheet", href="/css/styles.css", media="screen")
 

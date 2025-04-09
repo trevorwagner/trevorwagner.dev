@@ -1,4 +1,3 @@
-from sqlalchemy import asc, desc
 from sqlalchemy.orm import Session, joinedload
 
 from src.inventory.models import BlogPost, Page, Image

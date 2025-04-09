@@ -1,7 +1,4 @@
-import os
-
 from pathlib import Path
-from re import match, sub
 from urllib.parse import urlparse
 
 from src.http_io import http_get
